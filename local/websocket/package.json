@@ -1,0 +1,18 @@
+{
+  "name": "websocket",
+  "version": "1.0.0",
+  "description": "Web socket for Notification and ect..",
+  "main": "eventNotificationServer.js",
+  "scripts": {
+    "start": "nodemon eventNotificaationServer.js",
+    "eventNotificationServer": "nodemon eventNotificaationServer.js"
+  },
+  "keywords": [],
+  "author": "@samansayar",
+  "license": "ISC",
+  "dependencies": {
+    "html-entities": "^2.3.2",
+    "mysql": "^2.18.1",
+    "websocket": "^1.0.34"
+  }
+}
