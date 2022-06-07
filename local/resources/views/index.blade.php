@@ -7,7 +7,7 @@
     @endsection
     @push('script')
         <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
         <script>
             function getData() {
                 if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
@@ -24,7 +24,7 @@
             }
         </script>
     @endpush
-    <a id="bookmarkme" onclick="getData();" href="javascript:void(0)">Bookmark This Page</a>
+    {{-- <a id="bookmarkme" onclick="getData();" href="javascript:void(0)">Bookmark This Page</a> --}}
 
     <div class="lg:p-3 w-full flex items-center justify-center lg:flex-row flex-col">
 
