@@ -136,7 +136,7 @@
                 </div>
                 {{-- {!! NoCaptcha::renderJs() !!}
                 {!! NoCaptcha::display() !!} --}}
-                {{-- <div class="g-recaptcha-outer">
+                <div class="g-recaptcha-outer">
                     <div class="g-recaptcha-inner">
                         <div class="g-recaptcha" data-size="compact" data-sitekey="6Lfx_DYgAAAAAHkeOI9FhFsigfkK8hokSRbSgwCV"></div>
                     </div>
@@ -144,7 +144,7 @@
                     @error('g-recaptcha-response')
                         <span class="text-danger"><b>{{ $message }}</b></span>
                     @enderror
-                </div> --}}
+                </div>
                 <div class="flex items-center space-x-2">
                     <input type="checkbox" id="remember" name="accepted"
                         class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-indigo-200" />

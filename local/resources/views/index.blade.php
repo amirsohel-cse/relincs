@@ -1,15 +1,31 @@
 <x-guest-layout>
     @section('title')
-    lincs
+        lincs
     @endsection
     @section('link')
-    <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
+        <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
     @endsection
     @push('script')
-
-    <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
-
+        <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            function getData() {
+                if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
+                    window.sidebar.addPanel(document.title, window.location.href, '');
+                } else if (window.external && ('AddFavorite' in window.external)) { // IE Favorite
+                    window.external.AddFavorite(location.href, document.title);
+                } else if (window.opera && window.print) { // Opera Hotlist
+                    this.title = document.title;
+                    return true;
+                } else { // webkit - safari/chrome
+                    alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Command/Cmd' : 'CTRL') +
+                        ' + D to bookmark this page.');
+                }
+            }
+        </script>
     @endpush
+    <a id="bookmarkme" onclick="getData();" href="javascript:void(0)">Bookmark This Page</a>
+
     <div class="lg:p-3 w-full flex items-center justify-center lg:flex-row flex-col">
 
         <div class="w-full select-none">
@@ -19,24 +35,26 @@
                         <div class="swiper wraping w-full">
                             <div class="swiper-wrapper mt-2">
                                 @foreach ($showlastmedia as $item)
-                                <div class="swiper-slide w-full">
-                                    <div class="w-full relative" wire:ignore>
-                                        <video id="{{$item->id}}"
-                                            
-                                            class="video-js vjs-fluid vjs-styles=default vjs-big-play-centered"
-                                            controls preload="none" data-setup="{}"
-                                            poster="{{ env('AWS_BUCKET_URL').'media/'.$item->uid.'/'.$item->thumbnail_image }}">
-                                            <source src="{{  env('AWS_BUCKET_URL').'media/'.$item->uid.'/'.$item->processed_file }}" type="application/x-mpegURL" />
-                                            <p class="vjs-no-js">
-                                                To view this video please enable JavaScript, and consider upgrading to a
-                                                web browser that
-                                                <a href="https://videojs.com/html5-video-support/" target="_blank">
-                                                    supports HTML5 video
-                                                </a>
-                                            </p>
-                                        </video>
+                                    <div class="swiper-slide w-full">
+                                        <div class="w-full relative" wire:ignore>
+                                            <video id="{{ $item->id }}"
+                                                class="video-js vjs-fluid vjs-styles=default vjs-big-play-centered"
+                                                controls preload="none" data-setup="{}"
+                                                poster="{{ env('AWS_BUCKET_URL') . 'media/' . $item->uid . '/' . $item->thumbnail_image }}">
+                                                <source
+                                                    src="{{ env('AWS_BUCKET_URL') . 'media/' . $item->uid . '/' . $item->processed_file }}"
+                                                    type="application/x-mpegURL" />
+                                                <p class="vjs-no-js">
+                                                    To view this video please enable JavaScript, and consider upgrading
+                                                    to a
+                                                    web browser that
+                                                    <a href="https://videojs.com/html5-video-support/" target="_blank">
+                                                        supports HTML5 video
+                                                    </a>
+                                                </p>
+                                            </video>
+                                        </div>
                                     </div>
-                                </div>
                                 @endforeach
                             </div>
                             <div class="swiper-button-next"></div>
@@ -46,36 +64,38 @@
                     <div class="flex justify-start flex-col lg:mt-1 mt-6 lg:col-span-4 col-span-12 w-full">
                         <h3 class="text-md text-gray-700 ml-2 font-bold mb-2 w-60 my-2">Recommend media</h3>
                         <div class="w-full grid grid-cols-1 gap-4 lg:px-1 px-3">
-                        
+
                             @foreach ($show_data_section as $i)
-                            @php
-                            $user = App\Models\User::find($i->user_id);
-                            @endphp
-                            <div class=" flex lg:w-full w-full flex-row  ml-2 hover:bg-gray-100 transition duration-200">
-                                <a href="{{ route('watch.media' , $i->uid) }}" class="w-full mr-2">
-                                    <img src="{{ env('AWS_BUCKET_URL').'media/'.$i->uid.'/'.$i->thumbnail_image }}" alt="{{ $i->title }}"
-                                        class="w-5/6 h-28 bg-center rounded-lg shadow-lg object-cover" />
-                                </a>
-                                <div class="flex w-full flex-col justify-between py-1">
-                                    <a href="" class="text-sm font-normal text-gray-900 text-left mr-4">
-                                        {{ $i->title}}
+                                @php
+                                    $user = App\Models\User::find($i->user_id);
+                                @endphp
+                                <div
+                                    class=" flex lg:w-full w-full flex-row  ml-2 hover:bg-gray-100 transition duration-200">
+                                    <a href="{{ route('watch.media', $i->uid) }}" class="w-full mr-2">
+                                        <img src="{{ env('AWS_BUCKET_URL') . 'media/' . $i->uid . '/' . $i->thumbnail_image }}"
+                                            alt="{{ $i->title }}"
+                                            class="w-5/6 h-28 bg-center rounded-lg shadow-lg object-cover" />
                                     </a>
-                                    <div class="">
-                                        <div class="text-left">
-                                            <a href="javascript:void(0)"
-                                                class="tmd:ext-sm text-xs text-gray-500 text-left">
-                                                {{$user->username}}
+                                    <div class="flex w-full flex-col justify-between py-1">
+                                        <a href="" class="text-sm font-normal text-gray-900 text-left mr-4">
+                                            {{ $i->title }}
+                                        </a>
+                                        <div class="">
+                                            <div class="text-left">
+                                                <a href="javascript:void(0)"
+                                                    class="tmd:ext-sm text-xs text-gray-500 text-left">
+                                                    {{ $user->username }}
+                                                </a>
+                                            </div>
+                                            <a href="#" class="w-full">
+                                                <span class="md:text-sm text-xs font-base text-gray-500 full">
+                                                    {{ $i->views }} views &nbsp; &bullet; &nbsp;
+                                                    {{ $i->created_at->diffForHumans() }}
+                                                </span>
                                             </a>
                                         </div>
-                                        <a href="#" class="w-full">
-                                            <span class="md:text-sm text-xs font-base text-gray-500 full">
-                                                {{ $i->views }} views &nbsp; &bullet; &nbsp; {{
-                                                $i->created_at->diffForHumans() }}
-                                            </span>
-                                        </a>
                                     </div>
                                 </div>
-                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -94,9 +114,8 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper w-full mx-auto">
                 @foreach ($show_data as $trending)
-                <x-card-media :data='$trending' :is='1' />
-                {{--
-                <x-card-media :data='$trending' /> --}}
+                    <x-card-media :data='$trending' :is='1' />
+                    {{-- <x-card-media :data='$trending' /> --}}
                 @endforeach
             </div>
             <!-- Right -->
@@ -108,17 +127,17 @@
     <div class="p-10 w-full">
         <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Wall</h2>
         <div class="mt-10 w-full">
-        <div class="swiper mySwiper">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper w-full mx-auto">
-                @foreach ($wall_data as $trending)
-                    <x-card-wall :data='$trending' />
-                @endforeach
+            <div class="swiper mySwiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper w-full mx-auto">
+                    @foreach ($wall_data as $trending)
+                        <x-card-wall :data='$trending' />
+                    @endforeach
+                </div>
+                <!-- Right -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
-            <!-- Right -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
             {{-- <article class="w-full">
                 <section class="mt-6 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-8">
                     @foreach ($wall_data as $trending)
@@ -135,23 +154,24 @@
 
         <ul class="grid lg:grid-cols-5 grid-cols-2 gap-6">
             @foreach ($hubs_data as $data)
-            <li class="flex flex-col items-center space-y-1 ">
-                <div class="bg-gradient-to-tr from-sky via-sky to-indigo-600 p-1 rounded-full">
-                    <a href="{{ route('show.hubs' , $data->uid) }}"
-                        class=" bg-white block rounded-full p-1 hover:-rotate-6 transform transition" href="#">
-                        <img class="h-32 w-32 rounded-full"
-                            src="{{ env('AWS_BUCKET_URL') .'public/profile_hubs/'. $data->profile  }}" alt="cute kitty" />
+                <li class="flex flex-col items-center space-y-1 ">
+                    <div class="bg-gradient-to-tr from-sky via-sky to-indigo-600 p-1 rounded-full">
+                        <a href="{{ route('show.hubs', $data->uid) }}"
+                            class=" bg-white block rounded-full p-1 hover:-rotate-6 transform transition" href="#">
+                            <img class="h-32 w-32 rounded-full"
+                                src="{{ env('AWS_BUCKET_URL') . 'public/profile_hubs/' . $data->profile }}"
+                                alt="cute kitty" />
                             {{-- asset('storage/storage/profile_hubs/'.$data->profile) --}}
+                        </a>
+                    </div>
+                    <a href="{{ route('show.hubs', $data->uid) }}" class="font-pop">
+                        {{ $data->name }}
                     </a>
-                </div>
-                <a href="{{ route('show.hubs' , $data->uid) }}" class="font-pop">
-                    {{$data->name}}
-                </a>
-            </li>
+                </li>
             @endforeach
             <li class="flex flex-col items-center space-y-1 ">
                 <div class="bg-gradient-to-tr from-sky via-sky to-indigo-600 p-1 rounded-full">
-                    <a href="{{route('gu.ehubs')}}"
+                    <a href="{{ route('gu.ehubs') }}"
                         class=" bg-white block rounded-full p-1 hover:-rotate-6 transform transition" href="#">
                         <svg class="w-32 h-32 text-gray-700" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
