@@ -121,8 +121,8 @@
                                     <div class="flex-none flex md:flex-row flex-col cursor-pointer">
                                         <a href="{{ route('show.wall.feed' , ['video' => $i->uid,]) }}"
                                             class="relative flex justify-center items-center sm:mb-0 mb-3 w-full h-full">
-                                            <img src="{{ $i->thumbnail_image == null ?  asset($i->path) : asset('video/' . $i->uid . '/' . $i->thumbnail_image) }}"
-                                                alt="SamanSayyar"
+                                            <img src="{{ env('AWS_BUCKET_URL'). $i->path }}"
+                                                alt=""
                                                 class=" w-full h-full object-cover  flex items-center justify-center rounded-sm">
                                             <a target="_blank"
                                                 href="{{ route('show.wall.feed' , ['video' => $i->uid,]) }}"
@@ -175,8 +175,8 @@
                                     <div class="flex-none flex md:flex-row flex-col cursor-pointer">
                                         <div
                                             class="relative flex justify-center items-center sm:mb-0 mb-3 w-full h-full">
-                                            <img src="{{  asset('storage/media/' . $i->uid . '/' . $i->thumbnail_image) }}"
-                                                alt="SamanSayyar"
+                                            <img src="{{ env('AWS_BUCKET_URL'). $i->path }}"
+                                                alt=""
                                                 class=" w-full h-full object  flex items-center justify-center rounded-sm">
                                             <a target="_blank" href="{{ route('watch.media' , ['media' => $i->uid,]) }}"
                                                 class="absolute flex justify-center items-center   -ml-3  text-white p-1 text-xs hover:bg-indigo-500 font-medium tracking-wider rounded-full transition ease-in duration-200">
@@ -218,7 +218,7 @@
                                         class="flex py-3 px-4 flex-col bg-indigo-500 bg-opacity-50 justify-between items-center shadow-md rounded-lg transition duration-300 hover:shadow-xl hover:bg-opacity-70">
                                         <div class="object-cover p-1 transform">
                                             <img class="w-32 h-32 object-cover bg-cover rounded-lg"
-                                                src="{{ asset('storage/img/samansayyar.jpg') }}">
+                                                src="{{ asset('storage/img/.jpg') }}">
                                         </div>
                                         <div class="object-cover p-1 mt-3 px-2">
                                             <p class="md:text-lg text-md font-bold text-gray-900 capitalis">
@@ -259,7 +259,7 @@
                                             class="flex py-3 px-4 flex-col bg-green-500 bg-opacity-50 justify-between items-center shadow-md rounded-lg transition duration-300 hover:shadow-xl hover:bg-opacity-70">
                                             <div class="object-cover p-1 transform">
                                                 <img class="w-32 h-32 object-cover bg-cover rounded-lg"
-                                                    src="{{ asset('storage/img/samansayyar.jpg') }}">
+                                                    src="{{ asset('storage/img/.jpg') }}">
                                             </div>
                                             <div class="object-cover p-1 mt-3 px-2">
                                                 <p class="md:text-lg text-md font-bold text-gray-900 capitalis">

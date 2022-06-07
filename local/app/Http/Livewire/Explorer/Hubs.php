@@ -9,17 +9,18 @@ use Livewire\WithPagination;
 class Hubs extends Component
 {
     use WithPagination;
-    public $loadedByFeed = 10;
+    public $loadedByFeed = 15;
+    
     public function render()
     {
         return view('livewire.explorer.hubs', [
-            "hubs" => ModelsHubs::query()->latest()->paginate(10),
+            "hubs" => ModelsHubs::query()->latest()->paginate($this->loadedByFeed),
         ])->layout('layouts.explorer');
     }
 
     public function load()
     {
-        $this->loadedByFeed += 10;
+        $this->loadedByFeed += 15;
         // dd($this->loadedByFeed); 
     }
 }

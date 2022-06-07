@@ -17,15 +17,13 @@
                         <div class="w-full mt-3">
                             <div class=" text-sm">
                                 <span class="text-gray-700 dark:text-gray-400 capitalize">name hubs</span>
-                                <x-input type="text" class="block mt-1 w-full" id="name_channel" name="name_channel"
-                                    value="channel_music" autofocus autocomplete="current-title" required />
+                                <x-input type="text" class="block mt-1 w-full" id="name_channel" name="name_channel" autofocus autocomplete="current-title" required />
                             </div>
                         </div>
                         <div class="w-full mt-4">
                             <div class=" text-sm">
                                 <span class="text-gray-700 dark:text-gray-400 capitalize">username admin</span>
-                                <x-input type="text" class="block mt-1 w-full" id="usernameAdmin" name="usernameAdmin"
-                                    value="saman sayyar" autofocus autocomplete="current-title" required />
+                                <x-input type="text" class="block mt-1 w-full" id="usernameAdmin" name="usernameAdmin" autofocus autocomplete="current-title" required />
                             </div>
                         </div>
                     </div>
@@ -119,7 +117,7 @@
                 </div>
             </div>
 
-            <div class="mt-3">
+            {{-- <div class="mt-3">
                 <h4 class="text-xl mb-2 font-medium text-indigo-700 dark:text-gray-200">
                     audience
                 </h4>
@@ -147,7 +145,7 @@
                         </div>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

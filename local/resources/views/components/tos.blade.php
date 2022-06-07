@@ -4,6 +4,6 @@
     </a>
     &nbsp;&nbsp;&nbsp;
     <a href="#" target="_blank" class="w-8">
-        Privacy Policy
+        Privacy policy
     </a>
 </div>

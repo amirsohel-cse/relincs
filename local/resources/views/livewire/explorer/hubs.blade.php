@@ -17,17 +17,7 @@ Explorer - hubs
                                 <div class="flex-none sm:flex">
                                 
                                     <div class="relative h-32 w-32 flex justify-center items-center sm:mb-0 mb-3">
-                                        <img src="{{ env('AWS_BUCKET_URL').'public/profile_hubs/'.$i->profile }}" alt="{{$i->name}}"
-                                            class=" w-32 h-32 object-cover  rounded-2xl">
-                                        <!-- <a href="#"
-                                            class="absolute -right-2 bottom-2   -ml-3  text-white p-1 text-xs bg-green-400 hover:bg-green-500 font-medium tracking-wider rounded-full transition ease-in duration-300">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                                class="h-4 w-4">
-                                                <path
-                                                    d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
-                                                </path>
-                                            </svg>
-                                        </a> -->
+                                        <img src="{{ env('AWS_BUCKET_URL').'public/profile_hubs/'.$i->profile }}" alt="{{$i->name}}" class=" w-32 h-32 object-cover  rounded-2xl">
                                     </div>
                                     <div class="flex-auto sm:ml-5 justify-evenly">
                                         <div class="flex items-center justify-between sm:mt-2">
@@ -49,7 +39,6 @@ Explorer - hubs
                                                 'i' => $i,
                                                 ])
                                             </div>
-        
                                         </div>
                                         <div class="flex pt-2  text-sm text-gray-500">
                                             <div class="flex-1 inline-flex items-center">
@@ -61,15 +50,6 @@ Explorer - hubs
                                                 </svg>
                                                 <p class="___class_+?380___">{{ $joiner }} Audience</p>
                                             </div>
-                                            {{-- <div class="flex-1 inline-flex items-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
-                                                    fill="currentColor">
-                                                    <path fill-rule="evenodd"
-                                                        d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg>
-                                                <p class="___class_+?383___">14 Components</p>
-                                            </div> --}}
                                             @livewire('join', ['user_id' => $i->user_id])
                                         </div>
                                     </div>
@@ -79,9 +59,8 @@ Explorer - hubs
                     </div>
                     @endforeach
                 </div>
-                {{$hubs->links('vendor.pagination.simple-tailwind')}}
             </div>
-            {{-- @if ($hubs->total() > 1 && $hubs->count() < $hubs->total())
+            @if ($hubs->total() > 1 && $hubs->count() < $hubs->total())
             <div wire:click.prevent="load" wire:loading.class='opacity-50'
                 class="w-full mx-auto flex justify-center items-center mt-6">
                 <button class="py-3 px-8 flex justify-center items-center bg-gray-200 text-gray-700 rounded-2xl lg:text-md text-sm shadow-md">
@@ -94,7 +73,7 @@ Explorer - hubs
                     </span>
                 </button>
             </div>
-            @endif --}}
+            @endif
         </div>
     </div>
 </div>

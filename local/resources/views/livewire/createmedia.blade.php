@@ -129,7 +129,7 @@
                     <x-label for="description" :value="__('description')"></x-label>
                     <textarea
                         class="block w-full mt-2 text-sm shadow-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 border border-gray-300 focus:border-indigo-400 focus:outline-none focus:shadow-outline-indigo dark:focus:shadow-outline-gray"
-                        rows="5" id="description" placeholder="Enter some long form content for post."
+                        rows="5" id="description" placeholder="description"
                         wire:model="description"></textarea>
                 </div>
                 @error('description')

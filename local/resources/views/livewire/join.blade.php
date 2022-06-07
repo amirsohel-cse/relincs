@@ -1,11 +1,10 @@
 <div class="lg:text-md text-md" x-data="{showing : true}">
     @push('script')
-
-   <script>
-        window.addEventListener('fresh' , () => {
-            window.location.reload();
-        });
-   </script>
+        <script>
+                window.addEventListener('fresh' , () => {
+                    window.location.reload();
+                });
+        </script>
     @endpush
     @auth
         <div class="w-full">
@@ -29,6 +28,7 @@
     @endauth
 
     @guest
+    <div class="w-full">
         <button disabled
             class="flex-no-shrink border border-red-500 bg-red-200 hover:bg-red-200 px-3 py-2 lg:text-sm text-xs font-medium text-gray-700 rounded-full transition ease-in duration-200 capitalize focus:outline-none flex justify-center items-center">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -38,6 +38,7 @@
                 </path>
             </svg>
         </button>
+    </div>
     @endguest
 
 </div>

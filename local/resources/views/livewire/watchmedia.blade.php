@@ -117,7 +117,7 @@
                 <div class="flex justify-start lg:col-span-4 col-span-12">
                     <div class="flex flex-col lg:space-x-2 space-y-3 lg:w-auto w-full">
                         <div></div>
-                        @forelse (App\Models\Media::where("id",'!='.$media->id)->select('user_id','title','uid','views','created_at','thumbnail_image')->take('10')->latest()->get() as $i)
+                        @forelse (App\Models\Media::where("id",'!=', $media->id)->take('5')->inRandomOrder()->get() as $i)
                         @php
                         $user = App\Models\User::find($i->user_id);
                         @endphp

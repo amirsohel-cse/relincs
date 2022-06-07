@@ -14,7 +14,7 @@ class Allvideos extends Component
     protected $listeners = ['delete'];
     public function render()
     {
-        $videos = Video::where('user_id',auth()->user()->id)->latest()->paginate(3);
+        $videos = Video::where('user_id',auth()->user()->id)->orderBy('id', 'DESC')->paginate(3);
 
         return view('livewire.allvideos')
             ->with('videos', $videos)
