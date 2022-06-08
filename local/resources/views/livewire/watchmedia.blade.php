@@ -143,7 +143,7 @@
                         @endphp
                         <div class=" flex lg:w-full w-80 flex-row  ml-2 hover:bg-gray-100 transition duration-200">
                             <a {{ route('watch.media' , ['media' => $i->uid]) }} class="w-full mr-2">
-                                <img src="{{ asset($i->getThumbnailAttribute()) }}" alt="{{ $i->title }}"
+                                <img src="{{ env('AWS_BUCKET_URL') . 'media/' . $i->uid . '/' . $i->thumbnail_image }}" alt="{{ $i->title }}"
                                     class="lg:w-48 w-40 h-28 bg-center rounded-lg shadow-lg object-cover" />
                             </a>
                             <div class="flex w-full flex-col justify-between py-1">

@@ -175,7 +175,7 @@
                                     <div class="flex-none flex md:flex-row flex-col cursor-pointer">
                                         <div
                                             class="relative flex justify-center items-center sm:mb-0 mb-3 w-full h-full">
-                                            <img src="{{ env('AWS_BUCKET_URL'). $i->path }}"
+                                            <img src="{{ env('AWS_BUCKET_URL') . 'media/' . $i->uid . '/' . $i->thumbnail_image }}"
                                                 alt=""
                                                 class=" w-full h-full object  flex items-center justify-center rounded-sm">
                                             <a target="_blank" href="{{ route('watch.media' , ['media' => $i->uid,]) }}"

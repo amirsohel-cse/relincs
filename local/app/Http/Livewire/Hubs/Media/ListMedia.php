@@ -15,7 +15,7 @@ class ListMedia extends Component
 
     public function render()
     {
-        $media_hubs = HubMedia::where('user_id',Auth::user()->id)->paginate(1);
+        $media_hubs = HubMedia::where('user_id',Auth::user()->id)->paginate(5);
         return view('livewire.hubs.media.list-media',compact('media_hubs'))->layout('layouts.app');
     }
 

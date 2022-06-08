@@ -305,7 +305,7 @@
         <div class="overflow-y-scroll">
             <div class="py-2 px-3 w-full flex justify-between items-center">
                 <h1 class="text-md font-pop">
-                    Supportasas
+                    Support
                 </h1>
                 <button @click.prevent="support = !support" class="rounded-full bg-red-300 p-2">
                     <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"

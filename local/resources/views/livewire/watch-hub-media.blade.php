@@ -64,7 +64,7 @@
                                     <div class="flex items-center justify-center mx-1 text-gray-600">|</div>
                                 </div>
                                 <div class="flex flex-row space-x-2 justify-center items-center pb-4 capitalize">
-                                    <button type="button"
+                                    <button type="button" wire:click.prevent="report" wire:loading.attr='disabled'
                                         class="flex items-center text-sm text-gray-700 focus:outline-none">
                                         <svg class="md:w-7 md:h-7 w-5 h-5" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -72,7 +72,13 @@
                                                 d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636">
                                             </path>
                                         </svg>
-                                        <span class="ml-1 capitalize">report</span>
+                                        @if ($rstatus == 0)
+                                            <span class="ml-1 capitalize">
+                                                report<span wire:loading wire:target='report' wire:key='report'>...</span>
+                                            </span> 
+                                        @else
+                                            <span class="ml-1" style="color: green;">Reported</span>
+                                        @endif
                                     </button>
                                 </div>
                                 @endauth
@@ -85,13 +91,13 @@
                             <div class="flex flex-row justify-between items-center border-b border-gray-100 pb-3">
                                 <div class="flex justify-center items-center">
                                     <div class="w-full h-full">
-                                        <img src="{{ asset('storage/storage/profile_hubs/'.$hub->profile) }}" alt="picture user"
+                                        <img src="{{ env('AWS_BUCKET_URL').'public/profile_hubs/'.$hub->profile }}" alt="picture user"
                                             class="shadow-md rounded-full w-14 h-14 object-cover">
                                     </div>
                                     <div class="flex mx-3 flex-col items-center">
                                         <p class="text-gray-800 font-medium w-full md:text-md text-sm mb-1">
                                             {{$hub->name}}</p>
-                                        <p wire:poll class="text-gray-600 font-normal capitalize w-full md:text-sm text-xs">
+                                        <p class="text-gray-600 font-normal capitalize w-full md:text-sm text-xs">
                                             {{$this->count_joiner($hub->id)}}
                                             Audience</p>
                                     </div>

@@ -183,7 +183,7 @@ echo $html;
                                     <div class="flex-none flex md:flex-row flex-col cursor-pointer">
                                         <div
                                             class="relative flex justify-center items-center sm:mb-0 mb-3 w-full h-full">
-                                            <img src="<?php echo e(env('AWS_BUCKET_URL'). $i->path); ?>"
+                                            <img src="<?php echo e(env('AWS_BUCKET_URL') . 'media/' . $i->uid . '/' . $i->thumbnail_image); ?>"
                                                 alt=""
                                                 class=" w-full h-full object  flex items-center justify-center rounded-sm">
                                             <a target="_blank" href="<?php echo e(route('watch.media' , ['media' => $i->uid,])); ?>"
