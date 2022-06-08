@@ -9,7 +9,21 @@
     <?php $__env->stopSection(); ?>
     <?php $__env->startPush('script'); ?>
 
+    <script>
+        $(document).ready(function() {
+            toastr.options = {
+                "progressBar": true,
+                "positionClass": "toast-bottom-right"
+            }
+        });
+
+        window.addEventListener('success', event => {
+            toastr.success(event.detail.message);
+        });
+    </script>
+
     <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
+    
     <?php $__env->stopPush(); ?>
     <div class="w-full select-none">
         <div class="capitalize lg:mx-4 py-4">
@@ -79,7 +93,7 @@ echo $html;
                                     <div class="flex items-center justify-center mx-1 text-gray-600">|</div>
                                 </div>
                                 <div class="flex flex-row space-x-2 justify-center items-center pb-4 capitalize">
-                                    <button type="button"
+                                    <button type="button" wire:click.prevent="report" wire:loading.attr='disabled'
                                         class="flex items-center text-sm text-gray-700 focus:outline-none">
                                         <svg class="md:w-7 md:h-7 w-5 h-5" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -87,7 +101,13 @@ echo $html;
                                                 d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636">
                                             </path>
                                         </svg>
-                                        <span class="ml-1 capitalize">report</span>
+                                        <?php if($rstatus == 0): ?>
+                                            <span class="ml-1 capitalize">
+                                                report<span wire:loading wire:target='report' wire:key='report'>...</span>
+                                            </span> 
+                                        <?php else: ?>
+                                            <span class="ml-1" style="color: green;">Reported</span>
+                                        <?php endif; ?>
                                     </button>
                                 </div>
                                 <?php endif; ?>
@@ -227,5 +247,7 @@ echo $html;
             }
         });
     </script>
+
+    
 </div>
 <?php /**PATH C:\laragon\www\relincs\local\resources\views/livewire/watchmedia.blade.php ENDPATH**/ ?>

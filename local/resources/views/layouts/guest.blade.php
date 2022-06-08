@@ -10,18 +10,19 @@
     <!-- Styles -->
     <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon">
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" ></script>
     {{-- link --}}
     <script defer src="https://unpkg.com/alpinejs@3.9.3/dist/cdn.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     @yield('link')
     @livewireStyles
     @stack('script')
+    <script class="jsbin" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
     {{-- @livewireStyles --}}
 
 </head>

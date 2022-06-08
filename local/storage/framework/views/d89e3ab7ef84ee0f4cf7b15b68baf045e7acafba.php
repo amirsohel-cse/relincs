@@ -10,12 +10,12 @@
     <!-- Styles -->
     <link rel="shortcut icon" href="<?php echo e(asset('img/logo.png')); ?>" type="image/x-icon">
     
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>" />
     <link rel="stylesheet" href="<?php echo e(asset('css/main.css')); ?>" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" ></script>
     
     <script defer src="https://unpkg.com/alpinejs@3.9.3/dist/cdn.min.js"></script>
     <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
@@ -23,6 +23,7 @@
     <?php echo \Livewire\Livewire::styles(); ?>
 
     <?php echo $__env->yieldPushContent('script'); ?>
+    <script class="jsbin" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
     
 
 </head>
