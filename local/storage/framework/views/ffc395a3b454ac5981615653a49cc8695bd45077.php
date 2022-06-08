@@ -38,15 +38,15 @@
                         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('join', ['user_id' => $data->user_id])->html();
-} elseif ($_instance->childHasBeenRendered('ZPO4fnO')) {
-    $componentId = $_instance->getRenderedChildComponentId('ZPO4fnO');
-    $componentTag = $_instance->getRenderedChildComponentTagName('ZPO4fnO');
+} elseif ($_instance->childHasBeenRendered('fpKeoL3')) {
+    $componentId = $_instance->getRenderedChildComponentId('fpKeoL3');
+    $componentTag = $_instance->getRenderedChildComponentTagName('fpKeoL3');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('ZPO4fnO');
+    $_instance->preserveRenderedChild('fpKeoL3');
 } else {
     $response = \Livewire\Livewire::mount('join', ['user_id' => $data->user_id]);
     $html = $response->html();
-    $_instance->logRenderedChild('ZPO4fnO', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('fpKeoL3', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -90,9 +90,7 @@ echo $html;
                             <a href="<?php echo e(route('dash.hubs.setting')); ?>"
                                 class="transition duration-300 rounded-md cursor-pointer hover:bg-indigo-600 text-gray-800 hover:text-white bg-gray-100 lg:text-sm text-sm capitalize px-2 py-2 w-full">
                                 Setting</a>
-                            <a href="<?php echo e(route('dash.hubs.setting')); ?>"
-                                class="transition duration-300 rounded-md cursor-pointer hover:bg-indigo-600 text-gray-800 hover:text-white bg-gray-100 lg:text-sm text-sm capitalize px-2 py-2 w-full">
-                                List Followers</a>
+                            
                     </div>
                 </div>
                 <?php endif; ?>

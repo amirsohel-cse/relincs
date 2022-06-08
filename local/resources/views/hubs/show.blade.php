@@ -55,9 +55,9 @@
                             <a href="{{ route('dash.hubs.setting') }}"
                                 class="transition duration-300 rounded-md cursor-pointer hover:bg-indigo-600 text-gray-800 hover:text-white bg-gray-100 lg:text-sm text-sm capitalize px-2 py-2 w-full">
                                 Setting</a>
-                            <a href="{{ route('dash.hubs.setting') }}"
+                            {{-- <a href="{{ route('dash.hubs.setting') }}"
                                 class="transition duration-300 rounded-md cursor-pointer hover:bg-indigo-600 text-gray-800 hover:text-white bg-gray-100 lg:text-sm text-sm capitalize px-2 py-2 w-full">
-                                List Followers</a>
+                                List Followers</a> --}}
                     </div>
                 </div>
                 @endif
