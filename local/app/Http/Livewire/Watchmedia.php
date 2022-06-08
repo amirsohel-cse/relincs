@@ -55,7 +55,7 @@ class Watchmedia extends Component
     public $rstatus = 0;
     public function report()
     {
-        $data['email'] = 'nayeemuzaman05@gmail.com';
+        $data['email'] = 'report@relincs.com';
         $data['title'] = 'video report';
         $data['body'] = Auth::user()->firstname.' '.Auth::user()->lastname.' wants to report this file - '.$this->media->title;
 
