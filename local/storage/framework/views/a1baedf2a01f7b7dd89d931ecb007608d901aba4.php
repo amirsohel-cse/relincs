@@ -9,23 +9,21 @@
     <title><?php echo $__env->yieldContent('title'); ?></title>
     <!-- Styles -->
     <link rel="shortcut icon" href="<?php echo e(asset('img/logo.png')); ?>" type="image/x-icon">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
-    <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>" />
-    <link rel="stylesheet" href="<?php echo e(asset('css/main.css')); ?>" />
+    <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('css/main.css')); ?>">
+    <script src="https://unpkg.com/alpinejs@3.9.3/dist/cdn.min.js" defer></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" ></script>
     
-    <script defer src="https://unpkg.com/alpinejs@3.9.3/dist/cdn.min.js"></script>
     <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
+
+    <script src="<?php echo e(asset('js/main.js')); ?>" defer></script>
+    
+    
     <?php echo $__env->yieldContent('link'); ?>
     <?php echo \Livewire\Livewire::styles(); ?>
 
     <?php echo $__env->yieldPushContent('script'); ?>
-    <script class="jsbin" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
     
-
 </head>
 <style>
     .scroller::-webkit-scrollbar {
@@ -117,63 +115,44 @@
     }
 </style>
 
-<body class="scroller text-gray-900 antialiased select-none" x-data="{
+<body class="text-gray-900 antialiased select-none scroller" x-data="{
     open : false,
     tab : 'media',
     openSearch : false,
     box : false,
     toggleMenu : 'true',
     opimg : false,
-    notic : false,
     listFollow : false,
     tab_follow : 'Followers',
-    tools : false,
     support : false,
     isNotification : false,
     }">
-    
     <div class="loading overflow-hidden fixed justify-center items-center inset-0 bg-gray-100 w-full h-full">
-        <div class="w-full overflow-hidden h-full flex-col flex justify-center items-center mx-auto">
-            <div class="animate-bounce">
-                <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.application-logo','data' => ['class' => 'w-14 h-14 fill-current text-gray-500']]); ?>
-<?php $component->withName('application-logo'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['class' => 'w-14 h-14 fill-current text-gray-500']); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
-<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
-<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
-<?php endif; ?>
-            </div>
-            <div class="mt-4 flex items-center justify-center">
-                <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-800"></div>
-                <span class="text-xl animate-pulse ml-2">Loading . . .</span>
-            </div>
+        <div class="w-full overflow-hidden h-full flex justify-center items-center mx-auto">
+            <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_poqmycwy.json" background="transparent"
+                speed="1" style="width: 350px; height: 350px;" loop autoplay></lottie-player>
+            
         </div>
     </div>
-
     <div class="relative z-50">
         <div class="z-50">
             <div class="antialiased dark-mode:bg-gray-900" x-show="toggleMenu"
                 x-transition:enter="transition transform duration-300 ease-out"
-                x-transition:enter-start="-translate-x-12" x-transition:leave-end="translate-x-0">
+                x-transition:enter-start="-translate-y-12" x-transition:leave-end="translate-y-0">
                 <div
                     class="w-full text-gray-700 lg:bg-gray-50 bg-gray-100 dark-mode:text-gray-200 dark-mode:bg-gray-800">
                     <div x-data="{ open  : false }"
                         class="flex flex-col  max-w-screen-xl lg:px-4 px-0 mx-auto lg:items-center lg:justify-between lg:flex-row">
                         <div class="flex flex-row items-center justify-between px-4">
-                            <a href="<?php echo e(route('home')); ?>"
+                            <a href="#"
                                 class="text-lg  tracking-widest text-gray-900 capitalize rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
 
                                 <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.application-logo','data' => ['class' => 'w-8 h-8 fill-current text-gray-500']]); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.application-logo','data' => ['class' => 'w-20 h-20 fill-current text-gray-500']]); ?>
 <?php $component->withName('application-logo'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['class' => 'w-8 h-8 fill-current text-gray-500']); ?>
+<?php $component->withAttributes(['class' => 'w-20 h-20 fill-current text-gray-500']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
@@ -182,22 +161,6 @@
 <?php endif; ?>
 
                             </a>
-                            <div class="relative flex justify-center items-center lg:ml-20 ml-0">
-                                
-                                <?php if(request()->routeIs('gu.media')): ?>
-                                <button :class="toggleCategory ? 'hidden' : 'flex'"
-                                    class="flex items-center justify-center rounded-lg focus:outline-none focus:shadow-outline mx-4"
-                                    @click="toggleCategory = !toggleCategory">
-                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4">
-                                        </path>
-                                    </svg>
-                                </button>
-                                <?php endif; ?>
-
-                            </div>
                             <button class="rounded-lg lg:hidden focus:outline-none focus:shadow-outline"
                                 @click="open = !open">
                                 <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
@@ -223,21 +186,83 @@
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
-                        <?php if(auth()->guard()->check()): ?>
-                            <button @click.prevent="support = !support" class="font-bold px-4 py-2 mt-2 text-sm  hover:bg-midsky transition duration-100 rounded-lg lg:mt-0 lg:ml-4 focus:text-gray-900 hover:text-gray-50 focus:bg-gray-200 lg:text-left text-center focus:outline-none focus:shadow-outline">
-                            Support</button>
-                        <?php endif; ?>
-                        
                     </div>
                 </div>
-                
             </div>
-            
         </div>
-        
-        
+        <div @click.away="openSearch = !openSearch"
+            class="bg-indigo-600  w-full flex jusify-center items-center transform" x-transition.duration.250ms
+            x-show="openSearch">
+            <!-- video Hubs search box -->
+            <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('search-engine')->html();
+} elseif ($_instance->childHasBeenRendered('Yz5tp3k')) {
+    $componentId = $_instance->getRenderedChildComponentId('Yz5tp3k');
+    $componentTag = $_instance->getRenderedChildComponentTagName('Yz5tp3k');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('Yz5tp3k');
+} else {
+    $response = \Livewire\Livewire::mount('search-engine');
+    $html = $response->html();
+    $_instance->logRenderedChild('Yz5tp3k', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
+        </div>
     </div>
+    <div class="md:px-6 lg:px-6 py-4 relative">
+        <div class="grid md:grid-cols-12 grid-cols-1 gap-6">
+            <div class="flex flex-col items-center w-full md:col-span-12" >
+                <div class="w-full scrollere overflow-x-scroll">
+                    <nav class="md:pb-4 pb-2 md:py-3 flex flex-row relative capitalize">
+                        <a class="md:px-6 lg:px-5 px-4 mx-2 md:py-2 py-1 md:text-md text-sm font-medium bg-transparent flex items-center justify-center rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline "
+                            href="<?php echo e(route('gu.media')); ?>">
+                            <div class="___class_+?6___">media</div> &nbsp; <svg xmlns="http://www.w3.org/2000/svg"
+                                class="lg:h-6 lg:w-6 h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+                            </svg>
+                        </a>
+                        <a class="md:px-6 lg:px-5 px-4 mx-2 md:py-2 py-1 md:text-md text-sm font-medium bg-transparent flex items-center justify-center rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline "
+                            href="<?php echo e(route('gu.wall')); ?>">
+                            <div class="___class_+?9___">wall</div> &nbsp; <svg xmlns="http://www.w3.org/2000/svg"
+                                class="lg:h-6 lg:w-6 h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                            </svg>
+                        </a>
+                        <a class="md:px-6 lg:px-5 px-4 mx-2 md:py-2 py-1 md:text-md text-sm font-medium bg-transparent flex items-center justify-center rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline "
+                            href="<?php echo e(route('gu.ehubs')); ?>">
+                            <div class="___class_+?12___">hubs</div> &nbsp; <svg xmlns="http://www.w3.org/2000/svg"
+                                class="lg:h-6 lg:w-6 h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                            </svg>
+                        </a>
+                        <a class="md:px-6 lg:px-5 px-4 mx-2 md:py-2 py-1 md:text-md text-sm font-medium bg-transparent flex items-center justify-center rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline "
+                            href="<?php echo e(route('gu.profiles')); ?>">
+                            <div class="___class_+?15___">profiles</div> &nbsp; <svg xmlns="http://www.w3.org/2000/svg"
+                                class="lg:h-6 lg:w-6 h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </a>
+                    </nav>
+                </div>
+                <div class="my-2 mt-4 w-full">
+                    <?php echo e($slot); ?>
 
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
     <div x-show="support" style="z-index: 999" class="fixed inset-0 w-full h-full flex flex-col bg-white text-gray-800">
         <div class="overflow-y-scroll">
             <div class="py-2 px-3 w-full flex justify-between items-center">
@@ -270,8 +295,6 @@
             </div>
         </div>
     </div>
-    <?php echo e($slot); ?>
-
     <?php if(auth()->guard()->check()): ?>
 
     <div x-show="isNotification" style="z-index: 999"
@@ -347,6 +370,7 @@
             </a>
             <p class="text-gray-600 font-bold text-md">Relincs &copy; 2022</p>
             <div class="flex justify-center items-center space-x-4 lg:mt-1 mt-3">
+                <div></div>
                 <a href="https://www.instagram.com/relincsdotcom" target="_blank" class="w-8">
                     <svg role="img" class="text-gray-600" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <title>Instagram</title>
@@ -375,8 +399,10 @@
                             d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
                     </svg>
                 </a>
+
             </div>
-           <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+
+            <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.tos','data' => []]); ?>
 <?php $component->withName('tos'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -392,175 +418,57 @@
     </footer>
 
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper(".wraping", {
-            navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-            },
-        });
-    </script>
-    <script>
-        var share = document.querySelector("#shareButton");
-        var url = window.location.href;
-        var title = document.title;
-
-        share.addEventListener("click", async (e) => {
-            e.preventDefault();
-            if (navigator.share) {
-            await  navigator
-                    .share({
-                        title: title,
-                        url: url,
-                    })
-                    .then((result) => {
-                        window.addEventListener("unmarked", () => {
-                            Swal.fire({
-                                icon: "success",
-                                position: "bottom-end",
-                                title: "Thanks for sharing!",
-                                showConfirmButton: true,
-                                timer: 1300,
-                            });
-                        });
-            console.log('share !!' , result)
-                    })
-                    .catch(console.error);
-            } else {
-            console.log('Could not share')
-            }
-        });
-
-    </script>
-    <script>
-        document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
-      const dropZoneElement = inputElement.closest(".drop-zone");
-
-       dropZoneElement.addEventListener("click", (e) => {
-        inputElement.click();
-            });
-
-            inputElement.addEventListener("change", (e) => {
-                if (inputElement.files.length) {
-                updateThumbnail(dropZoneElement, inputElement.files[0]);
-                }
-            });
-
-            dropZoneElement.addEventListener("dragover", (e) => {
-                e.preventDefault();
-                dropZoneElement.classList.add("drop-zone--over");
-            });
-
-            ["dragleave", "dragend"].forEach((type) => {
-                dropZoneElement.addEventListener(type, (e) => {
-                dropZoneElement.classList.remove("drop-zone--over");
-                });
-            });
-
-            dropZoneElement.addEventListener("drop", (e) => {
-                e.preventDefault();
-
-                if (e.dataTransfer.files.length) {
-                inputElement.files = e.dataTransfer.files;
-                updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
-                }
-
-                dropZoneElement.classList.remove("drop-zone--over");
-            });
-            });
-
-        /**
-        * Updates the thumbnail on a drop zone element.
-        *
-        * @param  {HTMLElement} dropZoneElement
-        * @param  {File} file
-        */
-        function updateThumbnail(dropZoneElement, file) {
-        let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-
-        // First time - remove the prompt
-        if (dropZoneElement.querySelector(".drop-zone__prompt")) {
-            dropZoneElement.querySelector(".drop-zone__prompt").remove();
-        }
-
-        // First time - there is no thumbnail element, so lets create it
-        if (!thumbnailElement) {
-            thumbnailElement = document.createElement("div");
-            thumbnailElement.classList.add("drop-zone__thumb");
-            dropZoneElement.appendChild(thumbnailElement);
-        }
-
-        thumbnailElement.dataset.label = file.name;
-
-        // Show thumbnail for image files
-        if (file.type.startsWith("image/")) {
-            const reader = new FileReader();
-
-            reader.readAsDataURL(file);
-            reader.onload = () => {
-                document.getElementById('blah').setAttribute('src', reader.result);
-            };
-        } else {
-            thumbnailElement.style.backgroundImage = null;
-        }
-        }
-
-    </script>
-
-
-
-
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
 
-            slidesPerView: 3,
-            spaceBetween: 10,
-            slidesPerGroup: 3,
-            speed: 400,
-            autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
+        slidesPerView: 3,
+        spaceBetween: 10,
+        slidesPerGroup: 3,
+        speed: 400,
+        autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+        },
+        loopFillGroupWithBlank: true,
+        breakpoints: {
+            100: {
+                slidesPerView: 1,
+                spaceBetween: 15,
+                slidesPerGroup: 1,
             },
-            loopFillGroupWithBlank: true,
-            breakpoints: {
-                100: {
-                    slidesPerView: 1,
-                    spaceBetween: 15,
-                    slidesPerGroup: 1,
-                },
-                668: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                    slidesPerGroup: 2,
-                },
-                1100: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                    slidesPerGroup: 3,
-                },
-                1600: {
-                    slidesPerView: 5,
-                    spaceBetween: 10,
-                    slidesPerGroup: 5,
-                },
+            668: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+                slidesPerGroup: 2,
             },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
+            1100: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+                slidesPerGroup: 3,
             },
-            });
+            1600: {
+                slidesPerView: 5,
+                spaceBetween: 10,
+                slidesPerGroup: 5,
+            },
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        });
     </script>
-
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script>
         setTimeout(() => {
-        document.querySelector('.loading').classList.remove('flex');
-        document.querySelector('.loading').classList.add('hidden');
-    }, 1000);
+    document.querySelector('.loading').classList.remove('flex');
+    document.querySelector('.loading').classList.add('hidden');
+}, 1000);
+
     </script>
     <?php echo \Livewire\Livewire::scripts(); ?>
 
 </body>
 
 </html>
-<?php /**PATH C:\laragon\www\relincs\local\resources\views/layouts/guest.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\laragon\www\relincs\local\resources\views/layouts/explorer.blade.php ENDPATH**/ ?>

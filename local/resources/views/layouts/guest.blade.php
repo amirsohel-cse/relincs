@@ -198,8 +198,11 @@
 
                         </div>
                         <x-navbar />
-                        <button @click.prevent="support = !support" class="font-bold px-4 py-2 mt-2 text-sm  hover:bg-midsky transition duration-100 rounded-lg lg:mt-0 lg:ml-4 focus:text-gray-900 hover:text-gray-50 focus:bg-gray-200 lg:text-left text-center focus:outline-none focus:shadow-outline">
+                        @auth
+                            <button @click.prevent="support = !support" class="font-bold px-4 py-2 mt-2 text-sm  hover:bg-midsky transition duration-100 rounded-lg lg:mt-0 lg:ml-4 focus:text-gray-900 hover:text-gray-50 focus:bg-gray-200 lg:text-left text-center focus:outline-none focus:shadow-outline">
                             Support</button>
+                        @endauth
+                        
                     </div>
                 </div>
                 
