@@ -111,10 +111,13 @@ Route::prefix('/dashboard')->middleware(['auth','verified'])->name('dash.')->gro
     // Message Direct
     Route::get('/direct/box',DirectBox::class)->name('show.message');
     Route::get('/direct/messages/{id}', MessageUser::class)->name('show.message.user');
+
+    Route::post('/support/post', [messageUserController::class, 'sendSupportMessage'])->name('sendSupportMsg');
 });
 
 Route::get('dashboard/admin/users/list', ManagementUser::class)->middleware(['auth','admin'])->name('dash.admin.user.list');
 Route::get('dashboard/admin/hubs/list', ManagamentHubs::class)->middleware(['auth','admin'])->name('dash.admin.hubs.list');
+
 
 
 
