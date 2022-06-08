@@ -10,7 +10,25 @@
     <div class="w-full">
         
         <?php
-            $data = App\Models\SettingHub::where('id', 1)->first();
+            $data = App\Models\SettingHub::where('user_id', Auth::user()->id)->first();
+
+            if($data != ''){
+                $name_hubs = $data->name_hubs;
+                $username_admin = $data->username_admin;
+                $hub_access = $data->hub_access;
+                $visiblity = $data->visiblity;
+                $link_profile = $data->link_profile;
+                $email_contact = $data->email_contact;
+            }
+            else{
+                $name_hubs = '';
+                $username_admin = '';
+                $hub_access = '';
+                $visiblity = '';
+                $link_profile = '';
+                $email_contact = '';
+            }
+            
         ?>
         <div class="my-4 w-full">
             
@@ -26,11 +44,11 @@
                         <div class=" text-sm">
                             <span class="text-gray-700 dark:text-gray-400 capitalize">name hubs</span>
                             <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['type' => 'text','class' => 'block mt-1 w-full','id' => 'name_channel','name' => 'name_hubs','value' => ''.e($data->name_hubs).'','autofocus' => true,'autocomplete' => 'current-title']]); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['type' => 'text','class' => 'block mt-1 w-full','id' => 'name_channel','name' => 'name_hubs','value' => ''.e($name_hubs).'','autofocus' => true,'autocomplete' => 'current-title']]); ?>
 <?php $component->withName('input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['type' => 'text','class' => 'block mt-1 w-full','id' => 'name_channel','name' => 'name_hubs','value' => ''.e($data->name_hubs).'','autofocus' => true,'autocomplete' => 'current-title']); ?>
+<?php $component->withAttributes(['type' => 'text','class' => 'block mt-1 w-full','id' => 'name_channel','name' => 'name_hubs','value' => ''.e($name_hubs).'','autofocus' => true,'autocomplete' => 'current-title']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
@@ -53,11 +71,11 @@ unset($__errorArgs, $__bag); ?>
                         <div class=" text-sm">
                             <span class="text-gray-700 dark:text-gray-400 capitalize">username admin</span>
                             <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['type' => 'text','class' => 'block mt-1 w-full','id' => 'usernameAdmin','name' => 'username_admin','value' => ''.e($data->username_admin).'','autofocus' => true,'autocomplete' => 'current-title']]); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['type' => 'text','class' => 'block mt-1 w-full','id' => 'usernameAdmin','name' => 'username_admin','value' => ''.e($username_admin).'','autofocus' => true,'autocomplete' => 'current-title']]); ?>
 <?php $component->withName('input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['type' => 'text','class' => 'block mt-1 w-full','id' => 'usernameAdmin','name' => 'username_admin','value' => ''.e($data->username_admin).'','autofocus' => true,'autocomplete' => 'current-title']); ?>
+<?php $component->withAttributes(['type' => 'text','class' => 'block mt-1 w-full','id' => 'usernameAdmin','name' => 'username_admin','value' => ''.e($username_admin).'','autofocus' => true,'autocomplete' => 'current-title']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
@@ -99,10 +117,10 @@ unset($__errorArgs, $__bag); ?>
                                     <label class="text-sm">
                                         <select name='hub_access'
                                             class="text-sm lg:w-48 w-36 bg-gray-100 dark:text-gray-300 border-none dark:border-gray-600 dark:bg-gray-700 form-select focus:border-indigo-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                                            <option value="anyone" <?php if($data->hub_access == 'anyone'): ?> selected <?php endif; ?>>anyone (open)</option>
-                                            <option value="only_members" <?php if($data->hub_access == 'only_members'): ?> selected <?php endif; ?>>only members (closed)</option>
-                                            <option value="only_those" <?php if($data->hub_access == 'only_those'): ?> selected <?php endif; ?>>only those</option>
-                                            <option value="only_invited" <?php if($data->hub_access == 'only_invited'): ?> selected <?php endif; ?>>who i invite (private)</option>
+                                            <option value="anyone" <?php if($hub_access == 'anyone'): ?> selected <?php endif; ?>>anyone (open)</option>
+                                            <option value="only_members" <?php if($hub_access == 'only_members'): ?> selected <?php endif; ?>>only members (closed)</option>
+                                            <option value="only_those" <?php if($hub_access == 'only_those'): ?> selected <?php endif; ?>>only those</option>
+                                            <option value="only_invited" <?php if($hub_access == 'only_invited'): ?> selected <?php endif; ?>>who i invite (private)</option>
                                         </select>
                                         <?php $__errorArgs = ['hub_access'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -129,8 +147,8 @@ unset($__errorArgs, $__bag); ?>
                                     <label class="text-sm">
                                         <select name='visiblity'
                                             class="text-sm lg:w-48 w-36 bg-gray-100 dark:text-gray-300 border-none dark:border-gray-600 dark:bg-gray-700 form-select focus:border-indigo-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                                            <option value="anyone" <?php if($data->visiblity == 'anyone'): ?> selected <?php endif; ?>>anyone</option>
-                                            <option value="invited-only" <?php if($data->visiblity == 'invited-only'): ?> selected <?php endif; ?>>those whom i invite</option>
+                                            <option value="anyone" <?php if($visiblity == 'anyone'): ?> selected <?php endif; ?>>anyone</option>
+                                            <option value="invited-only" <?php if($visiblity == 'invited-only'): ?> selected <?php endif; ?>>those whom i invite</option>
                                         </select>
                                         
                                         <?php $__errorArgs = ['visiblity'];
@@ -158,8 +176,8 @@ unset($__errorArgs, $__bag); ?>
                                     <label class="text-sm">
                                         <select name='link_profile'
                                             class="text-sm lg:w-48 w-36 bg-gray-100 dark:text-gray-300 border-none dark:border-gray-600 dark:bg-gray-700 form-select focus:border-indigo-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                                            <option value="yes" <?php if($data->link_profile == 'yes'): ?> selected <?php endif; ?>>yes</option>
-                                            <option value="no" <?php if($data->link_profile == 'no'): ?> selected <?php endif; ?>>no</option>
+                                            <option value="yes" <?php if($link_profile == 'yes'): ?> selected <?php endif; ?>>yes</option>
+                                            <option value="no" <?php if($link_profile == 'no'): ?> selected <?php endif; ?>>no</option>
                                         </select>
                                         
                                         <?php $__errorArgs = ['link_profile'];
@@ -187,8 +205,8 @@ unset($__errorArgs, $__bag); ?>
                                     <label class="text-sm">
                                         <select name='email_contact'
                                             class="text-sm lg:w-48 w-36 bg-gray-100 dark:text-gray-300 border-none dark:border-gray-600 dark:bg-gray-700 form-select focus:border-indigo-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                                            <option value="member" <?php if($data->email_contact == 'member'): ?> selected <?php endif; ?>>only member</option>
-                                            <option value="anyone" <?php if($data->email_contact == 'anyone'): ?> selected <?php endif; ?>>anyone</option>
+                                            <option value="member" <?php if($email_contact == 'member'): ?> selected <?php endif; ?>>only member</option>
+                                            <option value="anyone" <?php if($email_contact == 'anyone'): ?> selected <?php endif; ?>>anyone</option>
                                         </select>
 
                                         <?php $__errorArgs = ['email_contact'];

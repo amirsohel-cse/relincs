@@ -13,7 +13,25 @@
             @endif
         </div> --}}
         @php
-            $data = App\Models\SettingHub::where('id', 1)->first();
+            $data = App\Models\SettingHub::where('user_id', Auth::user()->id)->first();
+
+            if($data != ''){
+                $name_hubs = $data->name_hubs;
+                $username_admin = $data->username_admin;
+                $hub_access = $data->hub_access;
+                $visiblity = $data->visiblity;
+                $link_profile = $data->link_profile;
+                $email_contact = $data->email_contact;
+            }
+            else{
+                $name_hubs = '';
+                $username_admin = '';
+                $hub_access = '';
+                $visiblity = '';
+                $link_profile = '';
+                $email_contact = '';
+            }
+            
         @endphp
         <div class="my-4 w-full">
             
@@ -28,7 +46,7 @@
                     <div class="w-full mt-3">
                         <div class=" text-sm">
                             <span class="text-gray-700 dark:text-gray-400 capitalize">name hubs</span>
-                            <x-input type="text" class="block mt-1 w-full" id="name_channel" name="name_hubs" value="{{ $data->name_hubs }}" autofocus autocomplete="current-title" />
+                            <x-input type="text" class="block mt-1 w-full" id="name_channel" name="name_hubs" value="{{ $name_hubs }}" autofocus autocomplete="current-title" />
                             @error('name_hubs')
                                 <span class="text-red-600">{{ $message }}</span>
                             @enderror
@@ -37,7 +55,7 @@
                     <div class="w-full mt-4">
                         <div class=" text-sm">
                             <span class="text-gray-700 dark:text-gray-400 capitalize">username admin</span>
-                            <x-input type="text" class="block mt-1 w-full" id="usernameAdmin" name="username_admin" value="{{ $data->username_admin }}" autofocus autocomplete="current-title" />
+                            <x-input type="text" class="block mt-1 w-full" id="usernameAdmin" name="username_admin" value="{{ $username_admin }}" autofocus autocomplete="current-title" />
                             @error('username_admin')
                                 <span class="text-red-600">{{ $message }}</span>
                             @enderror
@@ -66,10 +84,10 @@
                                     <label class="text-sm">
                                         <select name='hub_access'
                                             class="text-sm lg:w-48 w-36 bg-gray-100 dark:text-gray-300 border-none dark:border-gray-600 dark:bg-gray-700 form-select focus:border-indigo-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                                            <option value="anyone" @if($data->hub_access == 'anyone') selected @endif>anyone (open)</option>
-                                            <option value="only_members" @if($data->hub_access == 'only_members') selected @endif>only members (closed)</option>
-                                            <option value="only_those" @if($data->hub_access == 'only_those') selected @endif>only those</option>
-                                            <option value="only_invited" @if($data->hub_access == 'only_invited') selected @endif>who i invite (private)</option>
+                                            <option value="anyone" @if($hub_access == 'anyone') selected @endif>anyone (open)</option>
+                                            <option value="only_members" @if($hub_access == 'only_members') selected @endif>only members (closed)</option>
+                                            <option value="only_those" @if($hub_access == 'only_those') selected @endif>only those</option>
+                                            <option value="only_invited" @if($hub_access == 'only_invited') selected @endif>who i invite (private)</option>
                                         </select>
                                         @error('hub_access')
                                             <span class="text-red-600">{{ $message }}</span>
@@ -89,8 +107,8 @@
                                     <label class="text-sm">
                                         <select name='visiblity'
                                             class="text-sm lg:w-48 w-36 bg-gray-100 dark:text-gray-300 border-none dark:border-gray-600 dark:bg-gray-700 form-select focus:border-indigo-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                                            <option value="anyone" @if($data->visiblity == 'anyone') selected @endif>anyone</option>
-                                            <option value="invited-only" @if($data->visiblity == 'invited-only') selected @endif>those whom i invite</option>
+                                            <option value="anyone" @if($visiblity == 'anyone') selected @endif>anyone</option>
+                                            <option value="invited-only" @if($visiblity == 'invited-only') selected @endif>those whom i invite</option>
                                         </select>
                                         
                                         @error('visiblity')
@@ -111,8 +129,8 @@
                                     <label class="text-sm">
                                         <select name='link_profile'
                                             class="text-sm lg:w-48 w-36 bg-gray-100 dark:text-gray-300 border-none dark:border-gray-600 dark:bg-gray-700 form-select focus:border-indigo-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                                            <option value="yes" @if($data->link_profile == 'yes') selected @endif>yes</option>
-                                            <option value="no" @if($data->link_profile == 'no') selected @endif>no</option>
+                                            <option value="yes" @if($link_profile == 'yes') selected @endif>yes</option>
+                                            <option value="no" @if($link_profile == 'no') selected @endif>no</option>
                                         </select>
                                         
                                         @error('link_profile')
@@ -133,8 +151,8 @@
                                     <label class="text-sm">
                                         <select name='email_contact'
                                             class="text-sm lg:w-48 w-36 bg-gray-100 dark:text-gray-300 border-none dark:border-gray-600 dark:bg-gray-700 form-select focus:border-indigo-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                                            <option value="member" @if($data->email_contact == 'member') selected @endif>only member</option>
-                                            <option value="anyone" @if($data->email_contact == 'anyone') selected @endif>anyone</option>
+                                            <option value="member" @if($email_contact == 'member') selected @endif>only member</option>
+                                            <option value="anyone" @if($email_contact == 'anyone') selected @endif>anyone</option>
                                         </select>
 
                                         @error('email_contact')

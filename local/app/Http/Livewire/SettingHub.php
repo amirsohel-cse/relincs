@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\SettingHub as ModelsSettingHub;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class SettingHub extends Component
@@ -20,15 +21,15 @@ class SettingHub extends Component
     
         ]);
         
-        $getData = ModelsSettingHub::where('id', 1)->first();
+        $getData = ModelsSettingHub::where('user_id', Auth::user()->id)->first();
 
         if($getData != ''){
             $data = $getData;
         }
         else{
             $data = new ModelsSettingHub();
+            $data->user_id = Auth::user()->id;
         }
-
         $data->name_hubs = $request->get('name_hubs');
         $data->username_admin = $request->get('username_admin');
         $data->hub_access = $request->get('hub_access');
