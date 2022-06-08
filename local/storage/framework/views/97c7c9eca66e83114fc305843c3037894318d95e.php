@@ -231,6 +231,10 @@
                                         'Support message sent successfully',
                                         'success'
                                     )
+
+                                    setTimeout(function(){
+                                        location.reload();
+                                    }, 200); 
                                 }
                                 $('#sendSupportMessage').removeClass('disabled');
                                 $('#sendSupportMessage').html('Send Message');
