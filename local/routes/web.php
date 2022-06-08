@@ -101,6 +101,7 @@ Route::prefix('/dashboard')->middleware(['auth','verified'])->name('dash.')->gro
     Route::get('/hubs/list-media', ListMedia::class)->name('list.media.hubs');
     Route::get('/hubs/list-wall', Listwall::class)->name('list.wall.hubs');
     Route::get('/hubs/setting', SettingHub::class)->name('hubs.setting');
+    Route::post('/hubs/setting/post', [SettingHub::class, 'storeData'])->name('hubs.settingPost');
 
     // bulletin
 
