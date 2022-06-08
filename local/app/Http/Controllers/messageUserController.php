@@ -9,7 +9,7 @@ class messageUserController extends Controller
 {
     public function sendSupportMessage(Request $request)
     {
-        $data['send_to'] = 'report@relincs.com';
+        $data['send_to'] = 'support@relincs.com';
         // $data['send_to'] = 'nayeemuzaman05@gmail.com';
         $data['name'] = $request->get('name');
         $data['email'] = $request->get('email');
