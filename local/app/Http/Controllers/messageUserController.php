@@ -24,4 +24,8 @@ class messageUserController extends Controller
         // return redirect()->back();
         return 'success';
     }
+    public function privacy()
+    {
+        return view('pages.privacy');
+    }
 }

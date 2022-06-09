@@ -3,7 +3,7 @@
         Terms and conditions
     </a>
     &nbsp;&nbsp;&nbsp;
-    <a href="#" target="_blank" class="w-8">
+    <a href="{{ route('privacy') }}" target="_blank" class="w-8">
         Privacy policy
     </a>
 </div>

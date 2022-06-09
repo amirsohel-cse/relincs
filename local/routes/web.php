@@ -119,6 +119,6 @@ Route::get('dashboard/admin/users/list', ManagementUser::class)->middleware(['au
 Route::get('dashboard/admin/hubs/list', ManagamentHubs::class)->middleware(['auth','admin'])->name('dash.admin.hubs.list');
 
 
-
+Route::get('/privacy', [messageUserController::class, 'privacy'])->name('privacy');
 
 require __DIR__ . '/auth.php';
