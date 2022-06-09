@@ -1,6 +1,6 @@
 <div class="w-full">
     @section('title')
-    Explorer - media
+        Media
     @endsection
     
     <div class="pl-2">

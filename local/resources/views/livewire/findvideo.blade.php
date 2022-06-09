@@ -1,6 +1,6 @@
 <div>
     @section('title')
-        Find
+        Latest
     @endsection
     <div class="w-full h-full" x-data="{ search: '', toggleFilter: false }">
         <!-- Find-->

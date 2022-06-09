@@ -1,6 +1,6 @@
 <div>
     <?php $__env->startSection('title'); ?>
-        Find
+        Latest
     <?php $__env->stopSection(); ?>
     <div class="w-full h-full" x-data="{ search: '', toggleFilter: false }">
         <!-- Find-->

@@ -1,6 +1,6 @@
 <div class="w-full">
     <?php $__env->startSection('title'); ?>
-    Explorer - media
+        Media
     <?php $__env->stopSection(); ?>
     
     <div class="pl-2">

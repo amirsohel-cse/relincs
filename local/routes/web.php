@@ -54,13 +54,13 @@ Route::get('/', function () {
         return redirect()->route('login');
     }
 })->name('home');
-Route::get('/explorer', Allmedias::class)->name('gu.media')->middleware('auth', 'verified');
-Route::get('/explorer/wall', Wall::class)->name('gu.wall')->middleware('auth', 'verified');
-Route::get('/explorer/hubs', Hubs::class)->name('gu.ehubs')->middleware('auth', 'verified');
-Route::get('/explorer/profiles', Profiles::class)->name('gu.profiles')->middleware('auth', 'verified');
+Route::get('/media', Allmedias::class)->name('gu.media')->middleware('auth', 'verified');
+Route::get('/media/wall', Wall::class)->name('gu.wall')->middleware('auth', 'verified');
+Route::get('/media/hubs', Hubs::class)->name('gu.ehubs')->middleware('auth', 'verified');
+Route::get('/media/profiles', Profiles::class)->name('gu.profiles')->middleware('auth', 'verified');
 Route::name('gu.')->group(function () {
     Route::get('/profile/{name:id}', ProfileUSer::class)->name('profile.show');
-    Route::get('/find', Findvideo::class)->name('find')->middleware('auth', 'verified');
+    Route::get('/latest', Findvideo::class)->name('find')->middleware('auth', 'verified');
     Route::get('/hubs', [HubsController::class, 'display'])->name('hubs');
 });
 
