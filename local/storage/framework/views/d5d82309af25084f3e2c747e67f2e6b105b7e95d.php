@@ -91,10 +91,11 @@
                                                 </svg>
 
                                             </a>
-                                            <form action="<?php echo e(route('dash.destroy.hubs', $i->id)); ?>" method="POST">
+                                            <form action="<?php echo e(route('dash.destroy.hubs', $i->id)); ?>" id="deleteForm_<?php echo e($i->id); ?>" method="POST">
                                                 <?php echo csrf_field(); ?>
                                                 <?php echo method_field('DELETE'); ?>
-                                                <button title="delete"
+                                                <button  type="button"
+                                                onclick="deleteData(<?php echo e($i->id); ?>)"
                                                     class="px-3 text-sm focus:outline-none border-none hover:bg-red-200 bg-red-100  py-1 rounded-md flex justify-center items-center transition duration-200">
                                                     <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor"
                                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -170,4 +171,30 @@
 <?php $component = $__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da; ?>
 <?php unset($__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da); ?>
 <?php endif; ?>
-<?php /**PATH C:\laragon\www\relincs\local\resources\views/hubs/listHubs.blade.php ENDPATH**/ ?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function deleteData(id) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('#deleteForm_'+id).submit();
+            }
+        })
+    }
+</script>
+<script>
+    <?php if(session()->has('delete_success')): ?>
+        Swal.fire(
+            'Deleted!',
+            'The hub has been deleted.',
+            'success'
+        )
+    <?php endif; ?>
+</script><?php /**PATH C:\laragon\www\relincs\local\resources\views/hubs/listHubs.blade.php ENDPATH**/ ?>

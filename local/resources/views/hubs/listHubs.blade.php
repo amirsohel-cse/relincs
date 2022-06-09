@@ -85,10 +85,11 @@
                                                 </svg>
 
                                             </a>
-                                            <form action="{{route('dash.destroy.hubs', $i->id)}}" method="POST">
+                                            <form action="{{route('dash.destroy.hubs', $i->id)}}" id="deleteForm_{{ $i->id }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button title="delete"
+                                                <button  type="button"
+                                                onclick="deleteData({{ $i->id }})"
                                                     class="px-3 text-sm focus:outline-none border-none hover:bg-red-200 bg-red-100  py-1 rounded-md flex justify-center items-center transition duration-200">
                                                     <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor"
                                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -158,3 +159,30 @@
         </div>
     </div>
 </x-app-layout>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function deleteData(id) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('#deleteForm_'+id).submit();
+            }
+        })
+    }
+</script>
+<script>
+    @if(session()->has('delete_success'))
+        Swal.fire(
+            'Deleted!',
+            'The hub has been deleted.',
+            'success'
+        )
+    @endif
+</script>

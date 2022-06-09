@@ -151,6 +151,7 @@ class HubsController extends Controller
                 'hubs' => Auth::user()->hubs === 1 ? Null : Auth::user()->hubs - 1,
             ]);
         }
+        session()->flash('delete_success');
         return redirect()->back()->with('delete', 'Delete Hub ' . $hub_name . '❌');
     }
 
