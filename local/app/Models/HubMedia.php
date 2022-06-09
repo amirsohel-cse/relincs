@@ -58,5 +58,26 @@ class HubMedia extends Model
     {
         return $this->belongsTo(Hubs::class);
     }
+    
+
+    public function Likes_m()
+    {
+        return $this->hasMany(like_m::class);
+    }
+
+    public function Dislikes_m()
+    {
+        return $this->hasMany(dislike_m::class);
+    }
+
+    public function doesUserLikedVideo()
+    {
+        return $this->Likes_m()->where('user_id', auth()->id())->exists();
+    }
+
+    public function doesUserDislikedVideo()
+    {
+        return $this->Dislikes_m()->where('user_id', auth()->id())->exists();
+    }
 
 }

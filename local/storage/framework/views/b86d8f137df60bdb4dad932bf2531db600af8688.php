@@ -49,7 +49,21 @@
 
                             <div class="flex flex-row space-x-2 items-center">
 
-                                
+                                <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('likedislikehubmedia', ['media' => $media])->html();
+} elseif ($_instance->childHasBeenRendered('l3013255115-0')) {
+    $componentId = $_instance->getRenderedChildComponentId('l3013255115-0');
+    $componentTag = $_instance->getRenderedChildComponentTagName('l3013255115-0');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('l3013255115-0');
+} else {
+    $response = \Livewire\Livewire::mount('likedislikehubmedia', ['media' => $media]);
+    $html = $response->html();
+    $_instance->logRenderedChild('l3013255115-0', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
 
                                 <?php if(auth()->guard()->check()): ?>
                                 <div class="flex flex-row space-x-2 justify-center items-center pb-3 capitalize">
@@ -108,15 +122,15 @@
                                 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('join', ['user_id' => $hub->id])->html();
-} elseif ($_instance->childHasBeenRendered('l3013255115-0')) {
-    $componentId = $_instance->getRenderedChildComponentId('l3013255115-0');
-    $componentTag = $_instance->getRenderedChildComponentTagName('l3013255115-0');
+} elseif ($_instance->childHasBeenRendered('l3013255115-1')) {
+    $componentId = $_instance->getRenderedChildComponentId('l3013255115-1');
+    $componentTag = $_instance->getRenderedChildComponentTagName('l3013255115-1');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('l3013255115-0');
+    $_instance->preserveRenderedChild('l3013255115-1');
 } else {
     $response = \Livewire\Livewire::mount('join', ['user_id' => $hub->id]);
     $html = $response->html();
-    $_instance->logRenderedChild('l3013255115-0', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('l3013255115-1', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -133,15 +147,15 @@ echo $html;
                                 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('add-comment-media',['data' => $media,'col' => 0])->html();
-} elseif ($_instance->childHasBeenRendered('l3013255115-1')) {
-    $componentId = $_instance->getRenderedChildComponentId('l3013255115-1');
-    $componentTag = $_instance->getRenderedChildComponentTagName('l3013255115-1');
+} elseif ($_instance->childHasBeenRendered('l3013255115-2')) {
+    $componentId = $_instance->getRenderedChildComponentId('l3013255115-2');
+    $componentTag = $_instance->getRenderedChildComponentTagName('l3013255115-2');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('l3013255115-1');
+    $_instance->preserveRenderedChild('l3013255115-2');
 } else {
     $response = \Livewire\Livewire::mount('add-comment-media',['data' => $media,'col' => 0]);
     $html = $response->html();
-    $_instance->logRenderedChild('l3013255115-1', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('l3013255115-2', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

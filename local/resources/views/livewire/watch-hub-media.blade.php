@@ -47,7 +47,7 @@
 
                             <div class="flex flex-row space-x-2 items-center">
 
-                                {{-- @livewire('likedislike', ['video' => $media]) --}}
+                                @livewire('likedislikehubmedia', ['media' => $media])
 
                                 @auth
                                 <div class="flex flex-row space-x-2 justify-center items-center pb-3 capitalize">
