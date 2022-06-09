@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-
+    <?php echo $__env->yieldContent('metas'); ?>
     <title><?php echo $__env->yieldContent('title'); ?></title>
     <!-- Styles -->
     <link rel="shortcut icon" href="<?php echo e(asset('img/logo.png')); ?>" type="image/x-icon">
@@ -197,15 +197,15 @@
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('search-engine')->html();
-} elseif ($_instance->childHasBeenRendered('svpNGnI')) {
-    $componentId = $_instance->getRenderedChildComponentId('svpNGnI');
-    $componentTag = $_instance->getRenderedChildComponentTagName('svpNGnI');
+} elseif ($_instance->childHasBeenRendered('N2HOlGq')) {
+    $componentId = $_instance->getRenderedChildComponentId('N2HOlGq');
+    $componentTag = $_instance->getRenderedChildComponentTagName('N2HOlGq');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('svpNGnI');
+    $_instance->preserveRenderedChild('N2HOlGq');
 } else {
     $response = \Livewire\Livewire::mount('search-engine');
     $html = $response->html();
-    $_instance->logRenderedChild('svpNGnI', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('N2HOlGq', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

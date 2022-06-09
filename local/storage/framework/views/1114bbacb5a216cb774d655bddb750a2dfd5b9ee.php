@@ -1,3 +1,8 @@
+<?php $__env->startSection('metas'); ?>
+    <meta name="title" content="<?php echo e($media->title); ?>">
+    <meta name="description" content="<?php echo e($media->description); ?>">
+    <meta name="image" content="<?php echo e(env('AWS_BUCKET_URL') . 'media/'.$media->uid . '/' .$media->thumbnail_image); ?>">
+<?php $__env->stopSection(); ?>
 <div class="w-full overflow-hidden">
     <?php $__env->startSection('title'); ?>
     Watch Video <?php echo e($media->title); ?>

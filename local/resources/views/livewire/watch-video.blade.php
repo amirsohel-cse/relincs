@@ -1,3 +1,8 @@
+@section('metas')
+    <meta name="title" content="{{ $video->title }}">
+    <meta name="description" content="{{ $video->description }}">
+    <meta name="image" content="{{ asset('video/'.$video->uid.'/'.$video->thumbnail_image)}}">
+@endsection
 <div>
     @section('title')
         Watch Video {{ $video->title }}

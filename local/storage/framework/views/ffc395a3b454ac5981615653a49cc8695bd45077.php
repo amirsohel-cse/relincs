@@ -38,15 +38,15 @@
                         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('join', ['user_id' => $data->user_id])->html();
-} elseif ($_instance->childHasBeenRendered('0fnk0O7')) {
-    $componentId = $_instance->getRenderedChildComponentId('0fnk0O7');
-    $componentTag = $_instance->getRenderedChildComponentTagName('0fnk0O7');
+} elseif ($_instance->childHasBeenRendered('aNCPi8Q')) {
+    $componentId = $_instance->getRenderedChildComponentId('aNCPi8Q');
+    $componentTag = $_instance->getRenderedChildComponentTagName('aNCPi8Q');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('0fnk0O7');
+    $_instance->preserveRenderedChild('aNCPi8Q');
 } else {
     $response = \Livewire\Livewire::mount('join', ['user_id' => $data->user_id]);
     $html = $response->html();
-    $_instance->logRenderedChild('0fnk0O7', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('aNCPi8Q', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -87,7 +87,7 @@ echo $html;
                             </p>
                         </div>
                         <ul class="flex justify-start w-full flex-col space-y-2 mt-2">
-                            <a href="<?php echo e(route('dash.hubs.setting')); ?>"
+                            <a href="<?php echo e(route('dash.hubs.setting',['hub_id'=>$data->uid])); ?>"
                                 class="transition duration-300 rounded-md cursor-pointer hover:bg-indigo-600 text-gray-800 hover:text-white bg-gray-100 lg:text-sm text-sm capitalize px-2 py-2 w-full">
                                 Setting</a>
                             
@@ -97,6 +97,7 @@ echo $html;
             </div>
             <div class="p-2 w-full lg:col-span-9 col-span-12">
                 <div class="flex flex-col items-center w-full lg:col-span-10">
+                    
                     <?php if($data->visibility === "private"): ?>
                         <?php if($checkJoinUser): ?>
                         <div class="w-full scrollere overflow-x-auto border-b">
@@ -354,7 +355,7 @@ echo $html;
                                     <div class="grid lg:grid-cols-3 grid-cols-1 gap-4 w-full">
                                         
                                         <?php $__empty_1 = true; $__currentLoopData = $data_mediaa; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-<?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+                                            <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.card-media-hubs','data' => ['data' => $data]]); ?>
 <?php $component->withName('card-media-hubs'); ?>
 <?php if ($component->shouldRender()): ?>
