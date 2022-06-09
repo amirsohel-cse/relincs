@@ -1,3 +1,8 @@
+@section('metas')
+    <meta name="title" content="{{ $media->title }}">
+    <meta name="description" content="{{ $media->description }}">
+    <meta name="image" content="{{ env('AWS_BUCKET_URL').'hubs/media/'.$media->uid.'/'.$media->thumbnail_image }}">
+@endsection
 <div>
     @section('title')
     Watch Video {{ $media->title }}

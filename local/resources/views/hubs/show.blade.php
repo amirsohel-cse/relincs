@@ -52,7 +52,7 @@
                             </p>
                         </div>
                         <ul class="flex justify-start w-full flex-col space-y-2 mt-2">
-                            <a href="{{ route('dash.hubs.setting') }}"
+                            <a href="{{ route('dash.hubs.setting',['hub_id'=>$data->uid]) }}"
                                 class="transition duration-300 rounded-md cursor-pointer hover:bg-indigo-600 text-gray-800 hover:text-white bg-gray-100 lg:text-sm text-sm capitalize px-2 py-2 w-full">
                                 Setting</a>
                             {{-- <a href="{{ route('dash.hubs.setting') }}"
@@ -64,6 +64,7 @@
             </div>
             <div class="p-2 w-full lg:col-span-9 col-span-12">
                 <div class="flex flex-col items-center w-full lg:col-span-10">
+                    
                     @if($data->visibility === "private")
                         @if ($checkJoinUser)
                         <div class="w-full scrollere overflow-x-auto border-b">
@@ -274,7 +275,7 @@
                                     <div class="grid lg:grid-cols-3 grid-cols-1 gap-4 w-full">
                                         {{-- Component Post Hubs --}}
                                         @forelse ($data_mediaa as $data)
-<x-card-media-hubs :data='$data' />
+                                            <x-card-media-hubs :data='$data' />
                                         @empty
                                         <div class="my-6 px-2 lg:text-xl text-lg text-gray-600">Not found media :(</div>
                                         @endforelse

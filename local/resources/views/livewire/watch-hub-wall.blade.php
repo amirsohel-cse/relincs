@@ -1,4 +1,10 @@
+
 <div class="w-full relative">
+    @section('metas')
+        <meta name="title" content="{{ $wall->title }}">
+        <meta name="description" content="{{ $wall->description }}">
+        <meta name="image" content="{{ $hub->photo() }}">
+    @endsection
     @section('title')
          Watch {{ $wall->title }}
     @endsection
