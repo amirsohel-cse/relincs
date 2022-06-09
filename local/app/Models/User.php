@@ -50,7 +50,7 @@ class User extends Authenticatable
     public function profile()
     {
         if($this->image_profile != ''){
-            return 'https://relincsca.s3.amazonaws.com/profile_image/'.$this->image_profile.'';
+            return 'https://relincsca.s3.amazonaws.com/public/profile_image/'.$this->image_profile.'';
         }
         else{
             return asset('storage/storage/img/default.png');

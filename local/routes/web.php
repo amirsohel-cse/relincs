@@ -45,7 +45,7 @@ Route::get('/', function () {
     if(Auth::check()){
         $show_data = Media::latest()->take(18)->get();
         $show_data_section = Media::orderBy('created_at', 'desc')->take(5)->get();
-        $wall_data = Video::where('status',0)->latest()->take(20)->get();
+        $wall_data = Video::where('status',0)->where('visibility', 'public')->orWhere('user_id', Auth::user()->id)->latest()->take(20)->get();
         $hubs_data = ModelsHubs::latest()->take(4)->get();
         $showlastmedia = Media::latest()->take(5)->get();
         $show_data_latest = Media::orderBy('created_at', 'desc')->whereDay('created_at', '15')->get();

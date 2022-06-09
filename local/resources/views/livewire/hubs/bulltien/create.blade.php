@@ -56,7 +56,7 @@
                         <span class="text-gray-700 dark:text-gray-400 capitalize">link</span>
 
                         <x-input id="link" class="block mt-1 w-full" type="text"
-                            placeholder="insert link : https://www.example.com" wire:model="link" required
+                            placeholder="insert link : https://www.example.com" wire:model="link"
                             autocomplete="current-title" />
                         @error('link')
                         <div class="text-xs text-red-500 font-bold mt-1">

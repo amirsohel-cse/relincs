@@ -20,12 +20,12 @@
                             href="<?php echo e(route('gu.profile.show', ['name' => $notification->data['from_id']])); ?>"
                             class="w-full">
                             <img class="h-14 w-14 rounded-full"
-                                src="<?php echo e(env('AWS_BUCKET_URL').'profile_image/'.$notification->data['image_profile']); ?>"
+                                src="<?php echo e(env('AWS_BUCKET_URL').'public/profile_image/'.$notification->data['image_profile']); ?>"
                                 alt="<?php echo e($notification->data['username']); ?>">
                         </a>
                         <div
                             class="absolute bottom-0 bg-red-200 right-0 border shadow-lg rounded-full border-gray-300 bg-white p-1 flex justify-center items-center">
-                            <svg class="lg:w-8 lg:h-8 w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            <svg class="lg:w-4 lg:h-4 w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">

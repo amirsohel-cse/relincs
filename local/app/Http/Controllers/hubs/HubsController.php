@@ -90,7 +90,7 @@ class HubsController extends Controller
         $count_joiner = $this->count_joiner($data->user_id);
         $count_joining = $this->count_joining($data->user_id);
         $data_media=(new Hubs)->hubmedia()->where('hubs_id',$data->id)->get();
-        $data_mediaa= HubMedia::where('hubs_id',$data->id)->latest()->paginate(10);
+        $data_mediaa= HubMedia::where('hubs_id',$data->id)->orderBy('created_at', 'DESC')->paginate(10);
         $trending= HubMedia::where('hubs_id',$data->id)->where('views','>',10)->latest()->paginate(10);
         $latest_wall= HubWall::where('hubs_id',$data->id)->latest()->paginate(10);
         $latest_bulletin= hubbulletin::where('hubs_id',$data->id)->latest()->paginate(10);
@@ -110,7 +110,7 @@ class HubsController extends Controller
 
     public function update(Request $request, $uid)
     {
-        $get = Auth::user()->hubs()->where('uid', $uid)->first();
+        $get = Hubs::where('uid', $uid)->first();
         $request->validate([
             "profileHubs" => 'max:2024',
             "name" => 'required|string|max:155|unique:hubs,name',
@@ -119,19 +119,24 @@ class HubsController extends Controller
 
         if ($request->hasfile('profileHubs')) {
             $imageName = 'edit' . time() . $request->name . '.' . $request->profileHubs->extension();
-            $request->profileHubs->move(storage_path('app/public/profile_hubs'), $imageName);
+            $request->profileHubs->storeAs('public/profile_hubs', $imageName);;
         }
 
-        Auth::user()->hubs()->update([
-            "profile" => $get->profile === null ? $imageName : $get->profile,
-            "name" => $request->name,
-            "about" => $request->about,
-            "uid" => uniqid(true),
-        ]);
+        $get->name = $request->name;
+        $get->about = $request->about;
+        $get->profile = $imageName;
+        $get->save();
 
-        User::find(Auth::user()->id)->update([
-            'hubs' => Auth::user()->hubs === null ? 1 :  Auth::user()->hubs + 1,
-        ]);
+        // Hubs::update([
+        //     "profile" => $get->profile === null ? $imageName : $get->profile,
+        //     "name" => $request->name,
+        //     "about" => $request->about,
+        //     // "uid" => uniqid(true),
+        // ]);
+
+        // User::find(Auth::user()->id)->update([
+        //     'hubs' => Auth::user()->hubs === null ? 1 :  Auth::user()->hubs + 1,
+        // ]);
 
         return redirect()->route('dash.list.hubs')->with('success', 'Hub Edited');
     }

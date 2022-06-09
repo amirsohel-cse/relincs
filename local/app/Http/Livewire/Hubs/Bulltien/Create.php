@@ -17,7 +17,7 @@ class Create extends Component
 
     protected $rules=[
         'title' => 'required|string|min:5',
-        'link' => 'required|min:5',
+        // 'link' => 'required|min:5',
         'description' => 'required|min:10|string',
     ];
 

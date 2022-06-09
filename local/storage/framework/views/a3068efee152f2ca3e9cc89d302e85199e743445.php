@@ -152,14 +152,12 @@ class="flex-col flex-grow hidden  lg:pb-0 lg:flex  lg:justify-start items-center
     </svg>
 </a>
 <?php endif; ?>
-<button
+<button id="notification_btn"
     class="font-bold px-4 py-2 mt-2 text-sm text-gray-700 hover:bg-midsky transition duration-100 rounded-lg lg:mt-0 lg:ml-4 focus:text-gray-900 hover:text-indigo-500 focus:bg-gray-200 lg:text-left text-center focus:outline-none focus:shadow-outline"
-    @click.prevent="isNotification = !isNotification">
-    <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-        <path
-            d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z">
-        </path>
-    </svg>
+    @click="isNotification = !isNotification">
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="currentColor" d="m32.85 28.13l-.34-.3A14.37 14.37 0 0 1 30 24.9a12.63 12.63 0 0 1-1.35-4.81v-4.94A10.81 10.81 0 0 0 19.21 4.4V3.11a1.33 1.33 0 1 0-2.67 0v1.31a10.81 10.81 0 0 0-9.33 10.73v4.94a12.63 12.63 0 0 1-1.35 4.81a14.4 14.4 0 0 1-2.47 2.93l-.34.3v2.82h29.8Z" class="clr-i-solid clr-i-solid-path-1"/><path fill="currentColor" d="M15.32 32a2.65 2.65 0 0 0 5.25 0Z" class="clr-i-solid clr-i-solid-path-2"/><path fill="none" d="M0 0h36v36H0z"/></svg>
+
+    
 </button>
 <!-- Notifications menu -->
 
