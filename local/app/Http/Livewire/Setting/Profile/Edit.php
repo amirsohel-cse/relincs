@@ -48,18 +48,15 @@ class Edit extends Component
 
     public function editProfile()
     {
-        // sleep(1);
-
-
-        $imageName = '';
-        if ($this->image != null) {
+        sleep(1);
+        $imageName = null;
+        if ($this->image === null) {
+            $imageName = $this->user->image_profile;
+        }else{
             $imageName = uniqid() . $this->firstname . '.' . $this->image->extension();
             $this->image->storeAs('public/profile_image', $imageName);
             Storage::delete('public/profile_image/' . $this->user->image_profile);
         }
-
-        dd($imageName);
-
 
        $this->user->update([
             'firstname' => $this->firstname,

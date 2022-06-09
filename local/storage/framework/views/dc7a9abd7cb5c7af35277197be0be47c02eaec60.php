@@ -20,7 +20,7 @@
                             href="<?php echo e(route('gu.profile.show', ['name' => $notification->data['from_id']])); ?>"
                             class="w-full">
                             <img class="h-14 w-14 rounded-full"
-                                src="<?php echo e(asset('storage/profile_image/'.$notification->data['image_profile'])); ?>"
+                                src="<?php echo e(env('AWS_BUCKET_URL').'profile_image/'.$notification->data['image_profile']); ?>"
                                 alt="<?php echo e($notification->data['username']); ?>">
                         </a>
                         <div
