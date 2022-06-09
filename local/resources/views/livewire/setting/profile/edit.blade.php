@@ -21,7 +21,7 @@
                                     class="w-full flex flex-col lg:justify-start justify-center items-center relative px-2">
                                     <img src="
                                         @if ($image)
-                                        {{  $image->temporaryUrl()  }}
+                                            {{  $image->temporaryUrl()  }}
                                             @else
                                             {{ Auth()->user()->profile() }}
                                         @endif

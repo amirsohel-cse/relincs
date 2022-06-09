@@ -49,15 +49,10 @@ class User extends Authenticatable
 
     public function profile()
     {
-        // dd(Storage::exists('public/profile_image/'.$this->image_profile));
-        if(Storage::exists('public/profile_image/'.$this->image_profile)){
-            if($this->image_profile == 'null'){
-                return asset('storage/storage/img/default.png');
-            }else{
-                return asset('storage/storage/profile_image/'.$this->image_profile);
-            }
-
-        }else{
+        if($this->image_profile != ''){
+            return 'https://relincsca.s3.amazonaws.com/profile_image/'.$this->image_profile.'';
+        }
+        else{
             return asset('storage/storage/img/default.png');
         }
 
