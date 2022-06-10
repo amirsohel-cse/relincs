@@ -55,7 +55,12 @@ list media
                                             </p> -->
                                             <button
                                                 class='border border-gray-200 rounded-full hover:bg-indigo-300 w-20 flex items-center justify-center bg-indigo-200 gap-1 sm:text-md px-2 py-1  transition-colors focus:bg-gray-bg-gray-800 focus:outline-none focus-visible:border-gray-500'>
-                                                <span><?php echo e($i->visibility); ?></span>
+                                                <span> <?php if($i->visibility == 'unslited'): ?>
+                                                    unlisted
+                                                <?php else: ?>
+                                                <?php echo e($i->visibility); ?>
+
+                                                <?php endif; ?></span>
                                             </button>
                                             
                                         </div>

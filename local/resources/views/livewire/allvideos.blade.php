@@ -117,7 +117,13 @@ list Wall
                                             </p> -->
                                             <button
                                                 class='border border-gray-200 rounded-full hover:bg-indigo-300 w-20 flex items-center justify-center bg-indigo-200 gap-1 sm:text-md px-2 py-1  transition-colors focus:bg-gray-bg-gray-800 focus:outline-none focus-visible:border-gray-500'>
-                                                <span>{{ $i->visibility }}</span>
+                                                <span>
+                                                    @if ($i->visibility == 'unslited')
+                                                        unlisted
+                                                    @else
+                                                    {{ $i->visibility }}
+                                                    @endif
+                                                </span>
                                             </button>
                                         </div>
                                     </div>

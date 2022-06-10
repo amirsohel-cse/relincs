@@ -162,7 +162,7 @@ unset($__errorArgs, $__bag); ?>
                             <option>Select</option>
                             <option value="private">private</option>
                             <option value="public">public</option>
-                            <option value="unslited">unslited</option>
+                            <option value="unslited">unlisted</option>
                         </select>
                     </div>
                     <?php $__errorArgs = ['visibility'];
