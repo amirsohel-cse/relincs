@@ -27,7 +27,7 @@ class Watchmedia extends Component
 
     public function profile_published()
     {
-        return asset('storage/storage/profile_image/' . $this->user->image_profile);
+        return asset('https://relincsca.s3.amazonaws.com/public/profile_image/' . $this->user->image_profile);
     }
 
     public function render()
