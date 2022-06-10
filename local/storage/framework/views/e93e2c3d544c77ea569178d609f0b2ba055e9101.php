@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
+    <?php echo $__env->yieldContent('metas'); ?>
+
     <title><?php echo $__env->yieldContent('title'); ?></title>
     <!-- Styles -->
     <link rel="shortcut icon" href="<?php echo e(asset('img/logo.png')); ?>" type="image/x-icon">

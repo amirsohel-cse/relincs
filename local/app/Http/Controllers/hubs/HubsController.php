@@ -113,18 +113,18 @@ class HubsController extends Controller
         $get = Hubs::where('uid', $uid)->first();
         $request->validate([
             "profileHubs" => 'max:2024',
-            "name" => 'required|string|max:155|unique:hubs,name',
+            "name" => 'required|string|max:155,name',
             "about" => 'required|string|min:10',
         ]);
 
         if ($request->hasfile('profileHubs')) {
             $imageName = 'edit' . time() . $request->name . '.' . $request->profileHubs->extension();
-            $request->profileHubs->storeAs('public/profile_hubs', $imageName);;
+            $request->profileHubs->storeAs('public/profile_hubs', $imageName);
+            $get->profile = $imageName;
         }
 
         $get->name = $request->name;
         $get->about = $request->about;
-        $get->profile = $imageName;
         $get->save();
 
         // Hubs::update([
