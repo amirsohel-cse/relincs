@@ -118,7 +118,7 @@
                                             {{$user->username}}</a>
                                         <p wire:ignore.self wire:poll.4000ms='count_subscribe()' class="text-gray-600 font-normal capitalize flex items-center w-full md:text-sm text-xs">
                                             {{$this->count_subscribe()}}
-                                            subscribs</p>
+                                            Subscribers</p>
                                     </div>
                                 </div>
                                 <div class="mr-6">
