@@ -27,7 +27,7 @@
                 <span class="activeStatus"></span>
             @endif
         <div class="w-full avatar av-m">
-            <img src="{{'https://relincsca.s3.amazonaws.com/public/profile_image/'.$user->image_profile)}}" class="w-14 h-14 rounded-full shadow"/>
+            <img src="{{'https://relincsca.s3.amazonaws.com/public/profile_image/'.$user->image_profile}}" class="w-14 h-14 rounded-full shadow"/>
         </div>
         </td>
         {{-- center side --}}
