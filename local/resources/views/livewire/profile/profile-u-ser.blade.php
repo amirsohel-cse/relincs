@@ -28,7 +28,7 @@
                 <div class="w-full md:py-10 md:col-span-3 col-span-12">
                     <div class="flex flex-col justify-center items-center space-y-3">
                         <div class="cursor-pointer">
-                            <img src="{{$user->profile() }}"
+                            <img src="{{ $user->profile() }}" onerror="this.onerror=null;this.src='https://relincsca.s3.amazonaws.com/public/profile_image/62a21b9f0e60cElizabeth.png';"
                                 class="md:w-full lg:w-36 object-cover w-32 lg:h-36 h-32 rounded-full shadow-md"
                                 alt="{{ $user->username }}">
                         </div>

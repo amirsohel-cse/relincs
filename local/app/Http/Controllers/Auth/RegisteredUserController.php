@@ -44,7 +44,7 @@ class RegisteredUserController extends Controller
             'gender' => 'required|string',
             'accepted' => 'required',
             'password' => 'required|confirmed|min:6',
-            'g-recaptcha-response' => 'required',
+            // 'g-recaptcha-response' => 'required',
         ]);
         if($request->hasFile('image_profile')){
             $imageName = time().$request->fname.'.'.$request->image_profile->extension();  

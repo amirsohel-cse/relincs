@@ -125,7 +125,7 @@
                 <div class="flex justify-between items-center py-2">
                     <div class="relative mt-1 flex">
                         <div class="mr-2">
-                            <img src="<?php echo e($user->profile()); ?>" alt="saman sayyar"
+                            <img src="<?php echo e($user->profile()); ?>" onerror="this.onerror=null;this.src='https://relincsca.s3.amazonaws.com/public/profile_image/62a21b9f0e60cElizabeth.png';" alt="saman sayyar"
                                 class="w-12 h-12 rounded-full object-cover">
                         </div>
                         <div class="ml-1 w-full flex justify-start flex-col ">

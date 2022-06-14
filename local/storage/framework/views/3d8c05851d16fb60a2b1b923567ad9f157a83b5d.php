@@ -27,7 +27,7 @@ case (1): ?>
             <a href="<?php echo e(route('watch.media' , ['media' => $data->uid,])); ?>"
                 class="flex pb-3 pl-1 mt-2 justify-center items-center flex-row">
                 <div class="flex justify-start space-x-3 items-center">
-                    <img src="<?php echo e($user_data->profile()); ?>" alt="<?php echo e($data->username); ?>"
+                    <img src="<?php echo e($user_data->profile()); ?>" onerror="this.onerror=null;this.src='https://relincsca.s3.amazonaws.com/public/profile_image/62a21b9f0e60cElizabeth.png';"
                         alt="<?php echo e($data->username); ?>" class="object-cover h-9 w-9 rounded-full shadow-md">
                     <div class="flex justify-start">
                         <div class="font-pop text-gray-700 text-sm text-left font-bold">

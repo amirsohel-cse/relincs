@@ -12,7 +12,7 @@ Explorer - profiles
                         <div class="flex-none sm:flex justify-center items-center">
                             <a href="{{route('gu.profile.show' , ['name' => $user->id ])}}"
                                 class="relative lg:h-32 lg:w-32 w-full h-full flex mx-auto justify-center items-center sm:mb-0 mb-3">
-                                <img src="{{ $user->profile() }}" alt="{{$user->username}}"
+                                <img src="{{ $user->profile() }}" onerror="this.onerror=null;this.src='https://relincsca.s3.amazonaws.com/public/profile_image/62a21b9f0e60cElizabeth.png';" alt="{{$user->username}}"
                                     class=" w-32 h-32 object-cover rounded-2xl">
                                 <!-- <a href="#"
                                                 class="absolute -right-2 bottom-2   -ml-3  text-white p-1 text-xs bg-green-400 hover:bg-green-500 font-medium tracking-wider rounded-full transition ease-in duration-300">

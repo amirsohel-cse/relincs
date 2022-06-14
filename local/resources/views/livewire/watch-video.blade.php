@@ -97,8 +97,8 @@
                         <div class="">
                             <div class="flex flex-row justify-between items-center border-b border-gray-100 pb-3">
                                 <div class="flex justify-center items-center">
-                                    <div class="w-full h-14">
-                                        <img src="{{ $this->profile_published() }}" alt="picture user"
+                                    <div class="w-full h-14" wire:ignore>
+                                        <img src="{{ $this->profile_published() }}" onerror="this.onerror=null;this.src='https://relincsca.s3.amazonaws.com/public/profile_image/62a21b9f0e60cElizabeth.png';" alt="picture user"
                                             class="shadow-md rounded-full md:w-14 md:h-14 w-12 h-12">
                                     </div>
                                     <div class="flex mx-3 flex-col items-center">

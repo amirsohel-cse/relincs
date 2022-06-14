@@ -107,9 +107,9 @@
 
                         <div class="">
                             <div class="flex flex-row justify-between items-center border-b border-gray-100 pb-3">
-                                <div class="flex justify-center items-center">
+                                <div class="flex justify-center items-center" wire:ignore>
                                     <a href="{{route('gu.profile.show' , ['name' => $user->id ])}}" class="w-full h-full lg:block hidden">
-                                        <img src="{{ $this->profile_published() }}" alt="picture user"
+                                        <img src="{{ $this->profile_published() }}" onerror="this.onerror=null;this.src='https://relincsca.s3.amazonaws.com/public/profile_image/62a21b9f0e60cElizabeth.png';" alt="picture user"
                                             class="shadow-md rounded-full w-14 h-14 object-cover">
                                     </a>
                                     <div class="flex mx-3 flex-col items-centerw-full">

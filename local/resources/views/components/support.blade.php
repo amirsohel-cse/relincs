@@ -1,3 +1,6 @@
+@auth
+    
+
 <div class="w-full">
     <div class="w-full">
         <div class="bg-indigo-100 h-96"></div>
@@ -257,3 +260,5 @@
         })
     });
 </script>
+
+@endauth

@@ -1,3 +1,6 @@
+<?php if(auth()->guard()->check()): ?>
+    
+
 <div class="w-full">
     <div class="w-full">
         <div class="bg-indigo-100 h-96"></div>
@@ -256,4 +259,6 @@
             
         })
     });
-</script><?php /**PATH C:\laragon\www\relincs\local\resources\views/components/support.blade.php ENDPATH**/ ?>
+</script>
+
+<?php endif; ?><?php /**PATH C:\laragon\www\relincs\local\resources\views/components/support.blade.php ENDPATH**/ ?>
