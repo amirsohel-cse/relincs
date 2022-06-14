@@ -1,3 +1,22 @@
+<style>
+    
+    @media  only screen and (min-width: 1024px) {
+        #desktopSBtn{
+            display: block;
+        }
+        #mobileSBtn{
+            display: none;
+        }
+    }
+    @media  only screen and (max-width: 1023px) {
+        #mobileSBtn{
+            display: block;
+        }
+        #desktopSBtn{
+            display: none;
+        }
+    }
+</style>
 <nav :class="{'flex': open, 'hidden': !open}"
 class="flex-col flex-grow hidden  lg:pb-0 lg:flex  lg:justify-start items-center lg:bg-transparent lg:flex-row-reverse">
 <?php if(auth()->guard()->guest()): ?>
@@ -65,6 +84,10 @@ class="flex-col flex-grow hidden  lg:pb-0 lg:flex  lg:justify-start items-center
         </div>
     </div>
 </div>
+<?php endif; ?>
+<?php if(auth()->guard()->check()): ?>
+    <button @click.prevent="support = !support" id="desktopSBtn" class="font-bold px-4 py-2 mt-2 text-sm  hover:bg-midsky transition duration-100 rounded-lg lg:mt-0 lg:ml-4 focus:text-gray-900 hover:text-gray-50 focus:bg-gray-200 lg:text-left text-center focus:outline-none focus:shadow-outline">
+    Support</button>
 <?php endif; ?>
 <?php if(auth()->guard()->check()): ?>
 <!-- Profile menu -->
@@ -167,6 +190,11 @@ class="flex-col flex-grow hidden  lg:pb-0 lg:flex  lg:justify-start items-center
     href="<?php echo e(route('gu.media')); ?>">Media</a>
 <a class="font-bold px-4 py-2 mt-2 text-sm  hover:bg-midsky transition duration-100 rounded-lg lg:mt-0 lg:ml-4 focus:text-gray-900 hover:text-gray-50 focus:bg-gray-200 lg:text-left text-center focus:outline-none focus:shadow-outline"
     href="<?php echo e(route('gu.find')); ?>">Latest</a>
+
+<?php if(auth()->guard()->check()): ?>
+    <button @click.prevent="support = !support" id="mobileSBtn" class="font-bold px-4 py-2 mt-2 text-sm  hover:bg-midsky transition duration-100 rounded-lg lg:mt-0 lg:ml-4 focus:text-gray-900 hover:text-gray-50 focus:bg-gray-200 lg:text-left text-center focus:outline-none focus:shadow-outline">
+    Support</button>
+<?php endif; ?>
 
 </nav>
 
