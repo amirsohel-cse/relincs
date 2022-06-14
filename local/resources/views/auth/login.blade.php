@@ -54,11 +54,14 @@
             </div>
 
             <div class="flex flex-col space-y-5">
-                <!--<span class="flex items-center justify-center space-x-2">-->
-                <!--    <span class="h-px bg-gray-400 w-14"></span>-->
-                <!--    <span class="font-normal text-gray-500 capitalize">or Log in with</span>-->
-                <!--    <span class="h-px bg-gray-400 w-14"></span>-->
-                <!--</span>-->
+                <span class="flex items-center justify-center space-x-2">
+                    <p class="text-sm text-gray-600">Dont't have an account? <a href="{{ route('register') }}" style="color: #6366f1;">Sign Up</a></p>
+                </span>
+                {{-- <span class="flex items-center justify-center space-x-2">
+                    <span class="h-px bg-gray-400 w-14"></span>
+                    <span class="font-normal text-gray-500 capitalize">or Log in with</span>
+                    <span class="h-px bg-gray-400 w-14"></span>
+                </span> --}}
                 <!--<div class="flex flex-col space-y-4">-->
                 <!--    <a href="#"-->
                 <!--        class="flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-indigo-500 rounded-md group hover:bg-indigo-500 focus:outline-none">-->
