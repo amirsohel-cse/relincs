@@ -5,7 +5,7 @@
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
     <?php $__env->startSection('title'); ?>
-        lincs
+        Relincs - where fun is free
     <?php $__env->stopSection(); ?>
     <?php $__env->startSection('link'); ?>
         <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
