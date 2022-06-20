@@ -35,6 +35,8 @@ use App\Http\Livewire\Setting\Profile\Edit;
 use App\Http\Livewire\Hubs\Bulltien\Display;
 use App\Http\Controllers\hubs\HubsController;
 use App\Http\Controllers\messageUserController;
+use App\Http\Livewire\Admin\Auth\LoginComponent;
+use App\Http\Livewire\Admin\DashboardComponent;
 use App\Http\Livewire\Hubs\Wall\Edit as WallEdit;
 use App\Http\Livewire\Hubs\Media\Edit as MediaEdit;
 use App\Http\Livewire\Hubs\Wall\Create as WallCreate;
@@ -113,6 +115,15 @@ Route::prefix('/dashboard')->middleware(['auth','verified'])->name('dash.')->gro
     Route::get('/direct/messages/{id}', MessageUser::class)->name('show.message.user');
 
     Route::post('/support/post', [messageUserController::class, 'sendSupportMessage'])->name('sendSupportMsg');
+});
+
+//Admin Routes
+Route::get('/admin/login', LoginComponent::class)->name('adminLogin');
+
+// Admin Panel
+Route::prefix('/admin')->middleware(['auth','verified', 'authAdmin'])->name('admin.')->group(function () {
+    Route::get('/dashboard', DashboardComponent::class)->name('dashboard');
+    
 });
 
 Route::get('dashboard/admin/users/list', ManagementUser::class)->middleware(['auth','admin'])->name('dash.admin.user.list');
