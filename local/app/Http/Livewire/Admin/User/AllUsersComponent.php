@@ -19,6 +19,8 @@ use App\Models\HubWall;
 use App\Models\Like;
 use App\Models\like_m;
 use App\Models\MarkWall;
+use App\Models\Media;
+use App\Models\messages;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -162,6 +164,20 @@ class AllUsersComponent extends Component
         foreach ($markwalls as $mwall) {
             $mwall = MarkWall::find($mwall->id);
             $mwall->delete();
+        }
+
+        //media
+        $allMedia = Media::where('user_id', $user->id)->get();
+        foreach ($allMedia as $media) {
+            $media = Media::find($media->id);
+            $media->delete();
+        }
+
+        //Messages
+        $allMessages = messages::where('user_id', $user->id)->get();
+        foreach ($allMessages as $message) {
+            $message = messages::find($message->id);
+            $message->delete();
         }
 
 
