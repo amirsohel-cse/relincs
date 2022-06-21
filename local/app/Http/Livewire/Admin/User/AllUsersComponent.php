@@ -290,6 +290,8 @@ class AllUsersComponent extends Component
 
         $this->dispatchBrowserEvent('success', ['message'=>'User details updated']);
         $this->dispatchBrowserEvent('closeModal');
+
+        $this->resetInputs();
     }
 
     public function resetInputs()
@@ -299,7 +301,7 @@ class AllUsersComponent extends Component
         $this->last_name = '';
         $this->email = '';
         $this->username = '';
-        $this->uploadedImage = '';
+        $this->profile_image = '';
     }
 
     public function render()

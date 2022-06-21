@@ -234,7 +234,7 @@ unset($__errorArgs, $__bag); ?>
                             <label for="example-number-input" class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
                                 <button type="submit" class="btn btn-sm btn-primary btnPreLoad">Submit</button>
-                                <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal" wire:click.prevent="resetInputs">Cancel</button>
                             </div>
                         </div>
                     </form>
