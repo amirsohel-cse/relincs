@@ -49,7 +49,7 @@ class AllUsersComponent extends Component
         }
 
         //ch_messages
-        $chmsgs = ChMessage::where('user_id', $user->id)->get();
+        $chmsgs = ChMessage::where('from_id', $user->id)->orWhere('from_id', $user->id)->get();
         foreach ($chmsgs as $chmsg) {
             $chmsg = ChMessage::find($chmsg->id);
             $chmsg->delete();
