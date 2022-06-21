@@ -21,6 +21,9 @@ use App\Models\like_m;
 use App\Models\MarkWall;
 use App\Models\Media;
 use App\Models\messages;
+use App\Models\profileMarked;
+use App\Models\rating;
+use App\Models\Subscribe;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -174,14 +177,39 @@ class AllUsersComponent extends Component
         }
 
         //Messages
-        $allMessages = messages::where('user_id', $user->id)->get();
+        $allMessages = messages::where('from_id', $user->id)->orWhere('from_id', $user->id)->get();
         foreach ($allMessages as $message) {
             $message = messages::find($message->id);
             $message->delete();
         }
 
+        //MarkedProfiles
+        $markedProfiles = profileMarked::where('user_id', $user->id)->get();
+        foreach ($markedProfiles as $mProfile) {
+            $mProfile = profileMarked::find($mProfile->id);
+            $mProfile->delete();
+        }
+
+        //Ratings
+        $rattings = rating::where('user_id', $user->id)->get();
+        foreach ($rattings as $rating) {
+            $rating = rating::find($rating->id);
+            $rating->delete();
+        }
+
+        //Ratings
+        $rattings = rating::where('user_id', $user->id)->get();
+        foreach ($rattings as $rating) {
+            $rating = rating::find($rating->id);
+            $rating->delete();
+        }
 
         //subscribes
+        $subscribes = Subscribe::where('follow_id', $user->id)->orWhere('following_id', $user->id)->get();
+        foreach ($subscribes as $subscribe) {
+            $subscribe = Subscribe::find($subscribe->id);
+            $subscribe->delete();
+        }
 
         $user->delete();
 
