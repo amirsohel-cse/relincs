@@ -27,6 +27,7 @@ use App\Models\rating;
 use App\Models\Subscribe;
 use App\Models\User;
 use App\Models\userMessage;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -186,7 +187,7 @@ class AllUsersComponent extends Component
         }
 
         //MarkedProfiles
-        $markedProfiles = profileMarked::where('user_id', $user->id)->get();
+        $markedProfiles = profileMarked::where('markkard_id', $user->id)->orWhere('markshod_id', $user->id)->get();
         foreach ($markedProfiles as $mProfile) {
             $mProfile = profileMarked::find($mProfile->id);
             $mProfile->delete();
@@ -214,9 +215,9 @@ class AllUsersComponent extends Component
         }
 
         //walls
-        $allWalls = Wall::where('user_id', $user->id)->get();
+        $allWalls = DB::table('wall')->where('user_id', $user->id)->get();
         foreach ($allWalls as $wall) {
-            $wall = Wall::find($wall->id);
+            $wall = DB::table('wall')->find($wall->id);
             $wall->delete();
         }
 
