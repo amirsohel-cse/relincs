@@ -12,6 +12,9 @@ use App\Models\dislike_m;
 use App\Models\hubbulletin;
 use App\Models\HubMedia;
 use App\Models\Hubs;
+use App\Models\hubs_wall_dislike;
+use App\Models\hubs_wall_like;
+use App\Models\hubswallcomment;
 use App\Models\HubWall;
 use App\Models\Like;
 use App\Models\like_m;
@@ -132,6 +135,27 @@ class AllUsersComponent extends Component
 
             $hub->delete();
         }
+
+        //HUBWALLScomments
+        $hubwallcomments = hubswallcomment::where('user_id', $user->id)->get();
+        foreach ($hubwallcomments as $hubwallcomment) {
+            $hubwallcomment = hubswallcomment::find($hubwallcomment->id);
+            $hubwallcomment->delete();
+        }
+
+        //likes
+        $hublikes = hubs_wall_like::where('user_id', $user->id)->get();
+        foreach ($hublikes as $hublike) {
+            $hublike = hubs_wall_like::find($hublike->id);
+            $hublike->delete();
+        }
+        //dislikes
+        $hubdislikes = hubs_wall_dislike::where('user_id', $user->id)->get();
+        foreach ($hubdislikes as $hubdislike) {
+            $hubdislike = hubs_wall_dislike::find($hubdislike->id);
+            $hubdislike->delete();
+        }
+
 
         //subscribes
 
