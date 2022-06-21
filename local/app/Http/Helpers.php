@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Hubs;
 
 function loadingState($key, $title)
 {
@@ -29,4 +30,11 @@ function loadingStateWithProcess($key, $title)
     ';
 
     return $loadingSpinner;
+}
+
+function totalHubs($user_id)
+{
+    $hubs = Hubs::where('user_id', $user_id)->get()->count();
+
+    return $hubs;
 }
