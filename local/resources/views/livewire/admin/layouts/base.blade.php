@@ -217,7 +217,7 @@
             });
 
             $('.btnPreLoad').on('click', function(){
-                $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+                $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> '+$('.btnPreLoad').html());
             });
         });
     </script>

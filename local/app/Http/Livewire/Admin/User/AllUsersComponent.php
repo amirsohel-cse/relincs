@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Admin\User;
 
-use App\Http\Livewire\Explorer\Wall;
 use App\Models\ChFavorite;
 use App\Models\ChMessage;
 use App\Models\Comment;
@@ -28,11 +27,15 @@ use App\Models\Subscribe;
 use App\Models\User;
 use App\Models\userMessage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 class AllUsersComponent extends Component
 {
+    use WithFileUploads;
     use WithPagination;
     public $sortingValue, $searchTerm, $delete_id;
 
@@ -231,6 +234,72 @@ class AllUsersComponent extends Component
         $user->delete();
 
         $this->dispatchBrowserEvent('userDeleted');
+    }
+
+    public $edit_id, $first_name, $last_name, $password, $username, $email, $profile_image, $uploadedImage;
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'username' => 'required',
+            'email' => 'required|email',
+        ]);
+    }
+
+
+    public function editUser($id)
+    {
+        $this->edit_id = $id;
+        $user = User::find($id);
+        $this->first_name = $user->firstname;
+        $this->last_name = $user->lastname;
+        $this->email = $user->email;
+        $this->username = $user->username;
+        $this->uploadedImage = $user->image_profile;
+
+        $this->dispatchBrowserEvent('showEditModal');
+    }
+
+    public function updateUser()
+    {
+        $this->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'username' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        $user = User::find($this->edit_id);
+        $user->firstname = $this->first_name;
+        $user->lastname = $this->last_name;
+        $user->email = $this->email;
+        $user->username = $this->username;
+        $user->password = Hash::make($this->password);
+
+        if($this->profile_image != ''){
+            $imageName = uniqid() . $this->first_name . '.' . $this->profile_image->extension();
+            $this->profile_image->storeAs('public/profile_image', $imageName);
+            Storage::delete('public/profile_image/' . $user->image_profile);
+            
+            $user->image_profile = $imageName;
+        }
+
+        $user->save();
+
+        $this->dispatchBrowserEvent('success', ['message'=>'User details updated']);
+        $this->dispatchBrowserEvent('closeModal');
+    }
+
+    public function resetInputs()
+    {
+        $this->edit_id = '';
+        $this->first_name = '';
+        $this->last_name = '';
+        $this->email = '';
+        $this->username = '';
+        $this->uploadedImage = '';
     }
 
     public function render()
