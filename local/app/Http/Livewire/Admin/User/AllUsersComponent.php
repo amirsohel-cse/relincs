@@ -4,6 +4,9 @@ namespace App\Http\Livewire\Admin\User;
 
 use App\Models\ChFavorite;
 use App\Models\ChMessage;
+use App\Models\Comment;
+use App\Models\CommentMedia;
+use App\Models\CommentVideo;
 use App\Models\hubbulletin;
 use App\Models\HubMedia;
 use App\Models\Hubs;
@@ -47,6 +50,28 @@ class AllUsersComponent extends Component
             $chmsg = ChMessage::find($chmsg->id);
             $chmsg->delete();
         }
+        
+        //comments
+        $comments = Comment::where('user_id', $user->id)->get();
+        foreach ($comments as $comment) {
+            $comment = Comment::find($comment->id);
+            $comment->delete();
+        }
+
+        //commentsmedia
+        $mediacomments = CommentMedia::where('user_id', $user->id)->get();
+        foreach ($mediacomments as $mcomment) {
+            $mcomment = CommentMedia::find($mcomment->id);
+            $mcomment->delete();
+        }
+
+        //commentsvideo
+        $videocomments = CommentVideo::where('user_id', $user->id)->get();
+        foreach ($videocomments as $vcomment) {
+            $vcomment = CommentVideo::find($vcomment->id);
+            $vcomment->delete();
+        }
+
 
 
         //delete_all_hubs
