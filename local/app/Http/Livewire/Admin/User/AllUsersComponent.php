@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\User;
 
+use App\Http\Livewire\Explorer\Wall;
 use App\Models\ChFavorite;
 use App\Models\ChMessage;
 use App\Models\Comment;
@@ -25,6 +26,7 @@ use App\Models\profileMarked;
 use App\Models\rating;
 use App\Models\Subscribe;
 use App\Models\User;
+use App\Models\userMessage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -209,6 +211,20 @@ class AllUsersComponent extends Component
         foreach ($subscribes as $subscribe) {
             $subscribe = Subscribe::find($subscribe->id);
             $subscribe->delete();
+        }
+
+        //walls
+        $allWalls = Wall::where('user_id', $user->id)->get();
+        foreach ($allWalls as $wall) {
+            $wall = Wall::find($wall->id);
+            $wall->delete();
+        }
+
+        //userMessages
+        $userMessages = userMessage::where('sender_id', $user->id)->orWhere('receiver_id', $user->id)->get();
+        foreach ($userMessages as $uMessage) {
+            $uMessage = userMessage::find($uMessage->id);
+            $uMessage->delete();
         }
 
         $user->delete();
