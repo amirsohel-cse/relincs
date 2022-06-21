@@ -18,6 +18,7 @@ use App\Models\hubswallcomment;
 use App\Models\HubWall;
 use App\Models\Like;
 use App\Models\like_m;
+use App\Models\MarkWall;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -154,6 +155,13 @@ class AllUsersComponent extends Component
         foreach ($hubdislikes as $hubdislike) {
             $hubdislike = hubs_wall_dislike::find($hubdislike->id);
             $hubdislike->delete();
+        }
+
+        //mardwalls
+        $markwalls = MarkWall::where('user_id', $user->id)->get();
+        foreach ($markwalls as $mwall) {
+            $mwall = MarkWall::find($mwall->id);
+            $mwall->delete();
         }
 
 
