@@ -7,10 +7,14 @@ use App\Models\ChMessage;
 use App\Models\Comment;
 use App\Models\CommentMedia;
 use App\Models\CommentVideo;
+use App\Models\Dislike;
+use App\Models\dislike_m;
 use App\Models\hubbulletin;
 use App\Models\HubMedia;
 use App\Models\Hubs;
 use App\Models\HubWall;
+use App\Models\Like;
+use App\Models\like_m;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -70,6 +74,32 @@ class AllUsersComponent extends Component
         foreach ($videocomments as $vcomment) {
             $vcomment = CommentVideo::find($vcomment->id);
             $vcomment->delete();
+        }
+
+        //likes
+        $likes = Like::where('user_id', $user->id)->get();
+        foreach ($likes as $like) {
+            $like = Like::find($like->id);
+            $like->delete();
+        }
+        //dislikes
+        $dislikes = Dislike::where('user_id', $user->id)->get();
+        foreach ($dislikes as $dislike) {
+            $dislike = Dislike::find($dislike->id);
+            $dislike->delete();
+        }
+
+        //likesMS
+        $mslikes = like_m::where('user_id', $user->id)->get();
+        foreach ($mslikes as $mlike) {
+            $mlike = like_m::find($mlike->id);
+            $mlike->delete();
+        }
+        //dislikesMS
+        $msdislikes = dislike_m::where('user_id', $user->id)->get();
+        foreach ($msdislikes as $mdislike) {
+            $mdislike = dislike_m::find($mdislike->id);
+            $mdislike->delete();
         }
 
 
