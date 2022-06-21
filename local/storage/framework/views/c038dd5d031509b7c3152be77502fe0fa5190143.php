@@ -28,13 +28,26 @@
                 <div class="collapse navbar-collapse tab-content" id="sidebarCollapse">
                     <ul class="navbar-nav tab-pane active" id="Main" role="tabpanel">
                         
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo e(route('admin.dashboard')); ?>"><i class="ti ti-home menu-icon"></i><span>Dashboard</span></a>
+                        <li class="nav-item <?php echo e(request()->is('admin/dashboard') ? 'menuitem-active': ''); ?>">
+                            <a class="nav-link <?php echo e(request()->is('admin/dashboard') ? 'active': ''); ?>" href="<?php echo e(route('admin.dashboard')); ?>"><i class="ti ti-home menu-icon"></i><span>Dashboard</span></a>
                         </li>
 
                         
 
-                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="#allUsers" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="allUsers">
+                                <i class="ti ti-users menu-icon"></i>
+                                <span>User</span>
+                            </a>
+                            <div class="collapse <?php echo e(request()->is('admin/user') || request()->is('admin/user/*')? 'show': ''); ?>" id="allUsers">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item <?php echo e(request()->is('admin/user/all-users') || request()->is('admin/user//all-users/*') ? 'menuitem-active': ''); ?>">
+                                        <a href="<?php echo e(route('admin.allUsers')); ?>" class="nav-link <?php echo e(request()->is('admin/user/all-users') || request()->is('admin/user/all-users/*') ? 'active': ''); ?>">All User</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

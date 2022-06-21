@@ -28,37 +28,28 @@
                 <div class="collapse navbar-collapse tab-content" id="sidebarCollapse">
                     <ul class="navbar-nav tab-pane active" id="Main" role="tabpanel">
                         
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="ti ti-home menu-icon"></i><span>Dashboard</span></a>
+                        <li class="nav-item {{ request()->is('admin/dashboard') ? 'menuitem-active': '' }}">
+                            <a class="nav-link {{ request()->is('admin/dashboard') ? 'active': '' }}" href="{{ route('admin.dashboard') }}"><i class="ti ti-home menu-icon"></i><span>Dashboard</span></a>
                         </li>
 
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="">
-                                <i class="ti ti-box menu-icon"></i>
-                                <span>Categories</span>
-                            </a>
+                        {{-- <li class="nav-item {{ request()->is('admin/dashboard') ? 'menuitem-active': '' }}">
+                            <a class="nav-link {{ request()->is('admin/dashboard') ? 'active': '' }}" href="{{ route('admin.dashboard') }}"><i class="ti ti-home menu-icon"></i><span>Dashboard</span></a>
                         </li> --}}
 
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="#adminCourses" data-bs-toggle="collapse" role="button"
-                                aria-expanded="false" aria-controls="adminCourses">
-                                <i class="ti ti-list menu-icon"></i>
-                                <span>Courses</span>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#allUsers" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="allUsers">
+                                <i class="ti ti-users menu-icon"></i>
+                                <span>User</span>
                             </a>
-                            <div class="collapse {{ request()->is('admin/courses') || request()->is('admin/courses/*')? 'show': '' }}" id="adminCourses">
+                            <div class="collapse {{ request()->is('admin/user') || request()->is('admin/user/*')? 'show': '' }}" id="allUsers">
                                 <ul class="nav flex-column">
-                                    <li class="nav-item {{ request()->is('admin/courses/all') || request()->is('admin/courses/create-new-course') || request()->is('admin/courses/curriculums/*') || request()->is('admin/courses/edit/*')? 'menuitem-active': '' }}">
-                                        <a href="" class="nav-link {{ request()->is('admin/courses/all') || request()->is('admin/courses/create-new-course') || request()->is('admin/courses/curriculums/*') || request()->is('admin/courses/edit/*')? 'active': '' }}">All Courses</a>
-                                    </li>
-                                    <li class="nav-item {{ request()->is('admin/courses/all') || request()->is('admin/courses/create-new-course') || request()->is('admin/courses/curriculums/*') || request()->is('admin/courses/edit/*')? 'menuitem-active': '' }}">
-                                        <a href="" class="nav-link {{ request()->is('admin/courses/all') || request()->is('admin/courses/create-new-course') || request()->is('admin/courses/curriculums/*') || request()->is('admin/courses/edit/*')? 'active': '' }}">All Courses</a>
-                                    </li>
-                                    <li class="nav-item {{ request()->is('admin/courses/all') || request()->is('admin/courses/create-new-course') || request()->is('admin/courses/curriculums/*') || request()->is('admin/courses/edit/*')? 'menuitem-active': '' }}">
-                                        <a href="" class="nav-link {{ request()->is('admin/courses/all') || request()->is('admin/courses/create-new-course') || request()->is('admin/courses/curriculums/*') || request()->is('admin/courses/edit/*')? 'active': '' }}">All Courses</a>
+                                    <li class="nav-item {{ request()->is('admin/user/all-users') || request()->is('admin/user//all-users/*') ? 'menuitem-active': '' }}">
+                                        <a href="{{ route('admin.allUsers') }}" class="nav-link {{ request()->is('admin/user/all-users') || request()->is('admin/user/all-users/*') ? 'active': '' }}">All User</a>
                                     </li>
                                 </ul>
                             </div>
-                        </li> --}}
+                        </li>
                     </ul>
                 </div>
             </div>

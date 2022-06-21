@@ -27,7 +27,7 @@
                                         <small class="text-muted mb-0">Dummy text of the printing and industry.</small>
                                     </div><!--end media-body-->
                                 </div><!--end media-->
-                            </a><!--end-item-->
+                            </a>
                             <!-- item-->
                             <a href="#" class="dropdown-item py-3">
                                 <small class="float-end text-muted ps-2">10 min ago</small>
@@ -40,7 +40,7 @@
                                         <small class="text-muted mb-0">It is a long established fact that a reader.</small>
                                     </div><!--end media-body-->
                                 </div><!--end media-->
-                            </a><!--end-item-->
+                            </a>
                             <!-- item-->
                             <a href="#" class="dropdown-item py-3">
                                 <small class="float-end text-muted ps-2">40 min ago</small>
@@ -53,7 +53,7 @@
                                         <small class="text-muted mb-0">Dummy text of the printing.</small>
                                     </div><!--end media-body-->
                                 </div><!--end media-->
-                            </a><!--end-item-->
+                            </a>
                             <!-- item-->
                             <a href="#" class="dropdown-item py-3">
                                 <small class="float-end text-muted ps-2">1 hr ago</small>
@@ -64,10 +64,9 @@
                                     <div class="media-body align-self-center ms-2 text-truncate">
                                         <h6 class="my-0 fw-normal text-dark">Your order is placed</h6>
                                         <small class="text-muted mb-0">It is a long established fact that a reader.</small>
-                                    </div><!--end media-body-->
-                                </div><!--end media-->
-                            </a><!--end-item-->
-                            <!-- item-->
+                                    </div>
+                                </div>
+                            </a>
                             <a href="#" class="dropdown-item py-3">
                                 <small class="float-end text-muted ps-2">2 hrs ago</small>
                                 <div class="media">
@@ -77,9 +76,9 @@
                                     <div class="media-body align-self-center ms-2 text-truncate">
                                         <h6 class="my-0 fw-normal text-dark">Payment Successfull</h6>
                                         <small class="text-muted mb-0">Dummy text of the printing.</small>
-                                    </div><!--end media-body-->
-                                </div><!--end media-->
-                            </a><!--end-item-->
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                         <!-- All-->
                         <a href="javascript:void(0);" class="dropdown-item text-center text-primary">
@@ -104,7 +103,7 @@
                         <a class="dropdown-item" href="#"><i class="ti ti-user font-16 me-1 align-text-bottom"></i> Profile</a>
                         <a class="dropdown-item" href="#"><i class="ti ti-settings font-16 me-1 align-text-bottom"></i> Settings</a>
                         <div class="dropdown-divider mb-0"></div>
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="ti ti-power font-16 me-1 align-text-bottom"></i> Logout</a>
+                        <a style="cursor: pointer;" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="ti ti-power font-16 me-1 align-text-bottom"></i> Logout</a>
                         <form id="logout-form" style="display: none;" method="POST" action="{{ route('logout') }}">
                             @csrf
                         </form>

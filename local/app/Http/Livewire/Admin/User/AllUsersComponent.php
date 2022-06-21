@@ -8,6 +8,6 @@ class AllUsersComponent extends Component
 {
     public function render()
     {
-        return view('livewire.admin.user.all-users-component');
+        return view('livewire.admin.user.all-users-component')->layout('livewire.admin.layouts.base');
     }
 }
