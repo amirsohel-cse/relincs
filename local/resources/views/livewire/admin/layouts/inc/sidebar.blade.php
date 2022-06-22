@@ -32,15 +32,13 @@
                             <a class="nav-link {{ request()->is('admin/dashboard') ? 'active': '' }}" href="{{ route('admin.dashboard') }}"><i class="ti ti-home menu-icon"></i><span>Dashboard</span></a>
                         </li>
 
-                        {{-- <li class="nav-item {{ request()->is('admin/dashboard') ? 'menuitem-active': '' }}">
-                            <a class="nav-link {{ request()->is('admin/dashboard') ? 'active': '' }}" href="{{ route('admin.dashboard') }}"><i class="ti ti-home menu-icon"></i><span>Dashboard</span></a>
-                        </li> --}}
+                        
 
                         <li class="nav-item">
                             <a class="nav-link" href="#allUsers" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="allUsers">
                                 <i class="ti ti-users menu-icon"></i>
-                                <span>User</span>
+                                <span>Users</span>
                             </a>
                             <div class="collapse {{ request()->is('admin/user') || request()->is('admin/user/*')? 'show': '' }}" id="allUsers">
                                 <ul class="nav flex-column">
@@ -49,6 +47,10 @@
                                     </li>
                                 </ul>
                             </div>
+                        </li>
+
+                        <li class="nav-item {{ request()->is('admin/walls') ? 'menuitem-active': '' }}">
+                            <a class="nav-link {{ request()->is('admin/walls') ? 'active': '' }}" href="{{ route('admin.allWalls') }}"><i class="ti ti-device-tv menu-icon"></i><span>Walls</span></a>
                         </li>
 
                         <li class="nav-item">

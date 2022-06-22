@@ -38,6 +38,7 @@ use App\Http\Livewire\Admin\Auth\LoginComponent;
 use App\Http\Livewire\Admin\DashboardComponent;
 use App\Http\Livewire\Admin\Setting\WebsiteSetupComponent;
 use App\Http\Livewire\Admin\User\AllUsersComponent;
+use App\Http\Livewire\Admin\Wall\AllWallsComponent;
 use App\Http\Livewire\Hubs\Wall\Edit as WallEdit;
 use App\Http\Livewire\Hubs\Media\Edit as MediaEdit;
 use App\Http\Livewire\Hubs\Wall\Create as WallCreate;
@@ -127,6 +128,9 @@ Route::prefix('/admin')->middleware(['auth','verified', 'authAdmin'])->name('adm
 
     //Users
     Route::get('/user/all-users', AllUsersComponent::class)->name('allUsers');
+
+    //Walls
+    Route::get('/walls', AllWallsComponent::class)->name('allWalls');
 
     //settings
     Route::get('/setting/website-setup', WebsiteSetupComponent::class)->name('websiteSetup');
