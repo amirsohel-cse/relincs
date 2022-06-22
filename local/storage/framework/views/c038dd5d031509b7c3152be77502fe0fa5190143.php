@@ -48,6 +48,21 @@
                                 </ul>
                             </div>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#setting" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="setting">
+                                <i class="ti ti-settings menu-icon"></i>
+                                <span>Setting</span>
+                            </a>
+                            <div class="collapse <?php echo e(request()->is('admin/setting') || request()->is('admin/setting/*')? 'show': ''); ?>" id="setting">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item <?php echo e(request()->is('admin/setting/website-setup') || request()->is('admin/setting/website-setup/*') ? 'menuitem-active': ''); ?>">
+                                        <a href="<?php echo e(route('admin.websiteSetup')); ?>" class="nav-link <?php echo e(request()->is('admin/setting/website-setup') || request()->is('admin/setting/website-setup/*') ? 'active': ''); ?>">Website Setup</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

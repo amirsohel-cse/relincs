@@ -15,6 +15,12 @@ class CreateSettingWebsitesTable extends Migration
     {
         Schema::create('setting_websites', function (Blueprint $table) {
             $table->id();
+            $table->string('logo')->nullable();
+            $table->string('copyright_text')->nullable();
+            $table->string('facebook_url')->nullable();
+            $table->string('instagram_url')->nullable();
+            $table->string('twitter_url')->nullable();
+            $table->string('youtube_url')->nullable();
             $table->timestamps();
         });
     }

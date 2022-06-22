@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class SettingWebsite extends Model
 {
     use HasFactory;
+
+    protected $table = 'setting_websites';
 }

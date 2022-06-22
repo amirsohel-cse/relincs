@@ -54,7 +54,8 @@ return [
     |
     */
 
-    'asset_url' => null,
+    // 'asset_url' => null,
+    'asset_url' => env('APP_URL'),
 
     /*
     |--------------------------------------------------------------------------
@@ -68,7 +69,6 @@ return [
     |
     */
 
-    //'app_url' => env('APP_URL'),
 	'app_url' => null,
 
     /*

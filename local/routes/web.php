@@ -29,7 +29,6 @@ use App\Http\Livewire\Explorer\Profiles;
 use App\Http\Livewire\Hubs\Media\Create;
 use App\Http\Livewire\Hubs\Wall\Listwall;
 use App\Http\Livewire\Profile\ProfileUSer;
-use App\Http\Controllers\directoxontroller;
 use App\Http\Livewire\Hubs\Media\ListMedia;
 use App\Http\Livewire\Setting\Profile\Edit;
 use App\Http\Livewire\Hubs\Bulltien\Display;
@@ -37,6 +36,7 @@ use App\Http\Controllers\hubs\HubsController;
 use App\Http\Controllers\messageUserController;
 use App\Http\Livewire\Admin\Auth\LoginComponent;
 use App\Http\Livewire\Admin\DashboardComponent;
+use App\Http\Livewire\Admin\Setting\WebsiteSetupComponent;
 use App\Http\Livewire\Admin\User\AllUsersComponent;
 use App\Http\Livewire\Hubs\Wall\Edit as WallEdit;
 use App\Http\Livewire\Hubs\Media\Edit as MediaEdit;
@@ -127,6 +127,9 @@ Route::prefix('/admin')->middleware(['auth','verified', 'authAdmin'])->name('adm
 
     //Users
     Route::get('/user/all-users', AllUsersComponent::class)->name('allUsers');
+
+    //settings
+    Route::get('/setting/website-setup', WebsiteSetupComponent::class)->name('websiteSetup');
     
 });
 
