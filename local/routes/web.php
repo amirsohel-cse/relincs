@@ -36,6 +36,10 @@ use App\Http\Controllers\hubs\HubsController;
 use App\Http\Controllers\messageUserController;
 use App\Http\Livewire\Admin\Auth\LoginComponent;
 use App\Http\Livewire\Admin\DashboardComponent;
+use App\Http\Livewire\Admin\Hub\AllHubsComponent;
+use App\Http\Livewire\Admin\Hub\HubBulletinsComponent;
+use App\Http\Livewire\Admin\Hub\HubMediaComponent;
+use App\Http\Livewire\Admin\Hub\HubWallsComponent;
 use App\Http\Livewire\Admin\Setting\WebsiteSetupComponent;
 use App\Http\Livewire\Admin\User\AllUsersComponent;
 use App\Http\Livewire\Admin\Wall\AllWallsComponent;
@@ -131,6 +135,12 @@ Route::prefix('/admin')->middleware(['auth','verified', 'authAdmin'])->name('adm
 
     //Walls
     Route::get('/walls', AllWallsComponent::class)->name('allWalls');
+
+    //Hubs
+    Route::get('/hubs', AllHubsComponent::class)->name('allHubs');
+    Route::get('/hubs/medias/{hub_id}', HubMediaComponent::class)->name('allHubMedias');
+    Route::get('/hubs/walls/{hub_id}', HubWallsComponent::class)->name('allHubWalls');
+    Route::get('/hubs/bulletins/{hub_id}', HubBulletinsComponent::class)->name('allHubBulletins');
 
     //settings
     Route::get('/setting/website-setup', WebsiteSetupComponent::class)->name('websiteSetup');

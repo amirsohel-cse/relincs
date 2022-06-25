@@ -49,6 +49,10 @@
                             </div>
                         </li>
 
+                        <li class="nav-item {{ request()->is('admin/hubs') ? 'menuitem-active': '' }}">
+                            <a class="nav-link {{ request()->is('admin/hubs') ? 'active': '' }}" href="{{ route('admin.allHubs') }}"><i class="ti ti-layout menu-icon"></i><span>Hubs</span></a>
+                        </li>
+
                         <li class="nav-item {{ request()->is('admin/walls') ? 'menuitem-active': '' }}">
                             <a class="nav-link {{ request()->is('admin/walls') ? 'active': '' }}" href="{{ route('admin.allWalls') }}"><i class="ti ti-device-tv menu-icon"></i><span>Walls</span></a>
                         </li>
