@@ -1,6 +1,6 @@
-@section('title')
-    Relincs
-@endsection
+<?php $__env->startSection('title'); ?>
+    E-Learning
+<?php $__env->stopSection(); ?>
 <div>
     <div class="container-fluid">
         <!-- Page-Title -->
@@ -138,3 +138,4 @@
         </div>
     </div>
 </div>
+<?php /**PATH C:\laragon\www\relincs\local\resources\views/livewire/admin/dashboard-component.blade.php ENDPATH**/ ?>
