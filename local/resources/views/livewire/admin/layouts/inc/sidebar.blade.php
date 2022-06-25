@@ -49,8 +49,8 @@
                             </div>
                         </li>
 
-                        <li class="nav-item {{ request()->is('admin/hubs') ? 'menuitem-active': '' }}">
-                            <a class="nav-link {{ request()->is('admin/hubs') ? 'active': '' }}" href="{{ route('admin.allHubs') }}"><i class="ti ti-layout menu-icon"></i><span>Hubs</span></a>
+                        <li class="nav-item {{ request()->is('admin/hubs') || request()->is('admin/hubs/*') ? 'menuitem-active': '' }}">
+                            <a class="nav-link {{ request()->is('admin/hubs') || request()->is('admin/hubs/*') ? 'active': '' }}" href="{{ route('admin.allHubs') }}"><i class="ti ti-layout menu-icon"></i><span>Hubs</span></a>
                         </li>
 
                         <li class="nav-item {{ request()->is('admin/walls') ? 'menuitem-active': '' }}">

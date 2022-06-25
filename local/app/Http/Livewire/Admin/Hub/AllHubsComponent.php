@@ -94,7 +94,7 @@ class AllHubsComponent extends Component
             }
 
             //delete_mediaDisLikes
-            $mediaDisLikes = DisLikeHubMedia::where('media_id', $mediaDis->id)->get();
+            $mediaDisLikes = DisLikeHubMedia::where('media_id', $media->id)->get();
             foreach($mediaDisLikes as $mediaDisLike){
                 $mediaDisLike = DisLikeHubMedia::find($mediaDisLike->id);
                 $mediaDisLike->delete(); 

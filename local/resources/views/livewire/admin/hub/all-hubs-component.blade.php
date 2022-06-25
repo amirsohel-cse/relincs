@@ -1,5 +1,5 @@
 @section('title')
-    Walls
+    Hubs
 @endsection
 <div>
     <div class="container-fluid">
@@ -86,16 +86,16 @@
                                                             target="_blank"><i class="ti ti-eye"></i> View Hub</a>
 
                                                         <a class="dropdown-item"
-                                                            href="{{ route('show.hubs', ['uid'=>$hub->uid]) }}"
-                                                            target="_blank"><i class="ti ti-viewport-wide"></i> View Hub Medias</a>
+                                                            href="{{ route('admin.allHubMedias', ['hub_id'=>$hub->id]) }}"
+                                                            ><i class="ti ti-viewport-wide"></i> View Hub Medias</a>
 
                                                         <a class="dropdown-item"
-                                                            href="{{ route('show.hubs', ['uid'=>$hub->uid]) }}"
-                                                            target="_blank"><i class="ti ti-viewport-wide"></i> View Hub Walls</a>
+                                                            href="{{ route('admin.allHubWalls', ['hub_id'=>$hub->id]) }}"
+                                                            ><i class="ti ti-viewport-wide"></i> View Hub Walls</a>
 
                                                         <a class="dropdown-item"
-                                                            href="{{ route('show.hubs', ['uid'=>$hub->uid]) }}"
-                                                            target="_blank"><i class="ti ti-viewport-wide"></i> View Hub Bulletins</a>
+                                                            href="{{ route('admin.allHubBulletins', ['hub_id'=>$hub->id]) }}"
+                                                            ><i class="ti ti-viewport-wide"></i> View Hub Bulletins</a>
 
                                                         <a href="" wire:click.prevent="deleteConfirmation({{ $hub->id }})"
                                                             class="dropdown-item"><i class="ti ti-trash"></i> Delete</a>
