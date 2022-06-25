@@ -51,7 +51,7 @@
                                         <th>Title</th>
                                         <th>Views</th>
                                         <th>Visibility</th>
-                                        <th>Status</th>
+                                        <th style="text-align: center;">Status</th>
                                         <th style="text-align: center;">Action</th>
                                     </tr>
                                 </thead>
@@ -69,7 +69,13 @@
                                                     {{ $wall->title }}</td>
                                                 <td>{{ $wall->views }}</td>
                                                 <td>{{ ucfirst($wall->visibility) }}</td>
-                                                <td>{{ $wall->status }}</td>
+                                                <td style="text-align: center;">
+                                                    @if ($wall->status == 1)
+                                                        <span wire:click.prevent='changeStatus({{ $wall->id }})' class="badge bg-success statusPreLoad" style="font-size: 12.5px; cursor: pointer;">Published</span>
+                                                    @else
+                                                        <span wire:click.prevent='changeStatus({{ $wall->id }})' class="badge bg-danger statusPreLoad" style="font-size: 12.5px; cursor: pointer;">UnPublished<span>   
+                                                    @endif
+                                                </td>
                                                 <td style="text-align: center;">
                                                     <button type="button"
                                                         class="btn btn-outline-primary btn-icon-circle btn-icon-circle-sm dropdown-toggle"
@@ -79,12 +85,9 @@
                                                         <a class="dropdown-item"
                                                             href="{{ route('show.wall.feed', ['video'=>$wall->uid]) }}"
                                                             target="_blank"><i class="ti ti-eye"></i> View Wall</a>
-                                                        {{-- <a class="dropdown-item" href=""
-                                                            wire:click.prevent="editUser({{ $wall->id }})"><i
-                                                                class="ti ti-edit"></i> Edit</a>
-                                                        <a href=""
-                                                            wire:click.prevent="deleteConfirmation({{ $wall->id }})"
-                                                            class="dropdown-item"><i class="ti ti-trash"></i> Delete</a> --}}
+
+                                                        <a href="" wire:click.prevent="deleteConfirmation({{ $wall->id }})"
+                                                            class="dropdown-item"><i class="ti ti-trash"></i> Delete</a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -103,101 +106,6 @@
             </div>
         </div>
     </div>
-
-    {{-- <div wire:ignore.self class="modal fade" id="editUserModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
-        aria-labelledby="editUserModal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form wire:submit.prevent='updateUser'>
-                        <div class="mb-3 row">
-                            <label for="example-text-input" class="col-sm-3 col-form-label">Profile Image</label>
-                            <div class="col-sm-9">
-                                <input class="form-control mb-2" type="file" wire:model="profile_image">
-                                @error('profile_image')
-                                    <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
-                                @enderror
-
-                                <div wire:loading="profile_image" wire:target="profile_image" wire:key="profile_image" style="font-size: 12.5px;" class="mr-2"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Uploading</div>
-
-                                @if ($profile_image)
-                                    <img src="{{ $profile_image->temporaryUrl() }}" width="70" height="70" class="mt-2 mb-2 rounded-circle" />
-                                @elseif($uploadedImage != '')
-                                    <img src="https://relincsca.s3.amazonaws.com/public/profile_image/{{ $uploadedImage }}" width="70" height="70" class="mt-2 mb-2 rounded-circle" />
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="example-text-input" class="col-sm-3 col-form-label">First Name</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" wire:model="first_name" placeholder="Enter first name">
-                                @error('first_name')
-                                    <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
-                                @enderror
-                            </div>
-                        </div>
-                        
-                        <div class="mb-3 row">
-                            <label for="example-text-input" class="col-sm-3 col-form-label">Last Name</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" wire:model="last_name" placeholder="Enter last name">
-                                @error('last_name')
-                                    <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
-                                @enderror
-                            </div>
-                        </div>
-                        
-                        <div class="mb-3 row">
-                            <label for="example-text-input" class="col-sm-3 col-form-label">Email</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" wire:model="email" placeholder="Enter email">
-                                @error('email')
-                                    <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
-                                @enderror
-                            </div>
-                        </div>
-                        
-                        <div class="mb-3 row">
-                            <label for="example-text-input" class="col-sm-3 col-form-label">Username</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" wire:model="username" placeholder="Enter user">
-                                @error('username')
-                                    <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
-                                @enderror
-                            </div>
-                        </div>
-                        
-                        <div class="mb-3 row">
-                            <label for="example-text-input" class="col-sm-3 col-form-label">Password</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" wire:model="password" placeholder="Enter new password">
-                                @error('password')
-                                    <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
-                                @enderror
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="mb-3 row">
-                            <label for="example-number-input" class="col-sm-3 col-form-label"></label>
-                            <div class="col-sm-9">
-                                <button type="submit" class="btn btn-sm btn-primary btnPreLoad">Submit</button>
-                                <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal" wire:click.prevent="resetInputs">Cancel</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
 </div>
 
 @push('scripts')
@@ -210,7 +118,7 @@
         });
 
         //DeleteConfirmation
-        window.addEventListener('show_user_delete_confirmation', event => {
+        window.addEventListener('show_wall_delete_confirmation', event => {
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -227,10 +135,10 @@
         });
 
         //Success Delete
-        window.addEventListener('userDeleted', event => {
+        window.addEventListener('wallDeleted', event => {
             Swal.fire(
                 'Deleted!',
-                'User has been deleted successfully.',
+                'Wall has been deleted successfully.',
                 'success'
             )
         });

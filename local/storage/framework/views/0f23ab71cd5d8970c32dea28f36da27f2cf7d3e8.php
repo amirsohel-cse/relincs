@@ -51,7 +51,7 @@
                                         <th>Title</th>
                                         <th>Views</th>
                                         <th>Visibility</th>
-                                        <th>Status</th>
+                                        <th style="text-align: center;">Status</th>
                                         <th style="text-align: center;">Action</th>
                                     </tr>
                                 </thead>
@@ -69,7 +69,13 @@
                                                     <?php echo e($wall->title); ?></td>
                                                 <td><?php echo e($wall->views); ?></td>
                                                 <td><?php echo e(ucfirst($wall->visibility)); ?></td>
-                                                <td><?php echo e($wall->status); ?></td>
+                                                <td style="text-align: center;">
+                                                    <?php if($wall->status == 1): ?>
+                                                        <span wire:click.prevent='changeStatus(<?php echo e($wall->id); ?>)' class="badge bg-success statusPreLoad" style="font-size: 12.5px; cursor: pointer;">Published</span>
+                                                    <?php else: ?>
+                                                        <span wire:click.prevent='changeStatus(<?php echo e($wall->id); ?>)' class="badge bg-danger statusPreLoad" style="font-size: 12.5px; cursor: pointer;">UnPublished<span>   
+                                                    <?php endif; ?>
+                                                </td>
                                                 <td style="text-align: center;">
                                                     <button type="button"
                                                         class="btn btn-outline-primary btn-icon-circle btn-icon-circle-sm dropdown-toggle"
@@ -79,7 +85,9 @@
                                                         <a class="dropdown-item"
                                                             href="<?php echo e(route('show.wall.feed', ['video'=>$wall->uid])); ?>"
                                                             target="_blank"><i class="ti ti-eye"></i> View Wall</a>
-                                                        
+
+                                                        <a href="" wire:click.prevent="deleteConfirmation(<?php echo e($wall->id); ?>)"
+                                                            class="dropdown-item"><i class="ti ti-trash"></i> Delete</a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -99,9 +107,6 @@
             </div>
         </div>
     </div>
-
-    
-
 </div>
 
 <?php $__env->startPush('scripts'); ?>
@@ -114,7 +119,7 @@
         });
 
         //DeleteConfirmation
-        window.addEventListener('show_user_delete_confirmation', event => {
+        window.addEventListener('show_wall_delete_confirmation', event => {
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -131,10 +136,10 @@
         });
 
         //Success Delete
-        window.addEventListener('userDeleted', event => {
+        window.addEventListener('wallDeleted', event => {
             Swal.fire(
                 'Deleted!',
-                'User has been deleted successfully.',
+                'Wall has been deleted successfully.',
                 'success'
             )
         });
