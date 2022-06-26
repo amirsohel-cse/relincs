@@ -9,22 +9,13 @@
                 <div class="page-title-box">
                     <div class="float-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Unikit</a>
-                            </li>
-                            <!--end nav-item-->
-                            <li class="breadcrumb-item"><a href="#">Dashboard</a>
-                            </li>
-                            <!--end nav-item-->
-                            <li class="breadcrumb-item active">Analytics</li>
+                            <li class="breadcrumb-item">Dashboard</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Analytics</h4>
+                    <h4 class="page-title">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</h4>
                 </div>
-                <!--end page-title-box-->
             </div>
-            
         </div>
-        <!-- end page title end breadcrumb -->
 
         <div class="row">
             <div class="col-lg-12 order-lg-2 order-md-1 order-sm-1">
@@ -42,8 +33,8 @@
                                     </div>
                                     
                                     <div class="col-12 ms-auto align-self-center">
-                                        <h3 class="text-dark my-0 font-22 fw-bold">24000</h3>
-                                        <p class="text-muted mb-0 fw-semibold">Sessions</p>
+                                        <h3 class="text-dark my-0 font-22 fw-bold">{{ $totalUser }}</h3>
+                                        <p class="text-muted mb-0 fw-semibold">Total Users</p>
                                     </div>
                                     
                                 </div>
@@ -58,11 +49,7 @@
                             <div class="card-body">
                                 <div class="row d-flex">
                                     <div class="col-3">
-                                        <i class="ti ti-clock font-36 align-self-center text-dark"></i>
-                                    </div>
-                                    
-                                    <div class="col-auto ms-auto align-self-center">
-                                        <span class="badge badge-soft-success px-2 py-1 font-11">Active</span>
+                                        <i class="ti ti-layout font-36 align-self-center text-dark"></i>
                                     </div>
                                     
                                     <div class="col-12 ms-auto align-self-center">
@@ -70,8 +57,8 @@
                                     </div>
                                     
                                     <div class="col-12 ms-auto align-self-center">
-                                        <h3 class="text-dark my-0 font-22 fw-bold">00:18</h3>
-                                        <p class="text-muted mb-0 fw-semibold">Avg.Sessions</p>
+                                        <h3 class="text-dark my-0 font-22 fw-bold">{{ $totalHubs }}</h3>
+                                        <p class="text-muted mb-0 fw-semibold">Total Hubs</p>
                                     </div>
                                     
                                 </div>
@@ -86,7 +73,7 @@
                             <div class="card-body">
                                 <div class="row d-flex">
                                     <div class="col-3">
-                                        <i class="ti ti-activity font-36 align-self-center text-dark"></i>
+                                        <i class="ti ti-photo font-36 align-self-center text-dark"></i>
                                     </div>
                                     
                                     <div class="col-12 ms-auto align-self-center">
@@ -94,8 +81,8 @@
                                     </div>
                                     
                                     <div class="col-12 ms-auto align-self-center">
-                                        <h3 class="text-dark my-0 font-22 fw-bold">$2400</h3>
-                                        <p class="text-muted mb-0 fw-semibold">Bounce Rate</p>
+                                        <h3 class="text-dark my-0 font-22 fw-bold">{{ $totalWalls }}</h3>
+                                        <p class="text-muted mb-0 fw-semibold">Total Walls</p>
                                     </div>
                                     
                                 </div>
@@ -110,11 +97,7 @@
                             <div class="card-body">
                                 <div class="row d-flex">
                                     <div class="col-3">
-                                        <i class="ti ti-confetti font-36 align-self-center text-dark"></i>
-                                    </div>
-                                    
-                                    <div class="col-auto ms-auto align-self-center">
-                                        <span class="badge badge-soft-danger px-2 py-1 font-11">-2%</span>
+                                        <i class="ti ti-device-tv font-36 align-self-center text-dark"></i>
                                     </div>
                                     
                                     <div class="col-12 ms-auto align-self-center">
@@ -122,8 +105,8 @@
                                     </div>
                                     
                                     <div class="col-12 ms-auto align-self-center">
-                                        <h3 class="text-dark my-0 font-22 fw-bold">85000</h3>
-                                        <p class="text-muted mb-0 fw-semibold">Goal Completions</p>
+                                        <h3 class="text-dark my-0 font-22 fw-bold">{{ $totalMedia }}</h3>
+                                        <p class="text-muted mb-0 fw-semibold">Total Media</p>
                                     </div>
                                     
                                 </div>

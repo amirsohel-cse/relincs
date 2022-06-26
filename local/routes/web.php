@@ -40,6 +40,8 @@ use App\Http\Livewire\Admin\Hub\AllHubsComponent;
 use App\Http\Livewire\Admin\Hub\HubBulletinsComponent;
 use App\Http\Livewire\Admin\Hub\HubMediaComponent;
 use App\Http\Livewire\Admin\Hub\HubWallsComponent;
+use App\Http\Livewire\Admin\Media\AllMediaComponent;
+use App\Http\Livewire\Admin\Profile\ProfileComponent;
 use App\Http\Livewire\Admin\Setting\WebsiteSetupComponent;
 use App\Http\Livewire\Admin\User\AllUsersComponent;
 use App\Http\Livewire\Admin\Wall\AllWallsComponent;
@@ -141,6 +143,12 @@ Route::prefix('/admin')->middleware(['auth','verified', 'authAdmin'])->name('adm
     Route::get('/hubs/medias/{hub_id}', HubMediaComponent::class)->name('allHubMedias');
     Route::get('/hubs/walls/{hub_id}', HubWallsComponent::class)->name('allHubWalls');
     Route::get('/hubs/bulletins/{hub_id}', HubBulletinsComponent::class)->name('allHubBulletins');
+
+    //Medias
+    Route::get('/all-media', AllMediaComponent::class)->name('allMedias');
+
+    //Profile
+    Route::get('/profile', ProfileComponent::class)->name('profile');
 
     //settings
     Route::get('/setting/website-setup', WebsiteSetupComponent::class)->name('websiteSetup');

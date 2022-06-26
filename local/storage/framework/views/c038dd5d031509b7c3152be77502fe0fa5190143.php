@@ -4,17 +4,13 @@
         <div class="brand">
             <a href="/admin" class="logo">
                 <span>
-                    <img src="<?php echo e(asset('assets/admin/images/logo-sm.png')); ?>" alt="logo-small" class="logo-sm">
-                </span>
-                <span>
-                    <img src="<?php echo e(asset('assets/admin/images/logo.png')); ?>" alt="logo-large" class="logo-lg logo-light">
-                    <img src="<?php echo e(asset('assets/admin/images/logo-dark.png')); ?>" alt="logo-large" class="logo-lg logo-dark">
+                    <img src="https://relincsca.s3.amazonaws.com/public/media/<?php echo e($setting->logo); ?>" alt="logo-large" style="height: 70px;" class="logo-lg logo-light">
                 </span>
             </a>
         </div>
 
         <div class="border-end text-center pt-3">
-            <img src="<?php echo e(asset('assets/admin/images/users/user-4.jpg')); ?>" alt="user" class="rounded-circle thumb-md">
+            <img src="<?php echo e(Auth::user()->profile()); ?>" alt="user" class="rounded-circle thumb-md">
         </div>
         <div class="sidebar-user-pro media border-end">
             <div class="media-body ms-2 user-detail align-self-center text-center">
@@ -54,7 +50,11 @@
                         </li>
 
                         <li class="nav-item <?php echo e(request()->is('admin/walls') ? 'menuitem-active': ''); ?>">
-                            <a class="nav-link <?php echo e(request()->is('admin/walls') ? 'active': ''); ?>" href="<?php echo e(route('admin.allWalls')); ?>"><i class="ti ti-device-tv menu-icon"></i><span>Walls</span></a>
+                            <a class="nav-link <?php echo e(request()->is('admin/walls') ? 'active': ''); ?>" href="<?php echo e(route('admin.allWalls')); ?>"><i class="ti ti-photo menu-icon"></i><span>Walls</span></a>
+                        </li>
+
+                        <li class="nav-item <?php echo e(request()->is('admin/all-media') ? 'menuitem-active': ''); ?>">
+                            <a class="nav-link <?php echo e(request()->is('admin/all-media') ? 'active': ''); ?>" href="<?php echo e(route('admin.allMedias')); ?>"><i class="ti ti-device-tv menu-icon"></i><span>Media</span></a>
                         </li>
 
                         <li class="nav-item">
