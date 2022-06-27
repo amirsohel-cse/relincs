@@ -4,7 +4,7 @@
         <div class="brand">
             <a href="/admin" class="logo">
                 <span>
-                    <img src="https://relincsca.s3.amazonaws.com/public/media/<?php echo e($setting->logo); ?>" alt="logo-large" style="height: 70px;" class="logo-lg logo-light">
+                    <img src="https://relincsca.s3.amazonaws.com/public/media/<?php echo e($setting->logo); ?>" alt="logo-large" style="height: 50px;" class="logo-lg logo-light">
                 </span>
             </a>
         </div>
