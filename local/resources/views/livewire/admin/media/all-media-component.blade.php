@@ -79,7 +79,7 @@
                                                     <div class="dropdown-menu" style="width: auto;">
                                                         <a class="dropdown-item"
                                                             href="{{ route('watch.media', ['media'=>$media->uid]) }}"
-                                                            target="_blank"><i class="ti ti-eye"></i> View Wall</a>
+                                                            target="_blank"><i class="ti ti-eye"></i> View Media</a>
 
                                                         <a href="" wire:click.prevent="deleteConfirmation({{ $media->id }})"
                                                             class="dropdown-item"><i class="ti ti-trash"></i> Delete</a>
