@@ -13,7 +13,7 @@ class Profiles extends Component
     public function render()
     {
         return view('livewire.explorer.profiles', [
-            "users" => User::query()->latest()->paginate(10),
+            "users" => User::query()->orderBy('image_profile', 'DESC')->paginate(10),
         ])->layout('layouts.explorer');
     }
     
