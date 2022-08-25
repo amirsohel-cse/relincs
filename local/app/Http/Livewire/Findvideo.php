@@ -28,7 +28,7 @@ class Findvideo extends Component
     public function render()
     {
         $show_data = Media::orderBy('created_at', 'asc')->take(18)->get();
-        $wall_data = Video::where('visibility', 'public')->orWhere('user_id', Auth::user()->id)->latest()->take(3)->get();
+        $wall_data = Video::where('visibility', 'public')->latest()->take(3)->get();
         $hubs_data = Hubs::latest()->take(4)->get();
     $result = $this->result;
       return view('livewire.findvideo' , compact('result','show_data','wall_data','hubs_data'))->layout('layouts.guest');

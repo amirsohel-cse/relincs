@@ -61,7 +61,7 @@ Route::get('/', function () {
         $show_data_latest = Media::orderBy('created_at', 'desc')->whereDay('created_at', '15')->get();
         return view('index', compact('show_data','show_data_section','showlastmedia','hubs_data','wall_data','show_data_latest'));
     }else{
-        return redirect()->route('login');
+        return redirect()->route('gu.find');
     }
 })->name('home');
 Route::get('/media', Allmedias::class)->name('gu.media')->middleware('auth', 'verified');
@@ -70,7 +70,7 @@ Route::get('/media/hubs', Hubs::class)->name('gu.ehubs')->middleware('auth', 've
 Route::get('/media/profiles', Profiles::class)->name('gu.profiles')->middleware('auth', 'verified');
 Route::name('gu.')->group(function () {
     Route::get('/profile/{name:id}', ProfileUSer::class)->name('profile.show');
-    Route::get('/latest', Findvideo::class)->name('find')->middleware('auth', 'verified');
+    Route::get('/latest', Findvideo::class)->name('find');
     Route::get('/hubs', [HubsController::class, 'display'])->name('hubs');
 });
 
