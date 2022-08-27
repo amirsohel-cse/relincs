@@ -5,7 +5,7 @@
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
     <?php $__env->startSection('title'); ?>
-    Log in To Dashboard
+        Log in To Dashboard
     <?php $__env->stopSection(); ?>
     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.auth-card','data' => []]); ?>
@@ -13,8 +13,9 @@
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
-      <div x-data="{opene : true}" @click="opene = !opene" x-transition x-show="opene" class="text-sm w-full flex my-2 mb-4 shadow-lg rounded-lg mx-auto text-left h-full px-3 py-3 bg-indigo-500 text-white">
-  To use the site features, you must first log in ✌  </div>
+        <div x-data="{ opene: true }" @click="opene = !opene" x-transition x-show="opene"
+            class="text-sm w-full flex my-2 mb-4 shadow-lg rounded-lg mx-auto text-left h-full px-3 py-3 bg-indigo-500 text-white">
+            To use the site features, you must first log in ✌ </div>
 
         <!-- Session Status -->
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
@@ -117,10 +118,11 @@
 
             <div class="flex items-center justify-between mt-4">
                 <?php if(Route::has('password.request')): ?>
-                <a class="underline-none text-sm text-gray-600 hover:text-gray-900 mr-4 " href="<?php echo e(route('password.request')); ?>">
-                    <?php echo e(__('Forgot your password?')); ?>
+                    <a class="underline-none text-sm text-gray-600 hover:text-gray-900 mr-4 "
+                        href="<?php echo e(route('password.request')); ?>">
+                        <?php echo e(__('Forgot your password?')); ?>
 
-                </a>
+                    </a>
                 <?php endif; ?>
 
                 <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
@@ -141,7 +143,8 @@
 
             <div class="flex flex-col space-y-5">
                 <span class="flex items-center justify-center space-x-2">
-                    <p class="text-sm text-gray-600">Dont't have an account? <a href="<?php echo e(route('register')); ?>" style="color: #6366f1;">Sign Up</a></p>
+                    <p class="text-sm text-gray-600">Dont't have an account? <a href="<?php echo e(route('register')); ?>"
+                            style="color: #6366f1;">Sign Up</a></p>
                 </span>
                 
                 <!--<div class="flex flex-col space-y-4">-->

@@ -1,10 +1,11 @@
 <x-guest-layout>
     @section('title')
-    Log in To Dashboard
+        Log in To Dashboard
     @endsection
     <x-auth-card>
-      <div x-data="{opene : true}" @click="opene = !opene" x-transition x-show="opene" class="text-sm w-full flex my-2 mb-4 shadow-lg rounded-lg mx-auto text-left h-full px-3 py-3 bg-indigo-500 text-white">
-  To use the site features, you must first log in ✌  </div>
+        <div x-data="{ opene: true }" @click="opene = !opene" x-transition x-show="opene"
+            class="text-sm w-full flex my-2 mb-4 shadow-lg rounded-lg mx-auto text-left h-full px-3 py-3 bg-indigo-500 text-white">
+            To use the site features, you must first log in ✌ </div>
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -19,8 +20,8 @@
             <div>
                 <x-label for="email" :value="__('Email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
-                    autofocus />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
+                    required autofocus />
             </div>
 
             <!-- Password -->
@@ -43,9 +44,10 @@
 
             <div class="flex items-center justify-between mt-4">
                 @if (Route::has('password.request'))
-                <a class="underline-none text-sm text-gray-600 hover:text-gray-900 mr-4 " href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
+                    <a class="underline-none text-sm text-gray-600 hover:text-gray-900 mr-4 "
+                        href="{{ route('password.request') }}">
+                        {{ __('Forgot your password?') }}
+                    </a>
                 @endif
 
                 <x-button class=" text-center">
@@ -55,7 +57,8 @@
 
             <div class="flex flex-col space-y-5">
                 <span class="flex items-center justify-center space-x-2">
-                    <p class="text-sm text-gray-600">Dont't have an account? <a href="{{ route('register') }}" style="color: #6366f1;">Sign Up</a></p>
+                    <p class="text-sm text-gray-600">Dont't have an account? <a href="{{ route('register') }}"
+                            style="color: #6366f1;">Sign Up</a></p>
                 </span>
                 {{-- <span class="flex items-center justify-center space-x-2">
                     <span class="h-px bg-gray-400 w-14"></span>
