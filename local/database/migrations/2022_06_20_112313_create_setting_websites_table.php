@@ -21,6 +21,7 @@ class CreateSettingWebsitesTable extends Migration
             $table->string('instagram_url')->nullable();
             $table->string('twitter_url')->nullable();
             $table->string('youtube_url')->nullable();
+            $table->string('show_latest_page_media')->default(0);
             $table->timestamps();
         });
     }

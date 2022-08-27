@@ -130,58 +130,7 @@
                 <div class="w-full " wire:target="find" wire:loading.class="hidden">
                     <div class="my-4 mx-auto flex justify-center items-center flex-col">
                         @if ($result === null || $result->count() === 0)
-                            <!--<h3-->
-                            <!--    class="mx-auto  font-bold text-gray-900 text-opacity-30 text-xl capitalize flex flex-col space-y-6 items-center justify-center">-->
-                            <!--    <span></span>-->
-                            <!--    <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"-->
-                            <!--        xmlns="http://www.w3.org/2000/svg">-->
-                            <!--        <path fill-rule="evenodd"-->
-                            <!--            d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"-->
-                            <!--            clip-rule="evenodd"></path>-->
-                            <!--        <path d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"></path>-->
-                            <!--    </svg>-->
-                            <!--    <p class="text-md text-center text-gray-600">-->
-                            <!--        <span>{{ $search }}</span> Search in Directory-->
-                            <!--    </p>-->
-                            <!--</h3>-->
-                            {{-- <div class="grid lg:grid-cols-2 gap-4">
-                                <div
-                                    class="bg-white p-2 sm:p-4 sm:h-64 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5 select-none ">
-                                    <div class="h-52 sm:h-full sm:w-72 rounded-xl bg-gray-200 animate-pulse"></div>
-                                    <div class="flex flex-col flex-1 gap-5 sm:p-2">
-                                        <div class="flex flex-1 flex-col gap-3">
-                                            <div class="bg-gray-200 w-full animate-pulse h-14 rounded-2xl"></div>
-                                            <div class="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
-                                            <div class="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
-                                            <div class="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
-                                            <div class="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
-                                        </div>
-                                        <div class="mt-auto flex gap-3">
-                                            <div class="bg-gray-200 w-20 h-8 animate-pulse rounded-full"></div>
-                                            <div class="bg-gray-200 w-20 h-8 animate-pulse rounded-full"></div>
-                                            <div class="bg-gray-200 w-20 h-8 animate-pulse rounded-full ml-auto"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-white p-2 sm:p-4 sm:h-64 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5 select-none ">
-                                    <div class="h-52 sm:h-full sm:w-72 rounded-xl bg-gray-200 animate-pulse"></div>
-                                    <div class="flex flex-col flex-1 gap-5 sm:p-2">
-                                        <div class="flex flex-1 flex-col gap-3">
-                                            <div class="bg-gray-200 w-full animate-pulse h-14 rounded-2xl"></div>
-                                            <div class="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
-                                            <div class="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
-                                            <div class="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
-                                            <div class="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
-                                        </div>
-                                        <div class="mt-auto flex gap-3">
-                                            <div class="bg-gray-200 w-20 h-8 animate-pulse rounded-full"></div>
-                                            <div class="bg-gray-200 w-20 h-8 animate-pulse rounded-full"></div>
-                                            <div class="bg-gray-200 w-20 h-8 animate-pulse rounded-full ml-auto"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
+                            
                         @else
                             @if ($type == 'wall')
                                 <div class="grid lg:grid-cols-4 grid-cols-1 gap-6 place-items-center">
@@ -285,14 +234,14 @@
     <div class="w-full" wire:ignore>
         <div class="lg:px-10 px-0 py-4 w-full ">
             <div class="my-4 pb-8">
-                <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Media</h2>
+                <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Wall</h2>
             </div>
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper w-full mx-auto">
-                    @foreach ($show_data as $trending)
-                        <x-card-media :data='$trending' :is='1' />
+                    @foreach ($wall_data as $trending)
+                        <x-card-wall :data='$trending' :is='1' />
                     @endforeach
                 </div>
                 <!-- Right -->
@@ -301,33 +250,25 @@
             </div>
         </div>
 
-        <div class="p-10 w-full">
-            <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Wall</h2>
-            <div class="mt-10 w-full">
-                <article class="w-full">
-                    <section class="mt-6 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-8">
-                        @foreach ($wall_data as $trending)
-                            <x-card-wall :data='$trending' />
+        @if ($setting->show_latest_page_media == 1)
+            <div class="lg:px-10 px-0 py-4 w-full ">
+                <div class="my-4 pb-8">
+                    <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Media</h2>
+                </div>
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper w-full mx-auto">
+                        @foreach ($show_data as $trending)
+                            <x-card-media :data='$trending' :is='1' />
                         @endforeach
-                        {{-- <article
-                        class="relative w-full h-64 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl  transition duration-300 ease-in-out"
-                        style="background-image: url('https://images.unsplash.com/photo-1623479322729-28b25c16b011?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80');">
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out">
-                        </div>
-                        <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center">
-                            <h3 class="text-center">
-                                <a class="text-white text-2xl font-bold text-center" href="#">
-                                    <span class="absolute inset-0"></span>
-                                    Top 10 highest paid programming languages of 2021
-                                </a>
-                            </h3>
-                        </div>
-                    </article> --}}
-                    </section>
-                </article>
+                    </div>
+                    <!-- Right -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
             </div>
-        </div>
+        @endif
 
         <div class="p-10 w-full">
             <p class="text-xl ml-10 font-extrabold leading-none text-gray-600 py- text-center mb-2 pb-8 w-full">See

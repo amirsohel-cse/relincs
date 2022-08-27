@@ -68,6 +68,9 @@
                                     <li class="nav-item {{ request()->is('admin/setting/website-setup') || request()->is('admin/setting/website-setup/*') ? 'menuitem-active': '' }}">
                                         <a href="{{ route('admin.websiteSetup') }}" class="nav-link {{ request()->is('admin/setting/website-setup') || request()->is('admin/setting/website-setup/*') ? 'active': '' }}">Website Setup</a>
                                     </li>
+                                    <li class="nav-item {{ request()->is('admin/setting/cms-settings') || request()->is('admin/setting/cms-settings/*') ? 'menuitem-active': '' }}">
+                                        <a href="{{ route('admin.cmsSettings') }}" class="nav-link {{ request()->is('admin/setting/cms-settings') || request()->is('admin/setting/cms-settings/*') ? 'active': '' }}">CMS Settings</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>

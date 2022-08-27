@@ -144,20 +144,6 @@ unset($__errorArgs, $__bag); ?>"
                 <div class="w-full " wire:target="find" wire:loading.class="hidden">
                     <div class="my-4 mx-auto flex justify-center items-center flex-col">
                         <?php if($result === null || $result->count() === 0): ?>
-                            <!--<h3-->
-                            <!--    class="mx-auto  font-bold text-gray-900 text-opacity-30 text-xl capitalize flex flex-col space-y-6 items-center justify-center">-->
-                            <!--    <span></span>-->
-                            <!--    <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"-->
-                            <!--        xmlns="http://www.w3.org/2000/svg">-->
-                            <!--        <path fill-rule="evenodd"-->
-                            <!--            d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"-->
-                            <!--            clip-rule="evenodd"></path>-->
-                            <!--        <path d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"></path>-->
-                            <!--    </svg>-->
-                            <!--    <p class="text-md text-center text-gray-600">-->
-                            <!--        <span><?php echo e($search); ?></span> Search in Directory-->
-                            <!--    </p>-->
-                            <!--</h3>-->
                             
                         <?php else: ?>
                             <?php if($type == 'wall'): ?>
@@ -303,16 +289,16 @@ echo $html;
     <div class="w-full" wire:ignore>
         <div class="lg:px-10 px-0 py-4 w-full ">
             <div class="my-4 pb-8">
-                <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Media</h2>
+                <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Wall</h2>
             </div>
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper w-full mx-auto">
-                    <?php $__currentLoopData = $show_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $trending): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php $__currentLoopData = $wall_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $trending): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.card-media','data' => ['data' => $trending,'is' => 1]]); ?>
-<?php $component->withName('card-media'); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.card-wall','data' => ['data' => $trending,'is' => 1]]); ?>
+<?php $component->withName('card-wall'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes(['data' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($trending),'is' => 1]); ?>
@@ -330,18 +316,22 @@ echo $html;
             </div>
         </div>
 
-        <div class="p-10 w-full">
-            <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Wall</h2>
-            <div class="mt-10 w-full">
-                <article class="w-full">
-                    <section class="mt-6 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-8">
-                        <?php $__currentLoopData = $wall_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $trending): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php if($setting->show_latest_page_media == 1): ?>
+            <div class="lg:px-10 px-0 py-4 w-full ">
+                <div class="my-4 pb-8">
+                    <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Media</h2>
+                </div>
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper w-full mx-auto">
+                        <?php $__currentLoopData = $show_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $trending): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.card-wall','data' => ['data' => $trending]]); ?>
-<?php $component->withName('card-wall'); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.card-media','data' => ['data' => $trending,'is' => 1]]); ?>
+<?php $component->withName('card-media'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['data' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($trending)]); ?>
+<?php $component->withAttributes(['data' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($trending),'is' => 1]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
@@ -349,11 +339,13 @@ echo $html;
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        
-                    </section>
-                </article>
+                    </div>
+                    <!-- Right -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
 
         <div class="p-10 w-full">
             <p class="text-xl ml-10 font-extrabold leading-none text-gray-600 py- text-center mb-2 pb-8 w-full">See

@@ -8,6 +8,7 @@ use App\Models\Media;
 use App\Models\Video;
 use Livewire\Component;
 use App\Models\Following;
+use App\Models\SettingWebsite;
 use Illuminate\Support\Facades\Auth;
 use Livewire\WithPagination;
 
@@ -27,11 +28,13 @@ class Findvideo extends Component
 
     public function render()
     {
+        $setting = SettingWebsite::find(1);
+
         $show_data = Media::orderBy('created_at', 'asc')->take(18)->get();
-        $wall_data = Video::where('visibility', 'public')->latest()->take(3)->get();
+        $wall_data = Video::where('visibility', 'public')->latest()->take(18)->get();
         $hubs_data = Hubs::latest()->take(4)->get();
-    $result = $this->result;
-      return view('livewire.findvideo' , compact('result','show_data','wall_data','hubs_data'))->layout('layouts.guest');
+        $result = $this->result;
+      return view('livewire.findvideo' , compact('result','show_data','wall_data','hubs_data', 'setting'))->layout('layouts.guest');
     }
 
     public function find()

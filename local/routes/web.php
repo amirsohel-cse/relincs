@@ -42,6 +42,7 @@ use App\Http\Livewire\Admin\Hub\HubMediaComponent;
 use App\Http\Livewire\Admin\Hub\HubWallsComponent;
 use App\Http\Livewire\Admin\Media\AllMediaComponent;
 use App\Http\Livewire\Admin\Profile\ProfileComponent;
+use App\Http\Livewire\Admin\Setting\WebpageSettings;
 use App\Http\Livewire\Admin\Setting\WebsiteSetupComponent;
 use App\Http\Livewire\Admin\User\AllUsersComponent;
 use App\Http\Livewire\Admin\Wall\AllWallsComponent;
@@ -152,6 +153,7 @@ Route::prefix('/admin')->middleware(['auth','verified', 'authAdmin'])->name('adm
 
     //settings
     Route::get('/setting/website-setup', WebsiteSetupComponent::class)->name('websiteSetup');
+    Route::get('/setting/cms-settings', WebpageSettings::class)->name('cmsSettings');
     
 });
 

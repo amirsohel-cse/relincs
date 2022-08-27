@@ -1,6 +1,6 @@
 <x-guest-layout>
     @section('title')
-        Relincs - where fun is free
+        Cashe - Fun Pays
     @endsection
     @section('link')
         <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
