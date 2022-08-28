@@ -85,10 +85,7 @@ class="flex-col flex-grow hidden  lg:pb-0 lg:flex  lg:justify-start items-center
     </div>
 </div>
 <?php endif; ?>
-<?php if(auth()->guard()->check()): ?>
-    <button @click.prevent="support = !support" id="desktopSBtn" class="font-bold px-4 py-2 mt-2 text-sm  hover:bg-midsky transition duration-100 rounded-lg lg:mt-0 lg:ml-4 focus:text-gray-900 hover:text-gray-50 focus:bg-gray-200 lg:text-left text-center focus:outline-none focus:shadow-outline">
-    Support</button>
-<?php endif; ?>
+
 <?php if(auth()->guard()->check()): ?>
 <!-- Profile menu -->
 <div @click.away="profile = false" class="relative" x-data="{ profile: false }">

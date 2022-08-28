@@ -12,6 +12,7 @@ use App\Http\Livewire\Findvideo;
 use App\Http\Livewire\SettingHub;
 use App\Http\Livewire\Watchmedia;
 use App\Http\Livewire\Createmedia;
+use App\Http\Livewire\MessageUser;
 use App\Models\Hubs as ModelsHubs;
 use App\Http\Controllers\dashboard;
 use App\Http\Livewire\WatchHubWall;
@@ -34,23 +35,24 @@ use App\Http\Livewire\Setting\Profile\Edit;
 use App\Http\Livewire\Hubs\Bulltien\Display;
 use App\Http\Controllers\hubs\HubsController;
 use App\Http\Controllers\messageUserController;
-use App\Http\Livewire\Admin\Auth\LoginComponent;
 use App\Http\Livewire\Admin\DashboardComponent;
+use App\Http\Livewire\Admin\Auth\LoginComponent;
 use App\Http\Livewire\Admin\Hub\AllHubsComponent;
-use App\Http\Livewire\Admin\Hub\HubBulletinsComponent;
+use App\Http\Livewire\Hubs\Wall\Edit as WallEdit;
 use App\Http\Livewire\Admin\Hub\HubMediaComponent;
 use App\Http\Livewire\Admin\Hub\HubWallsComponent;
-use App\Http\Livewire\Admin\Media\AllMediaComponent;
-use App\Http\Livewire\Admin\Profile\ProfileComponent;
-use App\Http\Livewire\Admin\Setting\WebpageSettings;
-use App\Http\Livewire\Admin\Setting\WebsiteSetupComponent;
 use App\Http\Livewire\Admin\User\AllUsersComponent;
 use App\Http\Livewire\Admin\Wall\AllWallsComponent;
-use App\Http\Livewire\Hubs\Wall\Edit as WallEdit;
+use App\Http\Livewire\App\Pages\ContactUsComponent;
 use App\Http\Livewire\Hubs\Media\Edit as MediaEdit;
+use App\Http\Livewire\Admin\Media\AllMediaComponent;
+use App\Http\Livewire\Admin\Setting\WebpageSettings;
+use App\Http\Livewire\Admin\Profile\ProfileComponent;
 use App\Http\Livewire\Hubs\Wall\Create as WallCreate;
+use App\Http\Livewire\Admin\Hub\HubBulletinsComponent;
+use App\Http\Livewire\Admin\Setting\WebsiteSetupComponent;
+use App\Http\Livewire\App\Pages\FaqComponent;
 use App\Http\Livewire\Hubs\Bulltien\Create as BulltienCreate;
-use App\Http\Livewire\MessageUser;
 
 Route::get('/', function () {
     if(Auth::check()){
@@ -80,6 +82,11 @@ Route::get('watch/{media}/', Watchmedia::class)->middleware(['auth'])->name('wat
 Route::get('hubs/{media}/media', WatchHubMedia::class)->middleware(['auth'])->name('watch.hubs.media');
 Route::get('hubs/{wall}/wall', WatchHubWall::class)->middleware(['auth'])->name('watch.hubs.wall');
 Route::get('/hubs/{uid}/', [HubsController::class, 'show'])->middleware(['auth'])->name('show.hubs');
+
+//Footer Pages
+Route::get('/contact-us', ContactUsComponent::class)->name('contactUs');
+Route::get('/faq', FaqComponent::class)->name('frontFAQ');
+
 
 //  Dashboard
 Route::prefix('/dashboard')->middleware(['auth','verified'])->name('dash.')->group(function () {
@@ -125,6 +132,8 @@ Route::prefix('/dashboard')->middleware(['auth','verified'])->name('dash.')->gro
 
     Route::post('/support/post', [messageUserController::class, 'sendSupportMessage'])->name('sendSupportMsg');
 });
+
+
 
 //Admin Routes
 Route::get('/admin/login', LoginComponent::class)->name('adminLogin');
