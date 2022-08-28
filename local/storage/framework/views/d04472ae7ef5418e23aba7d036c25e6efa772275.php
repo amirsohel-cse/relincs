@@ -1,5 +1,5 @@
-<div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-    <div style="margin-top: 100px;">
+<div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+    <div>
         <?php
             $site_logo = App\Models\SettingWebsite::where('id', 1)->first()->logo;
         ?>
@@ -7,7 +7,7 @@
         <img src="https://relincsca.s3.amazonaws.com/public/media/<?php echo e($site_logo); ?>" class="w-36" alt="relincs.com">
     </div>
 
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg" style="margin-bottom: 180px;">
+    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
         <?php echo e($slot); ?>
 
     </div>
