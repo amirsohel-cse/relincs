@@ -270,7 +270,7 @@
             </div>
         @endif
 
-        <div class="p-10 w-full">
+        {{-- <div class="p-10 w-full">
             <p class="text-xl ml-10 font-extrabold leading-none text-gray-600 py- text-center mb-2 pb-8 w-full">See
                 latest
                 Hubs</p>
@@ -308,7 +308,7 @@
                     </a>
                 </li>
             </ul>
-        </div>
+        </div> --}}
 
     </div>
     @push('script')

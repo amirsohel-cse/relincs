@@ -289,7 +289,7 @@ echo $html;
     <div class="w-full" wire:ignore>
         <div class="lg:px-10 px-0 py-4 w-full ">
             <div class="my-4 pb-8">
-                <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Wall</h2>
+                <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">Cashe</h2>
             </div>
             <!-- Swiper -->
             <div class="swiper mySwiper">
@@ -347,46 +347,7 @@ echo $html;
             </div>
         <?php endif; ?>
 
-        <div class="p-10 w-full">
-            <p class="text-xl ml-10 font-extrabold leading-none text-gray-600 py- text-center mb-2 pb-8 w-full">See
-                latest
-                Hubs</p>
-
-            <ul class="grid lg:grid-cols-5 grid-cols-2 gap-6">
-                <?php $__currentLoopData = $hubs_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <li class="flex flex-col items-center space-y-1 ">
-                        <div class="bg-gradient-to-tr from-sky via-sky to-indigo-600 p-1 rounded-full">
-                            <a href="<?php echo e(route('show.hubs', $data->uid)); ?>"
-                                class=" bg-white block rounded-full p-1 hover:-rotate-6 transform transition" href="#">
-                                <img class="h-32 w-32 rounded-full"
-                                    src="<?php echo e(env('AWS_BUCKET_URL').'public/profile_hubs/'.$data->profile); ?>"
-                                    alt="cute kitty" />
-                            </a>
-                        </div>
-                        <a href="<?php echo e(route('show.hubs', $data->uid)); ?>" class="font-pop">
-                            <?php echo e($data->name); ?>
-
-                        </a>
-                    </li>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                <li class="flex flex-col items-center space-y-1 ">
-                    <div class="bg-gradient-to-tr from-sky via-sky to-indigo-600 p-1 rounded-full">
-                        <a href="<?php echo e(route('gu.ehubs')); ?>"
-                            class=" bg-white block rounded-full p-1 hover:-rotate-6 transform transition" href="#">
-                            <svg class="w-32 h-32 text-gray-700" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z">
-                                </path>
-                            </svg>
-                        </a>
-                    </div>
-                    <a href="#">
-                        See more
-                    </a>
-                </li>
-            </ul>
-        </div>
+        
 
     </div>
     <?php $__env->startPush('script'); ?>
