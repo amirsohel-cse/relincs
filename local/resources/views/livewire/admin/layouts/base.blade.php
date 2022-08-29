@@ -8,8 +8,11 @@
     <meta content="" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+    @php
+        $fav_icon = DB::table('setting_websites')->where('id', 1)->first()->fav_icon;
+    @endphp
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/admin/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="https://relincsca.s3.amazonaws.com/public/media/{{ $fav_icon }}">
 
     <!-- App css -->
     <link href="{{ asset('assets/admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />

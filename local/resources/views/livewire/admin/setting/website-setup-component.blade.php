@@ -45,6 +45,23 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="mb-3 row">
+                                <label for="example-text-input" class="col-sm-3 col-form-label">Fav Icon</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control mb-2" type="file" wire:model="fav_icon">
+                                    @error('fav_icon')
+                                        <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
+                                    @enderror
+    
+                                    <div wire:loading="fav_icon" wire:target="fav_icon" wire:key="fav_icon" style="font-size: 12.5px;" class="mr-2"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Uploading</div>
+    
+                                    @if ($fav_icon)
+                                        <img src="{{ $fav_icon->temporaryUrl() }}" width="120" class="mt-2 mb-2" />
+                                    @elseif($uploadedFavIcon != '')
+                                        <img src="https://relincsca.s3.amazonaws.com/public/media/{{ $uploadedFavIcon }}" width="120" class="mt-2 mb-2" />
+                                    @endif
+                                </div>
+                            </div>
                             
                             <h6><strong>Footer</strong></h6>
                             <hr>

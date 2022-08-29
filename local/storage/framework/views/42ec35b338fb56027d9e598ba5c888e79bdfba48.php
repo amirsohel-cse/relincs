@@ -8,8 +8,11 @@
     <meta content="" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+    <?php
+        $fav_icon = DB::table('setting_websites')->where('id', 1)->first()->fav_icon;
+    ?>
     <!-- App favicon -->
-    <link rel="shortcut icon" href="<?php echo e(asset('assets/admin/images/favicon.ico')); ?>">
+    <link rel="shortcut icon" href="https://relincsca.s3.amazonaws.com/public/media/<?php echo e($fav_icon); ?>">
 
     <!-- App css -->
     <link href="<?php echo e(asset('assets/admin/css/bootstrap.min.css')); ?>" rel="stylesheet" type="text/css" />
@@ -121,30 +124,30 @@
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('admin.layouts.inc.sidebar')->html();
-} elseif ($_instance->childHasBeenRendered('FZYAjsL')) {
-    $componentId = $_instance->getRenderedChildComponentId('FZYAjsL');
-    $componentTag = $_instance->getRenderedChildComponentTagName('FZYAjsL');
+} elseif ($_instance->childHasBeenRendered('KaaCFfS')) {
+    $componentId = $_instance->getRenderedChildComponentId('KaaCFfS');
+    $componentTag = $_instance->getRenderedChildComponentTagName('KaaCFfS');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('FZYAjsL');
+    $_instance->preserveRenderedChild('KaaCFfS');
 } else {
     $response = \Livewire\Livewire::mount('admin.layouts.inc.sidebar');
     $html = $response->html();
-    $_instance->logRenderedChild('FZYAjsL', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('KaaCFfS', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('admin.layouts.inc.navbar')->html();
-} elseif ($_instance->childHasBeenRendered('f5XLaM1')) {
-    $componentId = $_instance->getRenderedChildComponentId('f5XLaM1');
-    $componentTag = $_instance->getRenderedChildComponentTagName('f5XLaM1');
+} elseif ($_instance->childHasBeenRendered('2Lr7pf5')) {
+    $componentId = $_instance->getRenderedChildComponentId('2Lr7pf5');
+    $componentTag = $_instance->getRenderedChildComponentTagName('2Lr7pf5');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('f5XLaM1');
+    $_instance->preserveRenderedChild('2Lr7pf5');
 } else {
     $response = \Livewire\Livewire::mount('admin.layouts.inc.navbar');
     $html = $response->html();
-    $_instance->logRenderedChild('f5XLaM1', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('2Lr7pf5', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -157,15 +160,15 @@ echo $html;
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('admin.layouts.inc.footer')->html();
-} elseif ($_instance->childHasBeenRendered('4gcebur')) {
-    $componentId = $_instance->getRenderedChildComponentId('4gcebur');
-    $componentTag = $_instance->getRenderedChildComponentTagName('4gcebur');
+} elseif ($_instance->childHasBeenRendered('nrsoNcZ')) {
+    $componentId = $_instance->getRenderedChildComponentId('nrsoNcZ');
+    $componentTag = $_instance->getRenderedChildComponentTagName('nrsoNcZ');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('4gcebur');
+    $_instance->preserveRenderedChild('nrsoNcZ');
 } else {
     $response = \Livewire\Livewire::mount('admin.layouts.inc.footer');
     $html = $response->html();
-    $_instance->logRenderedChild('4gcebur', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('nrsoNcZ', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

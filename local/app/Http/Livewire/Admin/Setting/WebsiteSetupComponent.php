@@ -10,12 +10,13 @@ use Livewire\WithFileUploads;
 class WebsiteSetupComponent extends Component
 {
     use WithFileUploads;
-    public $logo, $copyright_text, $facebook_url, $twitter_url, $youtube_url, $instagram_url, $uploadedLogo;
+    public $logo, $copyright_text, $facebook_url, $twitter_url, $youtube_url, $instagram_url, $uploadedLogo, $fav_icon, $uploadedFavIcon;
 
     public function mount()
     {
         $data = SettingWebsite::where('id', 1)->first();
         $this->uploadedLogo = $data->logo;
+        $this->uploadedFavIcon = $data->fav_icon;
         $this->copyright_text = $data->copyright_text;
         $this->facebook_url = $data->facebook_url;
         $this->twitter_url = $data->twitter_url;
@@ -32,6 +33,7 @@ class WebsiteSetupComponent extends Component
             'youtube_url'=>'required',
             'instagram_url'=>'required',
             'logo'=>'required_if:uploadedLogo,null',
+            'fav_icon'=>'required_if:uploadedFavIcon,null',
         ]);
     }
 
@@ -44,6 +46,7 @@ class WebsiteSetupComponent extends Component
             'youtube_url'=>'required',
             'instagram_url'=>'required',
             'logo'=>'required_if:uploadedLogo,null',
+            'fav_icon'=>'required_if:uploadedFavIcon,null',
         ]);
 
         $getData = SettingWebsite::where('id', 1)->first();
@@ -67,6 +70,14 @@ class WebsiteSetupComponent extends Component
             Storage::delete('public/media/' . $data->logo);
             
             $data->logo = $imageName;
+        }
+
+        if($this->fav_icon != ''){
+            $imageName = uniqid() . '_fav_icon.' . $this->fav_icon->extension();
+            $this->fav_icon->storeAs('public/media', $imageName);
+            Storage::delete('public/media/' . $data->fav_icon);
+            
+            $data->fav_icon = $imageName;
         }
 
         $data->save();
