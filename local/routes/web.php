@@ -64,7 +64,7 @@ Route::get('/', function () {
         $show_data_latest = Media::orderBy('created_at', 'desc')->whereDay('created_at', '15')->get();
         return view('index', compact('show_data','show_data_section','showlastmedia','hubs_data','wall_data','show_data_latest'));
     }else{
-        return redirect()->route('gu.find');
+        return redirect()->route('register');
     }
 })->name('home');
 Route::get('/media', Allmedias::class)->name('gu.media')->middleware('auth', 'verified');
