@@ -10,7 +10,11 @@
 
     <title><?php echo $__env->yieldContent('title'); ?></title>
     <!-- Styles -->
-    <link rel="shortcut icon" href="<?php echo e(asset('img/logo.png')); ?>" type="image/x-icon">
+    <?php
+        $fav_icon = DB::table('setting_websites')->where('id', 1)->first()->fav_icon;
+    ?>
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="https://relincsca.s3.amazonaws.com/public/media/<?php echo e($fav_icon); ?>">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>" />

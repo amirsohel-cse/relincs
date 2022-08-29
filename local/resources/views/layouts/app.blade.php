@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @yield('metas')
     <title>@yield('title')</title>
-    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
+    @php
+        $fav_icon = DB::table('setting_websites')->where('id', 1)->first()->fav_icon;
+    @endphp
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="https://relincsca.s3.amazonaws.com/public/media/{{ $fav_icon }}">
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/dash.css') }}" />

@@ -8,7 +8,11 @@
     @yield('metas')
     <title>@yield('title')</title>
     <!-- Styles -->
-    <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon">
+    @php
+        $fav_icon = DB::table('setting_websites')->where('id', 1)->first()->fav_icon;
+    @endphp
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="https://relincsca.s3.amazonaws.com/public/media/{{ $fav_icon }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <script src="https://unpkg.com/alpinejs@3.9.3/dist/cdn.min.js" defer></script>
