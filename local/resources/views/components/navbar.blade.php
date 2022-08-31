@@ -1,5 +1,5 @@
 <style>
-    
+
     @media only screen and (min-width: 1024px) {
         #desktopSBtn{
             display: block;
@@ -23,7 +23,7 @@ class="flex-col flex-grow hidden  lg:pb-0 lg:flex  lg:justify-start items-center
 <div @click.away="open = false" class="relative" x-data="{ open: false }">
     <button @click="open = !open"
         class="flex flex-row text-gray-700 items-center w-full px-4 lg:py-2 py-3 mt-2 text-sm text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 lg:w-auto lg:inline lg:mt-0 lg:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-        <span>Sign Up</span>
+        <span>Sign Up / Log In</span>
         <svg fill="currentColor" viewBox="0 0 20 20"
             :class="{'rotate-180': open, 'rotate-0': !open}"
             class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform lg:-mt-1">
