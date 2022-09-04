@@ -234,7 +234,7 @@
     <div class="w-full" wire:ignore>
         <div class="lg:px-10 px-0 py-4 w-full ">
             <div class="my-4 pb-8">
-                <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">Cashe</h2>
+                <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">Cashé</h2>
             </div>
             <!-- Swiper -->
             <div class="swiper mySwiper">
