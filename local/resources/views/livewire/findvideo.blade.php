@@ -17,7 +17,7 @@
                                     d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z">
                                 </path>
                             </svg></button>
-                        <input type="text" id="search" placeholder="search Directory..." wire:model.lazy="search"
+                        <input type="text" id="search" placeholder="search" wire:model.lazy="search"
                             class=" pl-4 text-md outline-none bg-transparent  w-8/12
                             @error('search') border border-red-400  @else border-none @enderror">
                         <select
@@ -250,7 +250,7 @@
             </div>
         </div>
 
-        @if ($setting->show_latest_page_media == 1)
+        {{-- @if ($setting->show_latest_page_media == 1)
             <div class="lg:px-10 px-0 py-4 w-full ">
                 <div class="my-4 pb-8">
                     <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Media</h2>
@@ -268,7 +268,7 @@
                     <div class="swiper-button-next"></div>
                 </div>
             </div>
-        @endif
+        @endif --}}
 
         {{-- <div class="p-10 w-full">
             <p class="text-xl ml-10 font-extrabold leading-none text-gray-600 py- text-center mb-2 pb-8 w-full">See

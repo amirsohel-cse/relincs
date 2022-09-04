@@ -113,6 +113,36 @@
 
     </div>
 
+    <div class="lg:px-10 px-0 py-4 w-full ">
+        <div class="my-4 pb-8">
+            <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Media</h2>
+        </div>
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper w-full mx-auto">
+                <?php $__currentLoopData = $show_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $trending): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.card-media','data' => ['data' => $trending,'is' => 1]]); ?>
+<?php $component->withName('card-media'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes(['data' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($trending),'is' => 1]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+                    
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
+            <!-- Right -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+
     <div class="p-10 w-full">
         <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Wall</h2>
         <div class="mt-10 w-full">

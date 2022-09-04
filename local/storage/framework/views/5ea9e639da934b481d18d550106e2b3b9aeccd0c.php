@@ -17,7 +17,7 @@
                                     d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z">
                                 </path>
                             </svg></button>
-                        <input type="text" id="search" placeholder="search Directory..." wire:model.lazy="search"
+                        <input type="text" id="search" placeholder="search" wire:model.lazy="search"
                             class=" pl-4 text-md outline-none bg-transparent  w-8/12
                             <?php $__errorArgs = ['search'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -316,36 +316,7 @@ echo $html;
             </div>
         </div>
 
-        <?php if($setting->show_latest_page_media == 1): ?>
-            <div class="lg:px-10 px-0 py-4 w-full ">
-                <div class="my-4 pb-8">
-                    <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Media</h2>
-                </div>
-                <!-- Swiper -->
-                <div class="swiper mySwiper">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper w-full mx-auto">
-                        <?php $__currentLoopData = $show_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $trending): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.card-media','data' => ['data' => $trending,'is' => 1]]); ?>
-<?php $component->withName('card-media'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['data' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($trending),'is' => 1]); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
-<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
-<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
-<?php endif; ?>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </div>
-                    <!-- Right -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
-            </div>
-        <?php endif; ?>
+        
 
         
 

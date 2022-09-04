@@ -105,6 +105,25 @@
 
     </div>
 
+    <div class="lg:px-10 px-0 py-4 w-full ">
+        <div class="my-4 pb-8">
+            <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Media</h2>
+        </div>
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper w-full mx-auto">
+                @foreach ($show_data as $trending)
+                    <x-card-media :data='$trending' :is='1' />
+                    {{-- <x-card-media :data='$trending' /> --}}
+                @endforeach
+            </div>
+            <!-- Right -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+
     <div class="p-10 w-full">
         <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Wall</h2>
         <div class="mt-10 w-full">
