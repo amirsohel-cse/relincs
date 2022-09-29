@@ -107,17 +107,19 @@ class="flex-col flex-grow hidden  lg:pb-0 lg:flex  lg:justify-start items-center
                 <span><?php echo e(Auth::user()->username); ?></span>
             </a>
         </li>
-        <li class="flex">
-            <a class="inline-flex items-center w-full px-2 py-2 text-sm font-medium transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800  "
-                href="<?php echo e(route('dash.create.hubs')); ?>">
-                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                </svg>
-                <span class="lowercase">Create hub</span>
-            </a>
-        </li>
+        <?php if(Auth::user()->role == 'admin'): ?>
+            <li class="flex">
+                <a class="inline-flex items-center w-full px-2 py-2 text-sm font-medium transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800  "
+                    href="<?php echo e(route('dash.create.hubs')); ?>">
+                    <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                    <span class="lowercase">Create hub</span>
+                </a>
+            </li>
+        <?php endif; ?>
         <li class="flex">
             <a class="inline-flex items-center w-full px-2 py-2 text-sm font-medium transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800  "
                 href="<?php echo e(route('dash.createmedia')); ?>">

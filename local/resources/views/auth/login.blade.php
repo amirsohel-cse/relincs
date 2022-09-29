@@ -196,7 +196,7 @@
         </div>
         <div class="column1">
             <div class="image_container">
-                <img class="login_image" src="{{ asset('img/login_bg.jpeg') }}" />
+                <img class="login_image" src="{{ asset('img/login_bg.png') }}" />
             </div>
         </div>
     </div>

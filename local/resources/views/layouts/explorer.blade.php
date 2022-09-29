@@ -205,15 +205,15 @@
                                     d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                             </svg>
                         </a>
-                        {{-- <a class="md:px-6 lg:px-5 px-4 mx-2 md:py-2 py-1 md:text-md text-sm font-medium bg-transparent flex items-center justify-center rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline "
+                        <a class="md:px-6 lg:px-5 px-4 mx-2 md:py-2 py-1 md:text-md text-sm font-medium bg-transparent flex items-center justify-center rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline "
                             href="{{route('gu.ehubs')}}">
-                            <div class="___class_+?12___">hubs</div> &nbsp; <svg xmlns="http://www.w3.org/2000/svg"
+                            <div class="___class_+?12___">challenges</div> &nbsp; <svg xmlns="http://www.w3.org/2000/svg"
                                 class="lg:h-6 lg:w-6 h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                             </svg>
-                        </a> --}}
+                        </a>
                         <a class="md:px-6 lg:px-5 px-4 mx-2 md:py-2 py-1 md:text-md text-sm font-medium bg-transparent flex items-center justify-center rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline "
                             href="{{route('gu.profiles')}}">
                             <div class="___class_+?15___">profiles</div> &nbsp; <svg xmlns="http://www.w3.org/2000/svg"
@@ -289,7 +289,8 @@
                         d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                 </svg>
                 Wall</a>
-            <a class="flex justify-center items-center font-bold px-3 lg:py-2 py-1 text-sm text-gray-100  hover:bg-white hover:text-indigo-500 transition duration-100 rounded-lg focus:text-gray-900 hover:text-gray-50 focus:bg-gray-200 text-sm lg:text-left text-center focus:outline-none focus:shadow-outline"
+                @if (Auth::user()->role == 'admin')
+                    <a class="flex justify-center items-center font-bold px-3 lg:py-2 py-1 text-sm text-gray-100  hover:bg-white hover:text-indigo-500 transition duration-100 rounded-lg focus:text-gray-900 hover:text-gray-50 focus:bg-gray-200 text-sm lg:text-left text-center focus:outline-none focus:shadow-outline"
                 href="{{ route('dash.create.hubs') }}">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -297,6 +298,8 @@
                         d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                 </svg>
                 Hub</a>
+                @endif
+            
             @endauth
         </nav>
     </div>

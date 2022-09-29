@@ -102,13 +102,6 @@ Route::prefix('/dashboard')->middleware(['auth','verified'])->name('dash.')->gro
         return view('dashboard.create');
     })->name('createwall');
 
-    // Router Hubs
-    Route::get('/create-hubs', [HubsController::class, 'index'])->name('create.hubs');
-    Route::post('/create-hubs', [HubsController::class, 'store'])->name('create.hubs.store');
-    Route::get('/list-hubs', [HubsController::class, 'list_hubs'])->name('list.hubs');
-    Route::delete('/list-hubs/{hubs:uid}/', [HubsController::class, 'destroy'])->name('destroy.hubs');
-    Route::get('/list-hubs/{uid}/edit', [HubsController::class, 'edit'])->name('edit.hubs');
-    Route::patch('/list-hubs/{hubs}/edit', [HubsController::class, 'update'])->name('update.hubs');
 
     // Hubs Media
     Route::get('/media', Createmedia::class)->name('createmedia');
@@ -133,6 +126,16 @@ Route::prefix('/dashboard')->middleware(['auth','verified'])->name('dash.')->gro
     Route::post('/support/post', [messageUserController::class, 'sendSupportMessage'])->name('sendSupportMsg');
 });
 
+
+Route::prefix('/dashboard')->middleware(['auth','verified', 'authAdmin'])->name('dash.')->group(function () {
+    // Router Hubs
+    Route::get('/create-hubs', [HubsController::class, 'index'])->name('create.hubs');
+    Route::post('/create-hubs', [HubsController::class, 'store'])->name('create.hubs.store');
+    Route::get('/list-hubs', [HubsController::class, 'list_hubs'])->name('list.hubs');
+    Route::delete('/list-hubs/{hubs:uid}/', [HubsController::class, 'destroy'])->name('destroy.hubs');
+    Route::get('/list-hubs/{uid}/edit', [HubsController::class, 'edit'])->name('edit.hubs');
+    Route::patch('/list-hubs/{hubs}/edit', [HubsController::class, 'update'])->name('update.hubs');
+});
 
 
 //Admin Routes
