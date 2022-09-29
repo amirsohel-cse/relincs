@@ -292,13 +292,13 @@
                 Wall</a>
                 @if (Auth::user()->role == 'admin')
                     <a class="flex justify-center items-center font-bold px-3 lg:py-2 py-1 text-sm text-gray-100  hover:bg-white hover:text-indigo-500 transition duration-100 rounded-lg focus:text-gray-900 hover:text-gray-50 focus:bg-gray-200 text-sm lg:text-left text-center focus:outline-none focus:shadow-outline"
-                href="{{ route('dash.create.hubs') }}">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                </svg>
-                Hub</a>
+                    href="{{ route('dash.create.hubs') }}">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                    Hub</a>
                 @endif
             
             @endauth

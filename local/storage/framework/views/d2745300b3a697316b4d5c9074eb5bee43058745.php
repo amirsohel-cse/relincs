@@ -85,3 +85,4 @@
         </div>
     </section>
 </div>
+<?php /**PATH C:\laragon\www\relincs\local\resources\views/livewire/app/pages/faq-component.blade.php ENDPATH**/ ?>
