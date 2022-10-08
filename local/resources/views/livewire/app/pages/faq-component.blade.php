@@ -6,28 +6,28 @@
                     Frequently Asked Questions
                 </h1>
                 <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-                    The most common questions about Relincs.
+                    The most common questions about Cashei.
                 </p>
             </div>
             <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
                 <div class="w-full grid  grid-cols-1 gap-6 px-4 py-2">
                     <details class="mb-4">
                         <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
-                            What is Cashé?
+                            What is Cashei?
                         </summary>
 
                         <span class="py-2 text-left leading-8 pt-4 px-1">
-                            Cashé is the next evolutionary step for short-form content. It combines the effortless fun of short-form videos with the thrill of money games to create a unique concept that has never been tried before -- using social media to compete for money.
+                            Cashei is the next evolutionary step for short-form content. It combines the effortless fun of short-form videos with the thrill of money games to create a unique concept that has never been tried before -- using social media to compete for money.
                         </span>
                     </details>
 
                     <details class="mb-4">
                         <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
-                            Who can join Cashé?
+                            Who can join Cashei?
                         </summary>
 
                         <span class="py-2 text-left leading-8 pt-4 px-1">
-                            You have to be at least 18 years old to join Cashé.
+                            You have to be at least 18 years old to join Cashei.
                         </span>
                     </details>
 

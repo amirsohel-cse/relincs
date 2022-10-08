@@ -1,7 +1,7 @@
 <div>
-    @section('title')
+    <?php $__env->startSection('title'); ?>
         Latest
-    @endsection
+    <?php $__env->stopSection(); ?>
     <div class="w-full h-full" x-data="{ search: '', toggleFilter: false }">
         <!-- Find-->
         <div class="relative">
@@ -19,10 +19,24 @@
                             </svg></button>
                         <input type="text" id="search" placeholder="search" wire:model.lazy="search"
                             class=" pl-4 text-md outline-none bg-transparent  w-8/12
-                            @error('search') border border-red-400  @else border-none @enderror">
+                            <?php $__errorArgs = ['search'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border border-red-400  <?php else: ?> border-none <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>">
                         <select
                             class="px-4 lg:w-32 w-20 lg:text-md text-sm outline-none border-none h-full bg-transparent capitalize
-                            @error('type') text-red-400 @enderror"
+                            <?php $__errorArgs = ['type'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> text-red-400 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                             wire:model.defer="type" id="type">
                             <option selected>Type . . .</option>
                             <option value="wall">wall</option>
@@ -129,33 +143,55 @@
             <div class="my-6 md:px-2 px-3">
                 <div class="w-full " wire:target="find" wire:loading.class="hidden">
                     <div class="my-4 mx-auto flex justify-center items-center flex-col">
-                        @if ($result === null || $result->count() === 0)
+                        <?php if($result === null || $result->count() === 0): ?>
                             
-                        @else
-                            @if ($type == 'wall')
+                        <?php else: ?>
+                            <?php if($type == 'wall'): ?>
                                 <div class="grid lg:grid-cols-4 grid-cols-1 gap-6 place-items-center">
-                                    @foreach ($result as $item)
-                                        <x-card-wall :data="$item" />
-                                    @endforeach
+                                    <?php $__currentLoopData = $result; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.card-wall','data' => ['data' => $item]]); ?>
+<?php $component->withName('card-wall'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes(['data' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($item)]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </div>
-                            @elseif($type == 'media')
+                            <?php elseif($type == 'media'): ?>
                                 <div class="grid lg:grid-cols-4 grid-cols-1 gap-6 place-items-center w-full">
-                                    @foreach ($result as $trending)
-                                        <x-card-media :data='$trending' :is='2' />
-                                    @endforeach
+                                    <?php $__currentLoopData = $result; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $trending): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.card-media','data' => ['data' => $trending,'is' => 2]]); ?>
+<?php $component->withName('card-media'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes(['data' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($trending),'is' => 2]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </div>
-                            @elseif($type == 'hubs')
-                                @foreach ($result as $i)
+                            <?php elseif($type == 'hubs'): ?>
+                                <?php $__currentLoopData = $result; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="max-w-3xl w-full z-10">
-                                        @php
+                                        <?php
                                             $joiner = App\Models\Join::where('joining_id', $i->id)->count();
-                                        @endphp
-                                        <a href="{{ route('show.hubs', $i->uid) }}" class="flex flex-col">
+                                        ?>
+                                        <a href="<?php echo e(route('show.hubs', $i->uid)); ?>" class="flex flex-col">
                                             <div class="bg-white border border-white shadow-lg  rounded-3xl p-4 m-4">
                                                 <div class="flex-none sm:flex">
                                                     <div
                                                         class="relative h-32 w-32 flex justify-center items-center sm:mb-0 mb-3">
-                                                        <img src="{{ asset('storage/storage/profile_hubs/' . $i->profile) }}"
+                                                        <img src="<?php echo e(asset('storage/storage/profile_hubs/' . $i->profile)); ?>"
                                                             alt="SamanSayyar"
                                                             class=" w-32 h-32 object-cover  rounded-2xl">
                                                         <!-- <a href="#"
@@ -174,10 +210,11 @@
                                                                 <div class="flex flex-col">
                                                                     <div
                                                                         class="w-full flex-none text-lg text-gray-800 font-bold leading-none">
-                                                                        {{ $i->name }}</div>
+                                                                        <?php echo e($i->name); ?></div>
                                                                     <div class="flex-auto text-sm text-gray-500 my-1">
                                                                         <span class="mr-3 ">
-                                                                            {{ $i->about }}
+                                                                            <?php echo e($i->about); ?>
+
                                                                         </span>
                                                                     </div>
                                                                 </div>
@@ -185,9 +222,9 @@
                                                         </div>
                                                         <div class="flex flex-row items-center">
                                                             <div class="flex">
-                                                                @include('includes.avgstars', [
+                                                                <?php echo $__env->make('includes.avgstars', [
                                                                     'i' => $i,
-                                                                ])
+                                                                ], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                                                             </div>
 
                                                         </div>
@@ -200,34 +237,52 @@
                                                                         d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z">
                                                                     </path>
                                                                 </svg>
-                                                                <p class="___class_+?380___">{{ $joiner }}
+                                                                <p class="___class_+?380___"><?php echo e($joiner); ?>
+
                                                                     Audience</p>
                                                             </div>
-                                                            {{-- <div class="flex-1 inline-flex items-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2"
-                                                        viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd"
-                                                            d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
-                                                            clip-rule="evenodd"></path>
-                                                    </svg>
-                                                    <p class="___class_+?383___">14 Components</p>
-                                                </div> --}}
-                                                            @livewire('join', ['user_id' => $i->user_id])
+                                                            
+                                                            <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('join', ['user_id' => $i->user_id])->html();
+} elseif ($_instance->childHasBeenRendered('l114765248-0')) {
+    $componentId = $_instance->getRenderedChildComponentId('l114765248-0');
+    $componentTag = $_instance->getRenderedChildComponentTagName('l114765248-0');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('l114765248-0');
+} else {
+    $response = \Livewire\Livewire::mount('join', ['user_id' => $i->user_id]);
+    $html = $response->html();
+    $_instance->logRenderedChild('l114765248-0', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
-                                @endforeach
-                            @endif
-                        @endif
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
+                        <?php endif; ?>
                     </div>
 
                 </div>
             </div>
             <div class="w-full" wire:target="find" wire:loading>
-                <x-loading classSvg="w-12 h-12" classText="text-xl" />
+                <?php if (isset($component)) { $__componentOriginal50b35e9efa5b3035ebe877cc122341d1e2fb9c9d = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Loading::class, ['classSvg' => 'w-12 h-12','classText' => 'text-xl']); ?>
+<?php $component->withName('loading'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal50b35e9efa5b3035ebe877cc122341d1e2fb9c9d)): ?>
+<?php $component = $__componentOriginal50b35e9efa5b3035ebe877cc122341d1e2fb9c9d; ?>
+<?php unset($__componentOriginal50b35e9efa5b3035ebe877cc122341d1e2fb9c9d); ?>
+<?php endif; ?>
             </div>
         </div>
     </div>
@@ -240,9 +295,20 @@
             <div class="swiper mySwiper">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper w-full mx-auto">
-                    @foreach ($wall_data as $trending)
-                        <x-card-wall :data='$trending' :is='1' />
-                    @endforeach
+                    <?php $__currentLoopData = $wall_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $trending): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.card-wall','data' => ['data' => $trending,'is' => 1]]); ?>
+<?php $component->withName('card-wall'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes(['data' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($trending),'is' => 1]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
                 <!-- Right -->
                 <div class="swiper-button-prev"></div>
@@ -250,68 +316,12 @@
             </div>
         </div>
 
-        {{-- @if ($setting->show_latest_page_media == 1)
-            <div class="lg:px-10 px-0 py-4 w-full ">
-                <div class="my-4 pb-8">
-                    <h2 class="text-gray-600 ml-1 lg:text-xl text-lg text-center font-bold ">See latest Media</h2>
-                </div>
-                <!-- Swiper -->
-                <div class="swiper mySwiper">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper w-full mx-auto">
-                        @foreach ($show_data as $trending)
-                            <x-card-media :data='$trending' :is='1' />
-                        @endforeach
-                    </div>
-                    <!-- Right -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
-            </div>
-        @endif --}}
+        
 
-        {{-- <div class="p-10 w-full">
-            <p class="text-xl ml-10 font-extrabold leading-none text-gray-600 py- text-center mb-2 pb-8 w-full">See
-                latest
-                Hubs</p>
-
-            <ul class="grid lg:grid-cols-5 grid-cols-2 gap-6">
-                @foreach ($hubs_data as $data)
-                    <li class="flex flex-col items-center space-y-1 ">
-                        <div class="bg-gradient-to-tr from-sky via-sky to-indigo-600 p-1 rounded-full">
-                            <a href="{{ route('show.hubs', $data->uid) }}"
-                                class=" bg-white block rounded-full p-1 hover:-rotate-6 transform transition" href="#">
-                                <img class="h-32 w-32 rounded-full"
-                                    src="{{ env('AWS_BUCKET_URL').'public/profile_hubs/'.$data->profile }}"
-                                    alt="cute kitty" />
-                            </a>
-                        </div>
-                        <a href="{{ route('show.hubs', $data->uid) }}" class="font-pop">
-                            {{ $data->name }}
-                        </a>
-                    </li>
-                @endforeach
-                <li class="flex flex-col items-center space-y-1 ">
-                    <div class="bg-gradient-to-tr from-sky via-sky to-indigo-600 p-1 rounded-full">
-                        <a href="{{ route('gu.ehubs') }}"
-                            class=" bg-white block rounded-full p-1 hover:-rotate-6 transform transition" href="#">
-                            <svg class="w-32 h-32 text-gray-700" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z">
-                                </path>
-                            </svg>
-                        </a>
-                    </div>
-                    <a href="#">
-                        See more
-                    </a>
-                </li>
-            </ul>
-        </div> --}}
+        
 
     </div>
-    @push('script')
+    <?php $__env->startPush('script'); ?>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             window.addEventListener('ErrorLength', () => {
@@ -333,5 +343,6 @@
                 })
             });
         </script>
-    @endpush
+    <?php $__env->stopPush(); ?>
 </div>
+<?php /**PATH C:\laragon\www\relincs\local\resources\views/livewire/findvideo.blade.php ENDPATH**/ ?>
