@@ -37,47 +37,47 @@
                         </summary>
 
                         <span class="py-2 text-left leading-8 pt-4 px-1">
-                            To understand money challenges better, please watch the intro video
+                            To get an understanding of how money challenges work, please watch the Cashei intro video
                         </span>
                     </details>
 
                     <details class="mb-4">
                         <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
-                            How much money can i win in a challenge?
+                            How much money can I win in a challenge?
                         </summary>
 
                         <span class="py-2 text-left leading-8 pt-4 px-1">
-                            The size of the prize money depends on the number of participants in your challenge round. The more participants a round has the bigger the prize money.
+                            The size of each money challenge's prize money depends on the number of participants which that particular challenge round has. And the more competitors, the bigger the price money.
                         </span>
                     </details>
 
                     <details class="mb-4">
                         <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
-                            How much money can I bet?
+                            How many money can I play for every day?
                         </summary>
 
                         <span class="py-2 text-left leading-8 pt-4 px-1">
-                            The fee limit for each user is set at 1 USD/ day. And you can only play one money challenge at a time.
+                            The participation fee limited is currently sat at 1 USD/ day, and 30 USD/ month.
                         </span>
                     </details>
                     
                     <details class="mb-4">
                         <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
-                            How do I suggest a challenge?
+                            How may I suggest a challenge video?
                         </summary>
 
                         <span class="py-2 text-left leading-8 pt-4 px-1">
-                            You simply record your challenge video and post it on the media/challenge page. We will notify you if your video is chosen.
+                            You simply record the challenge video and post it on the media/challenge page. We will notify you if video was chosen.
                         </span>
                     </details>
 
                     <details class="mb-4">
                         <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
-                            Can I make money if my challenge video is chosen?
+                            What happens if my challenge video is chosen?
                         </summary>
 
                         <span class="py-2 text-left leading-8 pt-4 px-1">
-                            Yes. We pay 500 USD for each chosen challenge video.
+                            If your challenge video is chosen to be featured as a money challenge, you will receive a payment of 500 US dollars.
                         </span>
                     </details>
                 </div>
