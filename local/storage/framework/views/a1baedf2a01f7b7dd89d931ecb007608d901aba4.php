@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-    <?php echo $__env->yieldContent('metas'); ?>
+    <meta property="title" content="Cashei" />
+    <meta property="description" content="Social media challenges meet money competitions -- choose a challenge, submit your video, win real money! Repeat the processs again." />
+    
     <title><?php echo $__env->yieldContent('title'); ?></title>
     <!-- Styles -->
     <?php
@@ -201,15 +203,15 @@
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('search-engine')->html();
-} elseif ($_instance->childHasBeenRendered('ChQSRys')) {
-    $componentId = $_instance->getRenderedChildComponentId('ChQSRys');
-    $componentTag = $_instance->getRenderedChildComponentTagName('ChQSRys');
+} elseif ($_instance->childHasBeenRendered('FfdwXsG')) {
+    $componentId = $_instance->getRenderedChildComponentId('FfdwXsG');
+    $componentTag = $_instance->getRenderedChildComponentTagName('FfdwXsG');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('ChQSRys');
+    $_instance->preserveRenderedChild('FfdwXsG');
 } else {
     $response = \Livewire\Livewire::mount('search-engine');
     $html = $response->html();
-    $_instance->logRenderedChild('ChQSRys', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('FfdwXsG', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

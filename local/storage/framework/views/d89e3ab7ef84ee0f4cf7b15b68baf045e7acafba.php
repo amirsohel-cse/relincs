@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+    <meta property="title" content="Cashei" />
+    <meta property="description" content="Social media challenges meet money competitions -- choose a challenge, submit your video, win real money! Repeat the processs again." />
 
-    <?php echo $__env->yieldContent('metas'); ?>
+    
 
     <title><?php echo $__env->yieldContent('title'); ?></title>
     <!-- Styles -->

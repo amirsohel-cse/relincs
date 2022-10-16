@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    @yield('metas')
+    <meta property="og:title" content="Cashei" />
+    <meta property="og:description" content="Social media challenges meet money competitions -- choose a challenge, submit your video, win real money! Repeat the processs again." />
+    {{-- @yield('metas') --}}
     <title>@yield('title')</title>
     @php
         $fav_icon = DB::table('setting_websites')
             ->where('id', 1)
             ->first()->fav_icon;
     @endphp
+
     <!-- App favicon -->
     <link rel="shortcut icon" href="https://relincsca.s3.amazonaws.com/public/media/{{ $fav_icon }}">
 

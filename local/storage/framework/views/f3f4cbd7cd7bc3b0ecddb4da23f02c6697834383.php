@@ -1,10 +1,10 @@
  <div class="lg:mt-1 mt-3" style="display:block;">
     <a href="<?php echo e(route('frontFAQ')); ?>" target="_blank" class="w-8">
-        About Us
+        About us
     </a>
     &nbsp;&nbsp;&nbsp;
     <a href="<?php echo e(route('contactUs')); ?>" target="_blank" class="w-8">
-        Contact Us
+        Contact us
     </a>
     &nbsp;&nbsp;&nbsp;
     <a href="<?php echo e(route('terms')); ?>" target="_blank" class="w-8">
