@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-    <meta property="title" content="Cashei" />
-    <meta property="description" content="Social media challenges meet money competitions -- choose a challenge, submit your video, win real money! Repeat the processs again." />
+    <meta property="og:title" content="Cashei" />
+    <meta property="og:description" content="Social media challenges meet money competitions -- choose a challenge, submit your video, win real money! Repeat the processs again." />
 
     
 

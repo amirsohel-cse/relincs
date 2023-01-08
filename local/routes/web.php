@@ -137,6 +137,8 @@ Route::prefix('/dashboard')->middleware(['auth','verified', 'authAdmin'])->name(
     Route::patch('/list-hubs/{hubs}/edit', [HubsController::class, 'update'])->name('update.hubs');
 });
 
+Route::get('watch/t/{media}/', Watchmedia::class)->name('public_media');
+
 
 //Admin Routes
 Route::get('/admin/login', LoginComponent::class)->name('adminLogin');
@@ -166,8 +168,10 @@ Route::prefix('/admin')->middleware(['auth','verified', 'authAdmin'])->name('adm
     //settings
     Route::get('/setting/website-setup', WebsiteSetupComponent::class)->name('websiteSetup');
     Route::get('/setting/cms-settings', WebpageSettings::class)->name('cmsSettings');
-    
+
 });
+
+
 
 Route::get('dashboard/admin/users/list', ManagementUser::class)->middleware(['auth','admin'])->name('dash.admin.user.list');
 Route::get('dashboard/admin/hubs/list', ManagamentHubs::class)->middleware(['auth','admin'])->name('dash.admin.hubs.list');

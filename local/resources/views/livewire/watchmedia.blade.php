@@ -27,7 +27,7 @@
     </script>
 
     <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
-    
+
     @endpush
     <div class="w-full select-none">
         <div class="capitalize lg:mx-4 py-4">
@@ -93,7 +93,7 @@
                                         @if ($rstatus == 0)
                                             <span class="ml-1 capitalize">
                                                 report<span wire:loading wire:target='report' wire:key='report'>...</span>
-                                            </span> 
+                                            </span>
                                         @else
                                             <span class="ml-1" style="color: green;">Reported</span>
                                         @endif
@@ -194,5 +194,5 @@
         });
     </script>
 
-    
+
 </div>
