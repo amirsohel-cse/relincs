@@ -8,7 +8,7 @@
     </a>
     &nbsp;&nbsp;&nbsp;
     <a href="{{ route('terms') }}" target="_blank" class="w-8">
-        Terms and conditions
+        Terms of use
     </a>
     &nbsp;&nbsp;&nbsp;
     <a href="{{ route('privacy') }}" target="_blank" class="w-8">
