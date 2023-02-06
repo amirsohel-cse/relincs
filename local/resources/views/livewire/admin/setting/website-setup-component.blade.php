@@ -35,9 +35,9 @@
                                     @error('logo')
                                         <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
                                     @enderror
-    
+
                                     <div wire:loading="logo" wire:target="logo" wire:key="logo" style="font-size: 12.5px;" class="mr-2"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Uploading</div>
-    
+
                                     @if ($logo)
                                         <img src="{{ $logo->temporaryUrl() }}" width="120" class="mt-2 mb-2" />
                                     @elseif($uploadedLogo != '')
@@ -52,9 +52,9 @@
                                     @error('fav_icon')
                                         <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
                                     @enderror
-    
+
                                     <div wire:loading="fav_icon" wire:target="fav_icon" wire:key="fav_icon" style="font-size: 12.5px;" class="mr-2"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Uploading</div>
-    
+
                                     @if ($fav_icon)
                                         <img src="{{ $fav_icon->temporaryUrl() }}" width="120" class="mt-2 mb-2" />
                                     @elseif($uploadedFavIcon != '')
@@ -62,7 +62,7 @@
                                     @endif
                                 </div>
                             </div>
-                            
+
                             <h6><strong>Footer</strong></h6>
                             <hr>
                             <div class="mb-3 row">
