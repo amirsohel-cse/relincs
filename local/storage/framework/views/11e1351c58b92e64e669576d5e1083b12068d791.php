@@ -137,7 +137,7 @@
         </div>
         <div class="column1">
             <div class="image_container">
-                <img class="login_image" src="<?php echo e(asset('img/login_bg.png')); ?>" />
+                <img class="login_image" src="https://cashei.app/img/login_bg.png" />
             </div>
         </div>
     </div>
