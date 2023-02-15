@@ -92,7 +92,7 @@ class="flex-col flex-grow hidden  lg:pb-0 lg:flex  lg:justify-start items-center
         <line x1="11" y1="5" x2="13" y2="5" />
         <line x1="12" y1="17" x2="12" y2="17.01" />
     </svg>
-    <span style="margin-top: 3px;">Mobile App</span>
+    <span style="margin-top: 3px;">Download App</span>
 </a>
 {{-- @auth
     <button @click.prevent="support = !support" id="desktopSBtn" class="font-bold px-4 py-2 mt-2 text-sm  hover:bg-midsky transition duration-100 rounded-lg lg:mt-0 lg:ml-4 focus:text-gray-900 hover:text-gray-50 focus:bg-gray-200 lg:text-left text-center focus:outline-none focus:shadow-outline">

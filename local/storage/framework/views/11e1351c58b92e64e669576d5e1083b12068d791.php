@@ -75,15 +75,7 @@
         }
 
         .btn{
-            background: #E5E7EB;
             padding: 10px 20px;
-            border-radius: 10px;
-        }
-        .btn:hover{
-            background: #d3d3d4;
-            padding: 10px 20px;
-            border-radius: 10px;
-            transition-duration: .3s;
         }
 
         @media  screen and (max-width: 1279px) and (min-width: 1024px) {
@@ -126,14 +118,26 @@
                 width: 100%;
             }
         }
+        .align-center{
+            margin: 0 auto;
+        }
     </style>
 
     <div class="container">
         <div class="left"></div>
         <div class="column2" style="text-align: center;">
-            <h1 style="font-size: 42px;"><b>Download Cashei Mobile App</b></h1>
-            <br><br>
-            <a href="<?php echo e(asset('local/public/app/cashei.apk')); ?>" class="btn" download>Download Now</a>
+            <div style="width: 100%; display: flex; margin-top: 25%;">
+                <div style="width: 47%; text-align: center; padding: 10px;">
+                    
+                    <a href="<?php echo e(asset('local/public/app/cashei.apk')); ?>" class="btn" download><img src="<?php echo e(asset('assets/images/android-download.png')); ?>" alt=""></a>
+                </div>
+                <div style="width: 47%; text-align: center; padding: 10px;">
+                    
+                    <a href="#" class="btn"><img src="<?php echo e(asset('assets/images/ios-download.png')); ?>" alt=""></a>
+                </div>
+            </div>
+
+            
         </div>
         <div class="column1">
             <div class="image_container">

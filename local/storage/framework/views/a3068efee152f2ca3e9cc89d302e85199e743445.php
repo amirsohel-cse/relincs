@@ -92,7 +92,7 @@ class="flex-col flex-grow hidden  lg:pb-0 lg:flex  lg:justify-start items-center
         <line x1="11" y1="5" x2="13" y2="5" />
         <line x1="12" y1="17" x2="12" y2="17.01" />
     </svg>
-    <span style="margin-top: 3px;">Mobile App</span>
+    <span style="margin-top: 3px;">Download App</span>
 </a>
 
 <?php if(auth()->guard()->check()): ?>
