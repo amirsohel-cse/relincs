@@ -85,6 +85,15 @@ class="flex-col flex-grow hidden  lg:pb-0 lg:flex  lg:justify-start items-center
     </div>
 </div>
 @endguest
+<a href="{{ route('downloadMobileApp') }}" style="display: flex; background-color: #E5E7EB;" id="notification_btn" class="font-bold px-4 py-2 mt-2 text-sm text-gray-700 hover:bg-midsky transition duration-100 rounded-lg lg:mt-0 lg:ml-4 focus:text-gray-900 hover:text-indigo-500 focus:bg-gray-200 lg:text-left text-center focus:outline-none focus:shadow-outline">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-mobile" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <rect x="7" y="4" width="10" height="16" rx="1" />
+        <line x1="11" y1="5" x2="13" y2="5" />
+        <line x1="12" y1="17" x2="12" y2="17.01" />
+    </svg>
+    <span style="margin-top: 3px;">Mobile App</span>
+</a>
 {{-- @auth
     <button @click.prevent="support = !support" id="desktopSBtn" class="font-bold px-4 py-2 mt-2 text-sm  hover:bg-midsky transition duration-100 rounded-lg lg:mt-0 lg:ml-4 focus:text-gray-900 hover:text-gray-50 focus:bg-gray-200 lg:text-left text-center focus:outline-none focus:shadow-outline">
     Support</button>
@@ -166,6 +175,7 @@ class="flex-col flex-grow hidden  lg:pb-0 lg:flex  lg:justify-start items-center
 </div>
 
 @endauth
+
 @if (!request()->routeIs('dash.show.message'))
 <a class="font-bold px-4 py-2 mt-2 text-sm text-gray-700 hover:bg-midsky transition duration-100 rounded-lg lg:mt-0 lg:ml-4 focus:text-gray-900 hover:text-indigo-500 focus:bg-gray-200 lg:text-left text-center focus:outline-none focus:shadow-outline"
     href="{{ url('/chatify') }}">
@@ -184,6 +194,7 @@ class="flex-col flex-grow hidden  lg:pb-0 lg:flex  lg:justify-start items-center
 
     {{-- <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="currentColor" d="M18 34.28A2.67 2.67 0 0 0 20.58 32h-5.26A2.67 2.67 0 0 0 18 34.28Z" class="clr-i-solid--badged clr-i-solid-path-1--badged"/><path fill="currentColor" d="m32.85 28.13l-.34-.3A14.37 14.37 0 0 1 30 24.9a12.63 12.63 0 0 1-1.35-4.81v-4.94a10.92 10.92 0 0 0-.16-1.79A7.5 7.5 0 0 1 22.5 6v-.63a10.57 10.57 0 0 0-3.32-1V3.11a1.33 1.33 0 1 0-2.67 0v1.31a10.81 10.81 0 0 0-9.3 10.73v4.94a12.63 12.63 0 0 1-1.35 4.81a14.4 14.4 0 0 1-2.47 2.93l-.34.3v2.82h29.8Z" class="clr-i-solid--badged clr-i-solid-path-2--badged"/><circle cx="30" cy="6" r="5" fill="red" class="clr-i-solid--badged clr-i-solid-path-3--badged clr-i-badge"/><path fill="none" d="M0 0h36v36H0z"/></svg> --}}
 </button>
+
 <!-- Notifications menu -->
 {{-- <button @click.prevent="support = !support" class="font-bold px-4 py-2 mt-2 text-sm  hover:bg-midsky transition duration-100 rounded-lg lg:mt-0 lg:ml-4 focus:text-gray-900 hover:text-gray-50 focus:bg-gray-200 lg:text-left text-center focus:outline-none focus:shadow-outline">
     Support</button> --}}

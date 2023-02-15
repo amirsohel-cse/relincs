@@ -85,6 +85,15 @@ class="flex-col flex-grow hidden  lg:pb-0 lg:flex  lg:justify-start items-center
     </div>
 </div>
 <?php endif; ?>
+<a href="<?php echo e(route('downloadMobileApp')); ?>" style="display: flex; background-color: #E5E7EB;" id="notification_btn" class="font-bold px-4 py-2 mt-2 text-sm text-gray-700 hover:bg-midsky transition duration-100 rounded-lg lg:mt-0 lg:ml-4 focus:text-gray-900 hover:text-indigo-500 focus:bg-gray-200 lg:text-left text-center focus:outline-none focus:shadow-outline">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-mobile" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <rect x="7" y="4" width="10" height="16" rx="1" />
+        <line x1="11" y1="5" x2="13" y2="5" />
+        <line x1="12" y1="17" x2="12" y2="17.01" />
+    </svg>
+    <span style="margin-top: 3px;">Mobile App</span>
+</a>
 
 <?php if(auth()->guard()->check()): ?>
 <!-- Profile menu -->
@@ -163,6 +172,7 @@ class="flex-col flex-grow hidden  lg:pb-0 lg:flex  lg:justify-start items-center
 </div>
 
 <?php endif; ?>
+
 <?php if(!request()->routeIs('dash.show.message')): ?>
 <a class="font-bold px-4 py-2 mt-2 text-sm text-gray-700 hover:bg-midsky transition duration-100 rounded-lg lg:mt-0 lg:ml-4 focus:text-gray-900 hover:text-indigo-500 focus:bg-gray-200 lg:text-left text-center focus:outline-none focus:shadow-outline"
     href="<?php echo e(url('/chatify')); ?>">
@@ -181,6 +191,7 @@ class="flex-col flex-grow hidden  lg:pb-0 lg:flex  lg:justify-start items-center
 
     
 </button>
+
 <!-- Notifications menu -->
 
 <?php if(auth()->guard()->check()): ?>

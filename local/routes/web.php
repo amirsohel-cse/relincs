@@ -34,8 +34,10 @@ use App\Http\Livewire\Hubs\Media\ListMedia;
 use App\Http\Livewire\Setting\Profile\Edit;
 use App\Http\Livewire\Hubs\Bulltien\Display;
 use App\Http\Controllers\hubs\HubsController;
+use App\Http\Livewire\App\Pages\FaqComponent;
 use App\Http\Controllers\messageUserController;
 use App\Http\Livewire\Admin\DashboardComponent;
+use App\Http\Livewire\App\DownloadAppComponent;
 use App\Http\Livewire\Admin\Auth\LoginComponent;
 use App\Http\Livewire\Admin\Hub\AllHubsComponent;
 use App\Http\Livewire\Hubs\Wall\Edit as WallEdit;
@@ -51,7 +53,6 @@ use App\Http\Livewire\Admin\Profile\ProfileComponent;
 use App\Http\Livewire\Hubs\Wall\Create as WallCreate;
 use App\Http\Livewire\Admin\Hub\HubBulletinsComponent;
 use App\Http\Livewire\Admin\Setting\WebsiteSetupComponent;
-use App\Http\Livewire\App\Pages\FaqComponent;
 use App\Http\Livewire\Hubs\Bulltien\Create as BulltienCreate;
 
 Route::get('/', function () {
@@ -138,6 +139,9 @@ Route::prefix('/dashboard')->middleware(['auth','verified', 'authAdmin'])->name(
 });
 
 Route::get('watch/t/{media}/', Watchmedia::class)->name('public_media');
+Route::get('download-mobile-app', function(){
+    return view('livewire.app.download-app-component');
+})->name('downloadMobileApp');
 
 
 //Admin Routes
