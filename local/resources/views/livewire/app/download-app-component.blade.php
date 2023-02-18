@@ -19,12 +19,12 @@
         }
 
         .column1 {
-            width: 40%;
+            width: 45%;
             height: 70vh;
         }
 
         .column2 {
-            width: 40%;
+            width: 55%;
             height: 70vh;
         }
 
@@ -121,16 +121,18 @@
     <div class="container">
         <div class="left"></div>
         <div class="column2" style="text-align: center;">
-            <div style="width: 100%; display: flex; margin-top: 25%;">
-                <div style="width: 47%; text-align: center; padding: 10px;">
+            <div style="width: 100%; display: flex; margin-top: 20%;">
+                <div style="width: 50%; text-align: center; margin-right: 10px;">
                     {{-- <img src="{{ asset('local/public/android-logo.png') }}" class="align-center" alt="">
                     <br> --}}
-                    <a href="{{ asset('local/public/app/cashei.apk') }}" class="btn" download><img src="{{ asset('assets/images/android-download.png') }}" alt=""></a>
+                    {{-- <h1 style="font-size: 20px">android</h1> --}}
+                    <a href="{{ asset('local/public/app/cashei.apk') }}" class="btn" download><img src="{{ asset('assets/images/android-download.png') }}" style="height: 100px;" alt=""></a>
                 </div>
-                <div style="width: 47%; text-align: center; padding: 10px;">
+                <div style="width: 50%; text-align: center;">
                     {{-- <img src="{{ asset('local/public/apple.png') }}" class="align-center" alt="">
                     <br> --}}
-                    <a href="#" class="btn"><img src="{{ asset('assets/images/ios-download.png') }}" alt=""></a>
+                    {{-- <h1 style="font-size: 20px">ios</h1> --}}
+                    <a href="#" class="btn"><img src="{{ asset('assets/images/ios-download.png') }}" style="height: 100px;" alt=""></a>
                 </div>
             </div>
 

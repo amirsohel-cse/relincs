@@ -2,6 +2,9 @@
     @section('title')
         Latest
     @endsection
+    <style>
+
+    </style>
     <div class="w-full h-full" x-data="{ search: '', toggleFilter: false }">
         <!-- Find-->
         <div class="relative">
@@ -130,7 +133,7 @@
                 <div class="w-full " wire:target="find" wire:loading.class="hidden">
                     <div class="my-4 mx-auto flex justify-center items-center flex-col">
                         @if ($result === null || $result->count() === 0)
-                            
+
                         @else
                             @if ($type == 'wall')
                                 <div class="grid lg:grid-cols-4 grid-cols-1 gap-6 place-items-center">
@@ -231,6 +234,14 @@
             </div>
         </div>
     </div>
+
+    <div class="sm:flex justify-center items-center mb-20" style="margin-top: -5%;">
+        <a href="{{ asset('local/public/app/cashei.apk') }}" class="btn mr-10" download><img src="{{ asset('assets/images/android-download.png') }}" style="height: 100px;" alt=""></a>
+        <a href="#" class="btn"><img src="{{ asset('assets/images/ios-download.png') }}" style="height: 100px;" alt=""></a>
+    </div>
+
+
+
     <div class="w-full" wire:ignore>
         <div class="lg:px-10 px-0 py-4 w-full ">
             <div class="my-4 pb-8">
